@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+   
+    >
+
+    <TextView
+        android:id="@+id/claim_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="CLAIM NO.  - " 
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+    
+     <TextView
+        android:id="@+id/claim_no_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/claim_no"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="CLAIM NO. - "
+        android:textColor="@android:color/black"
+           android:textStyle="bold" />
+    <TextView
+        android:id="@+id/date_of_Incident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below = "@+id/claim_no"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="date - "
+        android:textColor="@android:color/black"
+           android:textStyle="bold" />
+    
+
+    <TextView
+        android:id="@+id/adjuster_claims"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   		android:layout_toRightOf="@+id/date_of_Incident"
+		android:layout_below="@+id/claim_no"
+		android:layout_alignBaseline="@+id/date_of_Incident"
+        android:layout_marginRight="52dp"
+        android:layout_marginLeft="17dp"
+        android:text="adjuster"
+        android:textColor="@android:color/black"
+           android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/descriptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/claim_no"
+        android:layout_below="@+id/claim_no"
+        android:layout_marginTop="30dp"
+        android:text="description" 
+      	android:paddingBottom= "10dp"
+      	android:textColor="@android:color/black"
+        android:textAllCaps="false"/>
+
+    <ImageView
+        android:id="@+id/layout_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/adjuster_claims"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/arrow"
+        android:paddingTop="20dp" />
+
+</RelativeLayout>

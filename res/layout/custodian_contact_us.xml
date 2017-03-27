@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280">
+<RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+       <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+        
+      
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "CONTACT US"
+        android:textSize="@dimen/head_size"
+        
+        />
+                  
+       <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+             
+           
+           
+           
+        </RelativeLayout>
+        
+<RelativeLayout
+      android:id="@+id/one_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relTop"
+     
+        android:layout_centerHorizontal="true"
+        android:gravity="center" >        
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+             >
+             
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     android:textColor="@android:color/black"
+       	android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/mid_size"
+        android:text="Email:" />
+    
+     <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+  	   android:layout_toRightOf="@+id/txt_email"
+      	android:layout_alignTop="@+id/txt_email"
+        android:src="@drawable/star_image" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    	android:paddingLeft="10dp"
+        android:layout_marginLeft="53dp"
+      	android:imeOptions="actionNext"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/txt_email"
+        android:singleLine="true"
+        android:background="@drawable/text_field"
+        >
+
+        <requestFocus />
+    </EditText>
+    
+        <TextView
+        android:id="@+id/txt_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     android:textColor="@android:color/black"
+     android:layout_below="@+id/txt_email"
+       	android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:textSize="@dimen/mid_size"
+        android:text="Phone no.:" />
+    
+     <ImageView
+         android:id="@+id/imag_star_phone"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+		   android:layout_toRightOf="@+id/txt_phone_number"
+      	android:layout_alignTop="@+id/txt_phone_number"
+   
+         android:src="@drawable/star_image" />
+
+    <EditText
+        android:id="@+id/edt_phone_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    	android:paddingLeft="10dp"
+        android:layout_marginLeft="23dp"
+      	android:imeOptions="actionNext"
+      	android:layout_below="@+id/edt_email"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/txt_phone_number"
+        android:singleLine="true"
+
+        android:background="@drawable/text_field"
+        >
+
+        <requestFocus />
+    </EditText>
+    
+    
+    <TextView
+        android:id="@+id/txt_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     android:textColor="@android:color/black"
+     android:layout_below="@+id/txt_phone_number"
+       	android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:textSize="@dimen/mid_size"
+        android:text="Subject:" />
+    
+        <ImageView
+        android:id="@+id/imag_star_sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txt_subject"
+      	android:layout_alignTop="@+id/txt_subject"
+        
+        android:src="@drawable/star_image" />
+
+    <EditText
+        android:id="@+id/edt_subject"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    	android:paddingLeft="10dp"
+    	android:layout_below="@+id/edt_phone_number"
+        android:layout_marginLeft="40dp"
+      	android:imeOptions="actionNext"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/txt_subject"
+        android:background="@drawable/text_field"
+        >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/txt_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/edt_subject"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp" 
+        android:text="Description:" 
+        android:textSize="@dimen/mid_size"
+        android:textColor="@android:color/black"/>
+    
+        <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/txt_desc"
+      	android:layout_alignTop="@+id/txt_desc"
+        android:src="@drawable/star_image" />
+
+    <ImageView
+        android:id="@+id/btnContactUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   		 
+        android:layout_below="@+id/edt_desc"
+      	android:layout_centerHorizontal="true"
+      	android:layout_marginRight="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_submit"/>
+
+    <EditText
+        android:id="@+id/edt_desc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edt_subject"
+        android:layout_alignTop="@+id/txt_desc"
+        android:background="@drawable/text_field_large"
+        android:ems="10"
+        android:gravity="left|top"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:singleLine="false" />
+
+    </RelativeLayout>
+</RelativeLayout>
+    
+</RelativeLayout>

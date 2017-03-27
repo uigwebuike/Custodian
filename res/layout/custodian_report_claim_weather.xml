@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_image"
+    android:orientation="vertical"
+     >
+
+    <RelativeLayout
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+        android:background="@drawable/top_bar" >
+     
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/btn_back" />
+
+  
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/title_text"
+            android:text="REPORT A CLAIM"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="@dimen/head_size" />
+        
+          <ImageButton
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+  		android:layout_centerVertical="true"
+  		android:layout_alignParentRight="true"
+      	
+      	android:layout_marginRight="2dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_home" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="6.94" >
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            android:cacheColorHint="#000000"
+            android:transcriptMode="disabled"
+            android:scrollingCache="false"
+            android:listSelector="@android:color/transparent" 
+            android:groupIndicator="@android:color/transparent"
+            android:background="@drawable/list_view_bg" />
+    </LinearLayout>
+   
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+      
+          android:layout_marginBottom="20dp"
+        android:layout_marginTop="140dp"
+        android:layout_gravity="center"
+      >
+    <ImageButton
+        android:id="@+id/btnClaim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+      
+  
+        android:background="@drawable/btn_start_your_claim" />
+   </LinearLayout>
+
+</LinearLayout>

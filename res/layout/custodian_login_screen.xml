@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280" >
+
+    <RelativeLayout
+        android:id="@+id/first_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" >
+
+        <ImageView
+            android:id="@+id/login_screen_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/logo_login" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/second_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/first_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" >
+
+        <EditText
+            android:id="@+id/login_screen_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/username"
+            android:ems="10"
+            android:hint="Username"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="60dp" />
+
+        <EditText
+            android:id="@+id/login_screen_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_screen_username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/password"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="60dp"
+            android:password="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/third_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/second_layout"
+        android:layout_centerInParent="true" >
+
+        <ImageView
+            android:id="@+id/login_screen_loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_login" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/five_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/third_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/dont_have_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dont have a policy? "
+            android:textColor="#800000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/buy_one_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/dont_have_policy"
+            android:background="@android:color/transparent"
+            android:text="Buy one now"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fourth_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/five_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp" >
+
+        <Button
+            android:id="@+id/login_screen_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:text="REGISTER |"
+            android:textColor="#800000"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/login_screen_forgot_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/login_screen_register"
+            android:background="@android:color/transparent"
+            android:text="FORGOT USER ID? |"
+            android:textColor="#800000"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/login_screen_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/login_screen_forgot_user_id"
+            android:background="@android:color/transparent"
+            android:text="FORGOT PASSWORD?"
+            android:textColor="#800000"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/Contact_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/contact_us_login" />
+    
+      <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_back_login" />
+
+ 
+
+</RelativeLayout>

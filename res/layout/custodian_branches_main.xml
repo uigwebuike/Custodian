@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:background="@drawable/bg_image"
+    android:id="@+id/base_body">
+<!--  <include android:id="@+id/layout_address" layout="@layout/custodian_address" android:layout_width="fill_parent" android:layout_height="fill_parent"></include>
+    <include android:id="@+id/layout_phone" android:layout_width="fill_parent" layout="@layout/custodian_phone_number" android:layout_height="fill_parent"></include>-->
+    <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="10dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/btn_back" />
+        
+      
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title"
+        android:text = "BRANCHES"
+        android:textSize="@dimen/head_size"
+        
+        />
+           
+                      
+           <ImageView
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"
+      	android:layout_marginRight="25dp"
+  
+        android:src="@drawable/icon_home" />
+          
+          
+        </RelativeLayout>
+   
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/img_layout"
+    android:layout_below="@+id/relTop"
+    android:weightSum="2.0" 
+     android:orientation="horizontal"
+   >
+    
+   <ImageView
+       android:id="@+id/address_imag"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="15dp"
+       android:layout_marginTop="30dp"
+         android:layout_weight="1.0"
+       android:background="@drawable/tab_address_selected" />
+
+   <ImageView
+       android:id="@+id/phone_imag"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="30dp"
+       android:layout_marginRight="15dp"
+         android:layout_weight="1.0"
+       android:layout_toRightOf="@+id/address_imag"
+       android:background="@drawable/tab_phone_number" />
+
+   </LinearLayout>
+   <RelativeLayout 
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/item1_layout"
+     android:layout_below="@+id/img_layout"
+    
+      
+     
+        >
+   
+       <RelativeLayout
+           android:id="@+id/rel_1"
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           
+     		android:background="@drawable/payment_history_bg"
+    android:layout_marginBottom="45dp"
+      		
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="15dp"
+    >
+           
+    <ScrollView  android:id ="@+id/layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+    <RelativeLayout 
+         android:id ="@+id/Lagos_layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   
+   
+   
+  
+   >
+    <TextView
+    android:id = "@+id/Lagos"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Lagos Office"
+    android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>
+    
+     <TextView
+    android:id = "@+id/Lagos1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="16A, Commercial Avenue,"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_below="@+id/Lagos"
+    android:textColor="@android:color/black"
+    android:textSize="@dimen/font_size"/>   
+   
+       <TextView
+    android:id = "@+id/Lagos2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Sabo, Yaba,Lagos State"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_below="@+id/Lagos1"
+    android:textSize="@dimen/font_size"
+    android:textColor="@android:color/black"/>    
+   
+    
+     
+    
+
+    
+       <TextView
+    android:id = "@+id/Abuja"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Abuja Offices"
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:textSize="@dimen/font_size"
+    android:background="@drawable/top_bar_gray"
+    android:layout_below="@+id/Lagos2"/>  
+     <TextView
+    android:id = "@+id/Abuja1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="4th Floor, ITF House,"
+	android:layout_marginLeft="15dp"
+	android:layout_marginTop="10dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja"
+    android:textColor="@android:color/black"/> 
+    
+     <TextView
+    android:id = "@+id/Abuja2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="6, Adetokunbo Ademola Crescent, Maitama,Abuja"
+	android:layout_marginLeft="15dp"
+	android:layout_marginBottom="10dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja1"
+    android:textColor="@android:color/black"/> 
+        
+     
+       
+    
+     <TextView
+    android:id = "@+id/Kano"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Kano Office"
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja2"/>    
+         <TextView
+    android:id = "@+id/Kano1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="2, Bank Road,"
+    android:layout_marginTop="10dp"
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   
+    android:layout_below="@+id/Kano"
+    android:textColor="@android:color/black"/>    
+      <TextView
+    android:id = "@+id/Kano2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kano,Kano State"
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   	android:layout_marginBottom="10dp"
+    android:layout_below="@+id/Kano1"
+    android:textColor="@android:color/black"/>  
+    
+                 
+      <TextView
+    android:id = "@+id/Port"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Port Harcourt Office"
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"
+    
+    android:layout_below="@+id/Kano2"/>  
+    
+      
+         <TextView
+    android:id = "@+id/Port1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="180 Aba Road,"
+   android:layout_marginLeft="15dp"
+   android:layout_marginTop="10dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port"
+    android:textColor="@android:color/black"/>
+         
+          
+         <TextView
+    android:id = "@+id/Port2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PortHarcourt, Rivers State"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+   android:layout_marginBottom="10dp"
+    android:layout_below="@+id/Port1"
+    android:textColor="@android:color/black"/> 
+    
+     
+    
+          
+     
+               <TextView
+    android:id = "@+id/Onitsha"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Onitsha Office"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port2"/> 
+    
+                       <TextView
+    android:id = "@+id/Onitsha1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="60A, Old Market Road,"
+   android:layout_marginLeft="15dp"
+   android:layout_marginTop="10dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha"
+    android:textColor="@android:color/black"/> 
+    
+          <TextView
+    android:id = "@+id/Onitsha2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Onitsha, Anambra State"
+   android:layout_marginLeft="15dp"
+   android:layout_marginBottom="10dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha1"
+    android:textColor="@android:color/black"/> 
+    
+           <TextView
+    android:id = "@+id/Benin"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Benin Office"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha2"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:text="95A, 1st East Circular Road,"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin"
+    android:textColor="@android:color/black"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benin City,Edo State"
+   android:layout_marginLeft="15dp"
+   android:layout_marginBottom="10dp"
+   android:paddingBottom="10dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin1"
+    android:textColor="@android:color/black"/> 
+           
+    </RelativeLayout>
+
+</ScrollView>
+           </RelativeLayout>
+           
+       
+       <RelativeLayout
+           android:id="@+id/rel_2"
+           android:layout_height="match_parent"
+           android:layout_width="fill_parent"
+            android:background="@drawable/list_view_bg"
+               android:layout_marginBottom="45dp"
+      		
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="15dp"
+      
+      
+           android:visibility="gone">
+              
+           
+           
+            
+   <TextView
+    android:id = "@+id/Toll_Free_number"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Toll Free Number"
+    android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>
+ 
+	<TextView 
+	android:id = "@+id/Toll_Free_number_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Toll_Free_number"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:autoLink="phone"
+    android:text="+23470027872337"
+
+   
+	    />
+	
+	
+		  <TextView
+    android:id = "@+id/Lagos1"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Lagos Office"
+    android:layout_below="@+id/Toll_Free_number_value"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>
+		  
+		  
+		  <TextView 
+	android:id = "@+id/Lagos1_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Lagos1"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:autoLink="phone"
+    android:text="+23412774000"
+
+    
+	    />
+		  
+	
+	   <TextView
+    android:id = "@+id/Abuja"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Abuja Office"
+    android:layout_below="@+id/Lagos1_value"
+   
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>	
+    
+	   
+	   <TextView 
+	android:id = "@+id/Abuja_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Abuja"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:autoLink="phone"
+    android:text="+23497817420"
+   
+	    />
+	   
+	   
+	     <TextView
+    android:id = "@+id/Kano"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Kano Office"
+    android:layout_below="@+id/Abuja_value"
+   
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>	
+    
+	<TextView 
+	android:id = "@+id/Kano_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Kano"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:autoLink="phone"
+    android:text="+23464895969"
+    
+	    />
+	
+	 <TextView
+    android:id = "@+id/Port_Harcourt"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:text="Port Harcourt Office"
+    android:layout_below="@+id/Kano_value"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="5dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/font_size"/>
+	 
+	 
+	 <TextView 
+	android:id = "@+id/Port_Harcourt_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Port_Harcourt"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+
+    android:paddingBottom="10dp"
+    android:autoLink="phone"
+       android:text="+2347085000046"
+   
+	    />
+           </RelativeLayout>
+    
+</RelativeLayout>
+</RelativeLayout>

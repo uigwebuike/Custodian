@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:layout_marginBottom="10dp" >
+    
+    <TextView 
+        android:id = "@+id/documents_policy_no"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Policy :" 
+     android:layout_marginTop="10dp"
+     android:layout_marginLeft="10dp" 
+     android:textColor="@android:color/black"
+       android:textSize="@dimen/head_size"   />
+    
+    
+      <TextView 
+        android:id = "@+id/documents_policy_no_value"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Policy :" 
+     android:layout_toRightOf="@+id/documents_policy_no"
+     android:layout_marginTop="12dp"
+     android:layout_marginLeft="20dp"
+     android:textColor="@android:color/black"
+     android:textSize="@dimen/head_size"  
+     />
+      
+      
+       <TextView 
+        android:id = "@+id/start_date"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Policy :" 
+     android:layout_below="@+id/documents_policy_no"
+     android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+     android:layout_marginBottom="10dp"
+     android:textColor="@android:color/black"
+     android:textSize="@dimen/font_size"  
+     />
+       
+       
+       
+       <TextView 
+        android:id = "@+id/end_date"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Policy :" 
+     android:layout_alignParentRight="true"
+     android:layout_below="@+id/documents_policy_no_value"
+     android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:paddingRight="60dp"
+     android:layout_marginBottom="10dp"
+     android:textColor="@android:color/black"
+     android:textSize="@dimen/font_size"  
+     />
+       
+         
+       
+        
+        
+        <ImageView
+           android:id = "@+id/arrow_img"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentRight="true"
+     android:layout_marginTop="30dp"
+     android:layout_marginRight="10dp"
+     android:background="@drawable/arrow" />
+</RelativeLayout>

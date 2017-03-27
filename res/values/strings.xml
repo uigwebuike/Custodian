@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Custodian Direct</string>
+    <string name="action_settings"></string>
+    <string name="hello_world"></string>
+
+    
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+ <string name = "discuss_about_header_state">States</string>
+ <string name = "discuss_about_header_city">Cities</string>
+ 
+    <string-array name="countries">
+        <item>MANAGE POLICY</item>
+        <item>CLAIMS CENTER</item>
+        <item>INFORMATION CENTER</item>
+      <!--   <item>GET A QUOTE</item> -->
+        <item>MY INFO</item>
+        <item>LOGOUT</item>
+        
+           </string-array>
+      
+        <string-array name = "reportclaimbasics">
+            <item>My vehicle was hit when it was parked</item>
+            <item>My vehicle hit a parked vehicle</item>
+			<item>My vehicle was hit from the back</item>
+			<item>My vehicle hit another vehicle at the back</item>
+			<item>My vehicle was in chain-reaction ( hit from the back collision) with two or more others</item>
+			<item>My vehicle drove over a pot hole</item>
+			<item>My vehicle drove over debris in the roadway</item>
+			<item>My vehicle hit a post,ditch,guardrail or any other non-vehicle object</item>
+			<item>An object fell on my vehicle</item>
+			<item>My vehicle was stolen at gunpoint</item>
+			<item>My vehicle was stolen from a parking lot</item>
+			<item>My vehicle was submerged due to flood</item>
+			<item>My vehicle caught fire but was not in an accident</item>
+			<item>Part of my vehicle was stolen</item>
+			    
+			  <item>My vehicle tyres were slashed</item>
+			<item>My vehicle body paint was intentionally scratched</item>
+			<item>"Other"</item>
+            
+            
+            
+            
+            
+     
+    </string-array>
+</resources>

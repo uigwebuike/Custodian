@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background720x1280"
+    android:gravity="top" >
+   
+        <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="10dp"
+      	android:layout_marginRight="10dp"
+        android:src="@drawable/btn_back" />
+        
+          <ImageView
+        android:id="@+id/imageViewdivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+      	android:layout_marginLeft="6dp"
+      	android:layout_toRightOf="@+id/imageView1"
+        android:src="@drawable/divider_top_bar" />
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+       android:textSize = "@dimen/font_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "GET A QUOTE"
+        
+        />
+          
+        </RelativeLayout>
+        
+        <RelativeLayout
+        android:id="@+id/Heading_of_customer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/relTop">
+         <TextView
+        android:id="@+id/Heading_Of_Tabs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:text="CUSTOMER"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        
+        android:background="@drawable/gray_bar"/>
+      	</RelativeLayout>
+        <ScrollView 
+         android:id = "@+id/scroll_layout"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Heading_of_customer">
+           
+        <RelativeLayout 
+         android:id = "@+id/customer_layout"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"   
+            >
+  
+      
+     <TextView
+        android:id="@+id/txt_Quote_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+      	android:paddingTop="30dp"
+      	android:paddingLeft="20dp"
+        android:text="Title"
+      
+        />
+     <Spinner
+           android:id="@+id/spinner_title"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+          	android:layout_toRightOf="@+id/txt_Quote_Title"
+        
+       		android:layout_alignBaseline="@+id/txt_Quote_Title"
+          	android:layout_marginLeft="53dp"
+          	android:background="@drawable/drop_down"/>
+     <TextView
+        android:id="@+id/txt_Quote_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/spinner_title"
+        android:text="Username" 
+         />    
+         
+     <EditText
+        android:id="@+id/edt_Quote_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_username"
+        
+       	android:layout_toRightOf="@+id/txt_Quote_username"
+       	android:layout_marginLeft="20dp"
+       	android:layout_marginRight="20dp"
+        android:ems="10"
+        android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+     
+     
+     
+      <TextView
+        android:id="@+id/txt_Quote_First_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_username"
+        
+        android:text="First Name" 
+         />    
+         
+     <EditText
+        android:id="@+id/edt_Quote_First_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_First_name"
+        android:layout_below="@+id/edt_Quote_username"
+       	android:layout_toRightOf="@+id/txt_Quote_First_name"
+       	android:layout_marginLeft="17dp"
+       	android:background="@drawable/text_field"
+        android:ems="10"
+        android:layout_marginRight="20dp"
+        android:inputType="textEmailAddress" />
+     
+     <TextView
+        android:id="@+id/txt_Quote_Last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_First_name"
+        
+        android:text="Last Name" 
+         />    
+         
+     <EditText
+        android:id="@+id/edt_Quote_Last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Last_name"
+        android:layout_below="@+id/edt_Quote_First_name"
+       	android:layout_toRightOf="@+id/txt_Quote_Last_name"
+       	android:layout_marginLeft="17dp"
+       	android:background="@drawable/text_field"
+        android:ems="10"
+        android:layout_marginRight="20dp"
+        android:inputType="textEmailAddress" />
+     
+      <TextView
+        android:id="@+id/txt_Quote_Address1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Last_name"
+        
+        android:text="Address1" 
+         />    
+         
+     <EditText
+        android:id="@+id/edt_Quote_Address1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Address1"
+        android:layout_below="@+id/edt_Quote_Last_name"
+       	android:layout_toRightOf="@+id/txt_Quote_Address1"
+       	android:layout_marginLeft="25dp"
+       	android:layout_marginRight="20dp"
+        android:ems="10"
+       	android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+     
+      <TextView
+        android:id="@+id/txt_Quote_Address2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Address1"
+        
+        android:text="Address2" 
+         />    
+         
+     <EditText
+        android:id="@+id/edt_Quote_Address2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Address2"
+        android:layout_below="@+id/edt_Quote_Address1"
+       	android:layout_toRightOf="@+id/txt_Quote_Address2"
+       	android:layout_marginLeft="25dp"
+       	android:layout_marginRight="20dp"
+        android:ems="10"
+        android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+     
+     <TextView
+        android:id="@+id/txt_Quote_State"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Address2"
+        
+        android:text="State" 
+         />
+
+       <Spinner
+           android:id="@+id/spinner_state"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBaseline="@id/txt_Quote_State"
+           android:layout_toRightOf="@+id/txt_Quote_State"
+           android:layout_below="@+id/edt_Quote_Address2"
+       		android:background="@drawable/drop_down"
+          	android:layout_marginLeft="53dp"
+       />
+     <TextView
+        android:id="@+id/txt_Quote_City"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_State"
+        
+        android:text="City" 
+         />
+
+       <Spinner
+           android:id="@+id/spinner_city"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+           android:layout_below="@+id/spinner_state"
+          android:layout_toRightOf="@+id/txt_Quote_City" 
+          android:layout_alignBaseline="@+id/txt_Quote_City"
+       		android:background="@drawable/drop_down"
+          	android:layout_marginLeft="63dp"
+       />
+       <TextView
+        android:id="@+id/txt_Quote_Date_Of_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="15dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_City"
+        
+        android:text="Date of Birth" />
+        <EditText
+        android:id="@+id/edt_Quote_Date_Of_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Date_Of_birth"
+        android:layout_below="@+id/spinner_city"
+       	android:layout_toRightOf="@+id/txt_Quote_Date_Of_birth"
+       	android:layout_marginLeft="10dp"
+       
+        android:ems="10"
+        android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+        
+        <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_Quote_Date_Of_birth"
+        
+        android:layout_toRightOf="@+id/edt_Quote_Date_Of_birth"
+       	android:paddingRight = "20dp"
+       	android:layout_marginRight="30dp"
+       		
+       	android:paddingTop="10dp"
+       	android:layout_marginLeft="10dp"
+       	android:id ="@+id/calender"
+       	
+        android:layout_alignParentRight="true"
+        android:background="@drawable/icon_calendar"/>
+        
+        
+         
+      <TextView
+        android:id="@+id/txt_Quote_Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Date_Of_birth"
+        
+        android:text="Gender" 
+         />
+
+      <ImageView
+          android:id="@+id/radio_Quote_Male"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_alignTop="@+id/txt_Quote_Gender"
+         
+         android:layout_marginLeft="40dp"
+         
+         android:layout_toRightOf="@+id/txt_Quote_Gender"
+         android:background="@drawable/radio_btn_on"
+          />
+      
+      
+      <TextView
+          android:id="@+id/txt_radio_Quote_Male"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" 
+         	android:layout_toRightOf="@+id/radio_Quote_Male"
+         	android:layout_alignTop="@+id/radio_Quote_Male"
+        	android:layout_marginLeft="10dp"
+           
+          android:text = "Male"/>
+       <ImageView
+          android:id="@+id/radio_Quote_Female"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+      		
+        android:layout_alignTop="@+id/txt_radio_Quote_Male"
+         
+         android:layout_marginLeft="40dp"
+         
+         android:layout_toRightOf="@+id/txt_radio_Quote_Male"
+         android:background="@drawable/radio_btn_off" 
+          />
+       <TextView
+          android:id="@+id/txt_radio_Quote_FeMale"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" 
+          android:layout_marginLeft="10dp"
+          android:layout_alignBottom="@+id/radio_Quote_Female"
+         	
+         
+          android:layout_toRightOf="@+id/radio_Quote_Female"
+          android:text = "Female"/>
+       <TextView
+        android:id="@+id/txt_Quote_Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Gender"
+        
+        android:text="Email" 
+         />
+        <EditText
+        android:id="@+id/edt_Quote_Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Email"
+        android:layout_below="@+id/radio_Quote_Male"
+       	android:layout_toRightOf="@+id/txt_Quote_Email"
+       	android:layout_marginLeft="50dp"
+       	android:layout_marginRight="20dp"
+        android:ems="10"
+        android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+        
+         <TextView
+        android:id="@+id/txt_Quote_Mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp" 
+        android:layout_below="@+id/txt_Quote_Email"
+        
+        android:text="Mobile" 
+         />
+        <EditText
+        android:id="@+id/edt_Quote_Mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_Quote_Mobile"
+        android:layout_below="@+id/edt_Quote_Email"
+       	android:layout_toRightOf="@+id/txt_Quote_Mobile"
+       	android:layout_marginLeft="42dp"
+       	android:layout_marginRight="20dp"
+        android:ems="10"
+        android:background="@drawable/text_field"
+        android:inputType="textEmailAddress" />
+        
+          <ImageView
+        android:id="@+id/Btn_Continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_Quote_Mobile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+       	android:background="@drawable/btn_continue"
+       	
+        />
+          </RelativeLayout>
+          </ScrollView>
+     </RelativeLayout>
+

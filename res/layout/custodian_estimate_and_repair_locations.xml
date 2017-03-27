@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar" >
+
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/title_text"
+            android:text="ESTIMATE LOCATIONS"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="@dimen/head_size" />
+
+     <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/heading_of_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relTop" >
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Choose the type of location you are interested in"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/spinners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heading_of_location"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp" >
+
+      <!--  <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <Spinner
+                android:id="@+id/spinner_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/text_field_state_city"
+                android:prompt="@string/discuss_about_header_state"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/spinner_image"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text = "State"
+               android:gravity="center"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/text_field_state_city" />
+        </FrameLayout>-->
+
+        <TextView
+            android:id="@+id/spinner_state"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/text_field_state_city"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text="State"
+            android:paddingRight="25dp"
+            android:textColor="#888888" />
+
+        <TextView
+            android:id="@+id/spinner_city"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+          	android:paddingTop="10dp"
+              android:paddingLeft="20dp"
+              
+            android:layout_toRightOf="@+id/spinner_state"
+            android:background="@drawable/text_field_state_city"
+        	android:textColor="#888888" 
+            android:text="City" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/find_locations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinners"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_find_locations" />
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/find_locations"
+        android:layout_marginTop="10dp"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+</RelativeLayout>

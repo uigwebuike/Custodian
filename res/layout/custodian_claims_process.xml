@@ -1,0 +1,251 @@
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_image">
+        <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+       <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+     
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "CLAIMS PROCESS"
+        
+        />
+
+            <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+          
+        </RelativeLayout>
+    <ScrollView 
+    android:id = "@+id/claims_process_mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/payment_history_bg"
+    android:layout_below="@+id/relTop"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="80dp">
+  <RelativeLayout 
+    android:id = "@+id/claims_process_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+ >
+   
+	<TextView
+    android:id = "@+id/about_paragraph1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/mid_size"
+	android:textColor="@android:color/black"
+
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:text = "1. Do not panic; ensure the safety of yourself and other occupants of the vehicle as may be needed."/>
+    <TextView
+    android:id = "@+id/about_paragraph2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph1"
+    android:layout_marginTop="15dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+  android:textColor="@android:color/black"
+    android:text = "2. Take steps to notify the police and other relevant safety Agencies as may be required by law, including The Federal Fire Service, Ambulance Service , Federal Road Safety Commission or other relevant State Road Safety Agencies."/>
+
+     <TextView
+    android:id = "@+id/about_paragraph3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph2"
+    android:layout_marginTop="15dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+   android:textColor="@android:color/black"
+    android:text = "3. Obtain a valid Report or Extract from the police stating clearly the events that led to the incident and details of injury sustained and casualties as the case may be." />
+	
+    <TextView
+    android:id = "@+id/about_paragraph4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph3"
+    android:layout_marginTop="15dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:textColor="@android:color/black"
+	android:text = "4. Navigate to the ‘Report a Claim’ menu on this application and fill in the details of the event as required."/>
+    
+    
+    <TextView
+    android:id = "@+id/about_paragraph5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph4"
+    android:layout_marginTop="15dp"
+android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+android:textColor="@android:color/black"
+	android:text = "5. Note that you will be required to upload photographs of the damaged part of your vehicle, and as such you are expected to upload photographs showing clearly areas of impact and or damage to your vehicle."/>
+
+  
+     <TextView
+    android:id = "@+id/about_paragraph6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph5"
+    android:layout_marginTop="15dp"
+android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+
+     android:textColor="@android:color/black"
+    android:text="6. You will receive an e-mail from us acknowledging receipt of your submissions and advising you on steps to take while you are kept aware of developments on your claim."/>
+    
+     
+     <TextView
+    android:id = "@+id/about_paragraph7"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph6"
+    android:layout_marginTop="15dp"
+android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+   android:textColor="@android:color/black" 
+    android:text = "7. You will receive a message from us at the completion of assessment of your claim advising you of Automobile Garage that will carry out repair works on your vehicle."/>
+
+     
+    <TextView
+    android:id = "@+id/about_paragraph8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph7"
+    android:layout_marginTop="15dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+  android:textColor="@android:color/black"
+     android:paddingBottom="30dp"
+    android:text="8.  Please note that the repairs will commence immediately, hence the need for you to ensure your vehicle is available for pick-up i.e. all outstanding issues including but not limited to fines levied by Law Enforcement or Road Safety Agencies have been paid, in cases where the damaged vehicle may have been impounded."/>
+</RelativeLayout>
+</ScrollView>
+  <!--  <RelativeLayout 
+    android:id = "@+id/menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	 android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_marginBottom="22dp"
+    android:layout_below="@+id/claims_process_mainLayout"
+    android:layout_centerHorizontal="true"
+    android:gravity="center">-->
+
+      <!--  <ImageView
+          android:id="@+id/bEmail"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_marginLeft="20dp"
+          android:layout_toRightOf="@+id/bPhone"
+          android:background="@drawable/icon_email"
+          android:textSize="12sp" />
+
+      <ImageView
+          android:id="@+id/bBranches"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_marginLeft="20dp"
+          
+          android:layout_toRightOf="@+id/bEmail"
+          android:background="@drawable/icon_branches"
+          android:textSize="12sp" />
+
+      <ImageView
+          android:id="@+id/bPhone"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/claims_process_mainLayout"
+          android:layout_alignParentBottom="true"
+        
+          android:layout_marginLeft="90dp"
+          android:background="@drawable/icon_phone"
+        
+           />-->
+
+  <RelativeLayout
+      android:id="@+id/menu_layout"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentLeft="true"
+      android:background="#99000000"
+      android:gravity="center" >
+
+      <ImageView
+          android:id="@+id/bPhone"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/icon_phone"
+          android:textSize="12sp" />
+
+      <ImageView
+          android:id="@+id/bEmail"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignTop="@+id/bPhone"
+          android:layout_marginLeft="40dp"
+          android:layout_toRightOf="@+id/bPhone"
+          android:background="@drawable/icon_email"
+          android:textSize="12sp" />
+
+      <ImageView
+          android:id="@+id/bBranches"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="40dp"
+          android:layout_toRightOf="@+id/bEmail"
+          android:background="@drawable/icon_branches"
+          android:textSize="12sp" />
+  </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280" >
+    
+    
+         <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+       <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+     
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "REPORT A CLAIM"
+        
+        />
+
+            <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+         </RelativeLayout>
+    <ScrollView 
+         android:id="@+id/information_scroll" 
+    android:layout_below="@+id/relTop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    
+    <RelativeLayout 
+    android:id="@+id/information" 
+    
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+        >
+    <TextView
+     android:id="@+id/verify_contact" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="30dp" 
+    android:textColor="@android:color/white"
+  android:gravity="center"
+    android:paddingLeft="20dp"
+    
+    android:text="VERIFY YOUR CONTACT INFORMATION"
+    android:background="@drawable/top_bar_gray"
+        
+         />    
+    <TextView
+     android:id="@+id/report_contact_no" 
+   	android:layout_below="@+id/verify_contact"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="30dp"
+    android:paddingLeft="30dp"
+    android:text="Contact No.:"
+    
+        
+         />  
+          <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_contact_no"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/star_image" />
+    
+          <EditText
+        android:id="@+id/report_contact_no_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		android:layout_toRightOf="@+id/report_contact_no"
+   		android:layout_below="@+id/verify_contact"
+   		android:gravity="center"
+   		android:paddingLeft="10dp"
+   		android:layout_marginTop=" 25dp"
+   		android:layout_marginLeft="60dp"
+   		android:layout_marginRight="30dp"
+   		android:imeOptions="actionNext"
+     	android:ems="10"
+     	android:paddingRight="10dp"
+     	android:textColor="@android:color/black"
+     	android:textSize="@dimen/font_size"
+		android:background="@drawable/text_field"
+     	android:inputType="textEmailAddress"
+     	/>  
+        
+          
+          <TextView
+     android:id="@+id/report_contact_email" 
+   	android:layout_below="@+id/report_contact_no"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="40dp"
+    android:paddingLeft="30dp"
+    android:text="Contact Email:"
+    
+        
+         />
+           <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_contact_email"
+        android:layout_marginTop="115dp"
+        android:src="@drawable/star_image" />
+      
+          <EditText
+        android:id="@+id/report_contact_email_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		android:layout_toRightOf="@+id/report_contact_email"
+   		android:layout_below="@+id/report_contact_no_value"
+   		android:gravity="center"
+   		android:imeOptions="actionNext"
+   		android:layout_marginLeft="48dp"
+   		android:paddingRight="20dp"
+   		android:layout_marginRight="30dp"
+   		android:layout_marginTop="25dp"
+   		android:paddingLeft="10dp"
+   		android:textColor="@android:color/black"
+   		android:background="@drawable/text_field"
+   		android:textSize="@dimen/font_size"
+     	
+     	
+     
+     	/>  
+     	
+               <TextView
+     android:id="@+id/report_select_driver" 
+   	android:layout_below="@+id/report_contact_email"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp" 
+   
+    android:layout_marginTop="40dp"
+    android:paddingLeft="20dp"
+    android:textColor="@android:color/white"
+    android:background="@drawable/top_bar_gray"
+ android:gravity="center"
+    android:text="SELECT THE DRIVER IN YOUR VEHICLE"></TextView>
+               
+                   <TextView
+     android:id="@+id/report_whowasdriving1" 
+   	android:layout_below="@+id/report_select_driver"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+   
+    android:textColor="@android:color/black"
+    
+    android:text="Who was driving your Vehicle?"></TextView>
+    
+    
+                           
+                           <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_whowasdriving1"
+        android:layout_marginTop="222dp"
+        android:src="@drawable/star_image" />
+    
+        <TextView
+        android:id="@+id/report_whowasdriving1_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		
+   		android:layout_below="@+id/report_whowasdriving1"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginRight="10dp"
+   		android:layout_marginLeft="10dp"
+   		android:layout_marginTop="10dp"
+   		android:textColor="@android:color/black"
+   		android:background="@drawable/drop_down_large"
+     	
+     	/> 
+     	 
+    
+     	
+        <TextView
+     android:id="@+id/report_list_pas" 
+   	android:layout_below="@+id/report_whowasdriving1_value"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp" 
+   	android:background="@drawable/top_bar_gray"
+    android:paddingLeft="20dp"
+    android:gravity="center"
+    
+    
+    android:layout_marginTop="30dp"
+   
+    android:textColor="@android:color/white"
+    
+    android:text="LIST PASSENGERS IN YOUR VEHICLE"></TextView>
+        
+        
+          <TextView
+     android:id="@+id/report_passngr1" 
+   	android:layout_below="@+id/report_list_pas"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+  
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textColor="@android:color/black"
+    
+    android:text="How many passengers were in your vehicle?"></TextView>
+    
+                          
+                           
+   <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_passngr1"
+        android:layout_below="@+id/report_list_pas"
+        android:layout_marginTop="20dp"
+     
+        android:src="@drawable/star_image" />                      
+    
+        <TextView
+        android:id="@+id/report_passngr2_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		android:layout_below="@+id/report_passngr1"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   	
+   		android:layout_marginRight="10dp"
+   		android:textColor="@android:color/black"
+
+   		android:layout_marginLeft="10dp"
+   		android:layout_marginTop="10dp"
+   		android:background="@drawable/drop_down_large"
+     	
+     	/> 
+     	
+         <ImageView 
+        android:id="@+id/btnContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_continue"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+       	
+        android:layout_centerHorizontal="true"
+       	android:layout_below="@+id/report_passngr2_value"
+        />
+     	
+    </RelativeLayout>
+    </ScrollView>
+    
+   
+</RelativeLayout>

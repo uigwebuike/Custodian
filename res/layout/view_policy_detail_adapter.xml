@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+
+
+    
+    
+ >
+ 
+    <TextView
+        android:id="@+id/txt_Vehicle_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="10dp"
+ 
+        android:layout_marginLeft="30dp"
+      android:textColor="@android:color/black"
+        android:text="" 
+        android:textStyle="bold"
+       	android:textSize="@dimen/head_size"/>
+    
+        <TextView
+        android:id="@+id/txt_Vehicle_Usage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/txt_Vehicle_Name"
+      android:textColor="@android:color/black"
+        android:text="Vehicle Usage:" 
+       	android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Usage_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Usage"
+         android:layout_alignBaseline="@+id/txt_Vehicle_Usage"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="10dp"
+       
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     
+    
+     
+     
+     
+     
+     
+     
+     <TextView
+        android:id="@+id/txt_Model_Year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_below="@+id/txt_Vehicle_Usage"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Model Year:" 
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Model_Year_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/txt_Model_Year"
+       	android:layout_toRightOf="@+id/txt_Model_Year"
+       	android:layout_below="@+id/txt_Vehicle_Usage_Value"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="5dp"
+      
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     
+       
+     
+      <TextView
+        android:id="@+id/txt_Vehicle_Color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_below="@+id/txt_Model_Year"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Colour:" 
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Color_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Color"
+       	android:layout_below="@+id/txt_Model_Year_Value"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="10dp"
+          android:layout_alignBaseline="@+id/txt_Vehicle_Color"
+  
+        android:textColor="@android:color/black"
+       android:textSize="@dimen/font_size"/>
+     
+     
+       <TextView
+        android:id="@+id/txt_Vehicle_Make"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_below="@+id/txt_Vehicle_Color"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Make:" 
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Make_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Make"
+       	android:layout_below="@+id/txt_Vehicle_Color_Value"
+       	  android:layout_alignBaseline="@+id/txt_Vehicle_Make"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     
+     
+     
+     <TextView
+        android:id="@+id/txt_Vehicle_Mileage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_below="@+id/txt_Vehicle_Make"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Mileage:" 
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Mileage_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Mileage"
+       	android:layout_below="@+id/txt_Vehicle_Make_Value"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+          android:layout_alignBaseline="@+id/txt_Vehicle_Mileage"
+       
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     
+      <TextView
+        android:id="@+id/txt_Vehicle_Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_below="@+id/txt_Vehicle_Mileage"
+       android:textColor="@android:color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Number:" 
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Number_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Number"
+       	android:layout_below="@+id/txt_Vehicle_Mileage_Value"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" 
+          android:layout_alignBaseline="@+id/txt_Vehicle_Number"
+
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Vehicle_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:textColor="@android:color/black"
+       	android:layout_below="@+id/txt_Vehicle_Number"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Value:" 
+        android:textSize="@dimen/font_size"/>
+          <TextView
+        android:id="@+id/txt_Vehicle_Value_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Vehicle_Value"
+       	android:layout_below="@+id/txt_Vehicle_Number_Value"
+       	  android:layout_alignBaseline="@+id/txt_Vehicle_Value"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     <TextView
+        android:id="@+id/txt_Engine_Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:textColor="@android:color/black"
+       	android:layout_below="@+id/txt_Vehicle_Value"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Engine Number:" 
+       android:textSize="@dimen/font_size"/>
+     
+       <TextView
+        android:id="@+id/txt_Engine_Number_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/txt_Engine_Number"
+       	android:layout_toRightOf="@+id/txt_Engine_Number"
+       	android:layout_below="@+id/txt_Vehicle_Value_Value"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="10dp"
+     
+        android:textColor="@android:color/black"
+       android:textSize="@dimen/font_size"/>
+        
+       <TextView
+        android:id="@+id/txt_Chassis_Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:textColor="@android:color/black"
+       	android:layout_below="@+id/txt_Engine_Number"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Chassis Number:" 
+        android:textSize="@dimen/font_size"/>
+     
+      <TextView
+        android:id="@+id/txt_Chassis_Number_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Chassis_Number"
+       	android:layout_below="@+id/txt_Engine_Number_Value"
+       	  android:layout_alignBaseline="@+id/txt_Chassis_Number"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+       
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     	 <TextView
+        android:id="@+id/txt_Notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	
+       	android:layout_below="@+id/txt_Chassis_Number"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Notes:" 
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+     	 
+     	
+     	 <TextView
+        android:id="@+id/txt_Notes_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_toRightOf="@+id/txt_Notes"
+       	android:layout_below="@+id/txt_Chassis_Number_Value"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="10dp"
+          android:layout_alignBaseline="@+id/txt_Notes"
+     
+		 android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_size"/>
+
+</RelativeLayout>

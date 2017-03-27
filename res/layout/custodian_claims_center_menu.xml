@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/bg_image"
+       android:id = "@+id/mainLayout">
+         
+
+
+      <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/btn_menu" />
+        
+         
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+       	android:textSize = "@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "CLAIM CENTRE"
+        
+        />
+           
+           
+         
+          
+           </RelativeLayout> 
+    
+ <RelativeLayout 
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_marginLeft="15dp"
+     android:layout_marginRight="15dp"
+     android:layout_marginTop="20dp"
+     android:layout_below="@+id/relTop"
+     android:background="@drawable/list_view_bg">
+     
+     
+     
+     <RelativeLayout 
+     android:id="@+id/layout1"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="10dp"
+     android:layout_marginBottom="10dp"
+     >
+     <ImageView 
+        android:id = "@+id/manage_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+  
+       android:layout_marginLeft="20dp"
+       android:background="@drawable/icon_viewmanage_claims"
+        />
+   <TextView
+        android:id="@+id/manage_policies_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" 
+        android:layout_toRightOf="@+id/manage_img"
+        android:paddingLeft="15dp"
+      android:layout_marginTop="10dp"
+      android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+   
+    <ImageView 
+        android:id = "@+id/manage_arrow_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="15dp"
+ 		android:layout_alignParentRight="true"
+ 		android:layout_centerInParent="true"
+ 		android:layout_marginRight="10dp"
+
+       android:background="@drawable/arrow"/>
+    
+    </RelativeLayout>
+   <View
+ 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+       
+        android:id="@+id/viewId"
+        android:layout_below="@+id/layout1"
+        android:background="@android:color/black"/>
+   
+   <RelativeLayout
+        android:id="@+id/layout2"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" 
+     android:layout_below="@+id/layout1"
+        android:layout_marginTop="10dp"
+     android:layout_marginBottom="10dp"
+     >
+        <ImageView
+        android:id="@+id/payment_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     
+        android:layout_alignParentLeft="true"
+     
+     	android:layout_marginLeft="20dp"
+     
+        android:src="@drawable/icon_report_a_claim"/>
+    <TextView
+        android:id="@+id/make_payment_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:textColor="@android:color/black"
+        android:text="REPORT A CLAIM" 
+        android:paddingLeft="69dp"
+        android:paddingTop="8dp"
+    
+        android:textSize="16sp"/>
+     <ImageView 
+        android:id = "@+id/payment_arrow_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginRight="10dp"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+   
+     
+       android:background="@drawable/arrow"/>
+     </RelativeLayout>
+<View
+ 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        
+        android:id="@+id/viewId"
+        android:layout_below="@+id/layout2"
+        android:background="@android:color/black"/>
+
+<RelativeLayout
+    	android:id="@+id/layout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout2" 
+           android:layout_marginTop="10dp"
+     android:layout_marginBottom="10dp">
+<ImageView
+        android:id="@+id/document_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        android:layout_alignParentLeft="true"
+ 
+     	android:layout_marginLeft="20dp"
+     	
+        android:src="@drawable/icon_estimaterepair_locations"/>
+    <TextView
+        android:id="@+id/view_your_document"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" 
+       android:textColor="@android:color/black"
+		android:layout_marginRight="10dp"
+        android:paddingLeft="70dp"
+        android:textSize="16sp"
+        android:paddingTop="4dp"
+     />
+
+       <ImageView
+           android:id="@+id/document_arrow_img"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="5dp"
+           android:background="@drawable/arrow"
+            />
+
+  </RelativeLayout>  
+</RelativeLayout>
+</RelativeLayout>

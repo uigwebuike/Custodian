@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+  
+    
+            
+    <TextView
+    android:id = "@+id/Toll_Free_number"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Toll Free Number"
+    android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="10dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/head_size"/>
+ 
+	<TextView 
+	android:id = "@+id/Toll_Free_number_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Toll_Free_number"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:text="+23470027872337"
+	    />
+	
+	
+		  <TextView
+    android:id = "@+id/Lagos1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Lagos Office"
+    android:layout_below="@+id/Toll_Free_number_value"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="10dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/head_size"/>
+		  
+		  
+		  <TextView 
+	android:id = "@+id/Lagos1_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Lagos1"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:text="+23412774000"
+	    />
+		  
+	
+	   <TextView
+    android:id = "@+id/Abuja"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Abuja Office"
+    android:layout_below="@+id/Lagos1_value"
+   
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="10dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/head_size"/>	
+    
+	   
+	   <TextView 
+	android:id = "@+id/Abuja_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Abuja"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:text="+23497817420"
+	    />
+	   
+	   
+	     <TextView
+    android:id = "@+id/Kano"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Kano Office"
+    android:layout_below="@+id/Abuja_value"
+   
+	android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="10dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/head_size"/>	
+    
+	<TextView 
+	android:id = "@+id/Kano_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Kano"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+    android:text="+23464895969"
+	    />
+	
+	 <TextView
+    android:id = "@+id/Port_Harcourt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Port Harcourt Office"
+    android:layout_below="@+id/Kano_value"
+   android:textColor="@android:color/white"
+  	android:paddingLeft="15dp"
+  	android:paddingTop="10dp"
+    android:textStyle="bold"
+    android:background="@drawable/top_bar_gray"
+    android:textSize="@dimen/head_size"/>
+	 
+	 
+	 <TextView 
+	android:id = "@+id/Port_Harcourt_value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@+id/Port_Harcourt"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginBottom="10dp"
+       android:text="+2347085000046"
+	    />
+	 
+</RelativeLayout>

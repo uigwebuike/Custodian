@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar" >
+
+        <ImageButton
+            android:id="@+id/imageView1"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/title_text"
+            android:text="REPORT A CLAIM"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="@dimen/head_size" />
+
+        <ImageButton
+            android:id="@+id/home"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="1dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_home" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Layout_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/relTop" >
+
+        <RelativeLayout
+            android:id="@+id/Layout"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/txt_basics"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/top_bar_gray"
+                android:gravity="center"
+                android:text="BASICS"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size" />
+
+            <TextView
+                android:id="@+id/txt_what_hppnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_basics"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:text="What happened?"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <ImageView
+                android:id="@+id/imag_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:layout_toRightOf="@+id/txt_what_hppnd"
+                android:src="@drawable/star_image" />
+
+            <TextView
+                android:id="@+id/spinner_hapnd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imag_star"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/drop_down_large"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="40dp"
+                android:singleLine="true"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txt_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner_hapnd"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:text="Please describe the incident.You will be able to add contact information later."
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/edt_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_desc"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_field_large"
+                android:ems="10"
+                android:gravity="left|top"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLines="4"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" >
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/imag_desc_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txt_desc"
+                android:paddingTop="82dp"
+                android:src="@drawable/star_image" />
+
+            <ImageView
+                android:id="@+id/continue_imag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="80dp"
+                android:layout_below="@+id/edt_desc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/btn_continue" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

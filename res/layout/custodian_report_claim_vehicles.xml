@@ -1,0 +1,621 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background720x1280" >
+    
+    
+   
+         <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+       <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+     
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "REPORT A CLAIM"
+        
+        />
+
+            <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+         </RelativeLayout>
+        
+    
+    <RelativeLayout 
+    android:id="@+id/information" 
+    android:layout_below="@+id/relTop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+        >
+        <ScrollView
+            
+    android:id="@+id/information_scroll" 
+    
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+        <RelativeLayout 
+    android:id="@+id/information_layout" 
+   
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+         
+    <TextView
+     android:id="@+id/verify_contact" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="30dp" 
+    android:textColor="@android:color/white"
+    
+    android:gravity="center"
+    android:text="YOUR VEHICLE"
+    android:background="@drawable/top_bar_gray"
+        
+         />    
+    <TextView
+     android:id="@+id/report_vehicleInvolved1" 
+   	android:layout_below="@+id/verify_contact"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="15dp"
+    android:textSize="14sp"
+    android:text="Which of your vehicle was involved?" />
+    
+         <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_vehicleInvolved1"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/star_image" />
+         
+        
+         <TextView
+        android:id="@+id/spinner_vehicleInvolved"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		android:layout_below="@+id/report_vehicleInvolved1"
+   		
+   		
+   		android:layout_marginTop="10dp"
+   		android:textColor="@android:color/black"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginLeft="15dp"
+   		android:layout_marginRight="15dp"
+   		android:background="@drawable/drop_down_large"
+     	
+     	/> 
+         
+         
+         <TextView
+     android:id="@+id/report_ques2" 
+   	android:layout_below="@+id/spinner_vehicleInvolved"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="15dp"
+    android:textSize="14sp"
+    android:text="How was this vehicle being used at the time of the" />
+    
+       
+         
+          <TextView
+     android:id="@+id/report_ques22" 
+   	android:layout_below="@+id/report_ques2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    
+    android:paddingLeft="15dp"
+    android:textSize="14sp"
+    android:text="incident?"
+         />  
+         <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_ques22"
+        android:layout_below="@+id/report_ques2"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/star_image" />
+        
+         <TextView
+        android:id="@+id/spinner_ques2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   	
+   		android:layout_below="@+id/report_ques22"
+   		
+   		android:layout_marginTop="10dp"
+   		android:textColor="@android:color/black"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginLeft="15dp"
+   		android:layout_marginRight="15dp"
+   		android:background="@drawable/drop_down_large"
+     	
+     	/> 
+     	
+         
+           <TextView
+     android:id="@+id/report_ques3" 
+   	android:layout_below="@+id/spinner_ques2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+     android:layout_marginTop="20dp"
+    android:paddingLeft="15dp"
+    
+    
+    android:textSize="14sp"
+    android:text="Was your vehicle towed?"
+         />  
+          <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_ques3"
+        android:layout_below="@+id/spinner_ques2"
+      android:layout_marginTop="20dp"
+    
+        android:src="@drawable/star_image" />
+        
+         <TextView
+        android:id="@+id/spinner_ques3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		
+   		android:layout_below="@+id/report_ques3"
+   		android:textColor="@android:color/black"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginTop="10dp"
+   		android:background="@drawable/drop_down_large"
+   		android:layout_marginLeft="15dp"
+   		android:layout_marginRight="15dp"
+   		
+     	
+     	/> 
+         
+          <TextView
+     android:id="@+id/report_ques4" 
+   	android:layout_below="@+id/spinner_ques3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+     android:layout_marginTop="40dp"
+    android:paddingLeft="15dp"
+    
+    
+    android:textSize="14sp"
+    android:text="Is there damage to your vehicle?"
+         />  
+         
+           <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_ques4"
+        android:layout_below="@+id/spinner_ques3"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/star_image" />  
+        
+           <TextView
+        android:id="@+id/spinner_ques4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		
+   		android:layout_below="@+id/report_ques4"
+   				android:textColor="@android:color/black"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginTop="10dp"
+   		android:background="@drawable/drop_down_large"
+   		android:layout_marginLeft="15dp"
+   		android:layout_marginRight="15dp"
+   		
+     	
+     	/> 
+     	
+         
+          
+           <TextView
+     android:id="@+id/report_ques5" 
+   	android:layout_below="@+id/spinner_ques4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    
+    android:paddingLeft="15dp"
+    android:paddingTop="40dp"
+    
+    android:textSize="14sp"
+    android:text="Did any airbags inflate?"
+         />
+           
+            <ImageView
+        android:id="@+id/imag_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/report_ques5"
+        android:layout_below="@+id/spinner_ques4"
+      	android:layout_marginTop="40dp"
+      
+        
+        android:src="@drawable/star_image" />  
+        
+         <TextView
+        android:id="@+id/spinner_ques5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		
+   		android:layout_below="@+id/report_ques5"
+   				android:textColor="@android:color/black"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:layout_marginTop="10dp"
+   		android:background="@drawable/drop_down_large"
+   		android:layout_marginLeft="15dp"
+   		android:layout_marginRight="15dp"
+   		
+     	
+     	/> 
+     	
+         
+
+         <TextView
+     android:id="@+id/upload_photos" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="30dp" 
+    android:textColor="@android:color/white"
+     android:layout_below="@+id/spinner_ques5"
+    android:layout_marginTop="30dp"
+    android:gravity="center"
+   
+    android:text="UPLOAD SUPPORTING DOCUMENTS"
+    android:background="@drawable/top_bar_gray"/>
+         
+             <RelativeLayout 
+    android:id="@+id/photos_rel1" 
+   	android:layout_below="@+id/upload_photos"
+   	android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"   
+                 > 
+         <ImageView
+           
+    android:id="@+id/upload_photos1" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+       
+    android:background="@drawable/choose_picture"  
+   />
+     <TextView
+    android:id="@+id/myImageViewText1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos1"
+    android:layout_alignTop="@+id/upload_photos1"
+    android:layout_alignRight="@+id/upload_photos1"
+    android:layout_alignBottom="@+id/upload_photos1"
+    android:layout_margin="1dp"
+    android:paddingTop="20dp"
+   android:gravity="center"
+    android:text="Document Picture"
+    android:textColor="@android:color/darker_gray" />   
+         
+   <ImageView
+           
+    android:id="@+id/upload_photos2" 
+ 
+   	android:layout_toRightOf="@+id/upload_photos1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+      android:scaleType="fitXY"
+    android:background="@drawable/choose_picture" 
+    
+    
+   />
+   <TextView
+    android:id="@+id/myImageViewText2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos2"
+    android:layout_alignTop="@+id/upload_photos2"
+    android:layout_alignRight="@+id/upload_photos2"
+    android:layout_alignBottom="@+id/upload_photos2"
+    android:layout_margin="1dp"
+  	android:paddingTop="20dp"
+    android:gravity="center"
+    android:text="Document Picture"
+    android:textColor="@android:color/darker_gray" />
+   </RelativeLayout>
+   
+             <RelativeLayout
+                 android:id="@+id/photos_rel2" 
+   	
+   	android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/photos_rel1"   >
+     <ImageView
+           
+    android:id="@+id/upload_photos3" 
+   
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    android:layout_marginTop="20dp"
+    
+      android:scaleType="fitXY"
+    android:background="@drawable/choose_picture"  
+   />
+     <TextView
+    android:id="@+id/myImageViewText3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos3"
+    android:layout_alignTop="@+id/upload_photos3"
+    android:layout_alignRight="@+id/upload_photos3"
+    android:layout_alignBottom="@+id/upload_photos3"
+    android:layout_margin="1dp"
+    android:paddingTop="20dp"
+    android:gravity="center"
+    android:text="Document Picture"
+    android:textColor="@android:color/darker_gray" />    
+   <ImageView
+           
+    android:id="@+id/upload_photos4" 
+  
+   	android:layout_toRightOf="@+id/upload_photos3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+     android:layout_marginTop="20dp"
+    android:scaleType="fitXY"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/choose_picture" 
+    
+    
+   />
+   <TextView
+    android:id="@+id/myImageViewText4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos4"
+    android:layout_alignTop="@+id/upload_photos4"
+    android:layout_alignRight="@+id/upload_photos4"
+    android:layout_alignBottom="@+id/upload_photos4"
+    android:layout_margin="1dp"
+    android:paddingTop="20dp"
+    android:gravity="center"
+    android:text="Document Picture"
+    android:textColor="@android:color/darker_gray" />
+   
+   </RelativeLayout>
+   <RelativeLayout
+        android:id="@+id/photos_rel3" 
+   	
+   	android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/photos_rel2"  >
+   <ImageView
+           
+    android:id="@+id/upload_photos5" 
+   
+   android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+     
+    android:background="@drawable/choose_picture" 
+    
+    
+   />
+   <TextView
+    android:id="@+id/myImageViewText5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos5"
+    android:layout_alignTop="@+id/upload_photos5"
+    android:layout_alignRight="@+id/upload_photos5"
+    android:layout_alignBottom="@+id/upload_photos5"
+    android:layout_margin="1dp"
+    android:gravity="center"
+    android:paddingTop="20dp"
+    android:text="Document Picture"
+    android:textColor="@android:color/darker_gray" />
+   </RelativeLayout>
+   
+   
+   <RelativeLayout
+       android:id="@+id/photos_rel4" 
+   	
+   	android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/photos_rel3"  >
+         <ImageView
+           
+    android:id="@+id/upload_photos6" 
+   
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    android:layout_marginTop="20dp"
+    android:scaleType="fitXY"
+    
+    android:background="@drawable/choose_picture"  
+   />
+     <TextView
+    android:id="@+id/myImageViewText6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos6"
+    android:layout_alignTop="@+id/upload_photos6"
+    android:layout_alignRight="@+id/upload_photos6"
+    android:layout_alignBottom="@+id/upload_photos6"
+    android:layout_margin="1dp"
+    android:paddingTop="20dp"
+    android:gravity="center"
+    android:text="Police Report"
+    android:textColor="@android:color/darker_gray" />    
+   <ImageView
+           
+    android:id="@+id/upload_photos7" 
+   
+   	android:layout_toRightOf="@+id/upload_photos6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+     android:layout_marginTop="20dp"
+      android:scaleType="fitXY"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/choose_picture" 
+    
+    
+   />
+           
+<TextView
+    android:id="@+id/myImageViewText7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/upload_photos7"
+    android:layout_alignTop="@+id/upload_photos7"
+    android:layout_alignRight="@+id/upload_photos7"
+    android:layout_alignBottom="@+id/upload_photos7"
+    android:layout_margin="1dp"
+    android:paddingTop="20dp"
+     android:gravity="center"
+    android:text="Repair Estimate"
+    android:textColor="@android:color/darker_gray" />
+      </RelativeLayout>   
+   <TextView
+     android:id="@+id/Registered_Garges" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="30dp" 
+    android:textColor="@android:color/white"
+    android:layout_below="@+id/photos_rel4"
+    android:layout_marginTop="30dp"
+    android:gravity="center"
+    android:text="REPAIR CENTRES"
+    
+    android:background="@drawable/top_bar_gray"/>
+   
+    <TextView
+     android:id="@+id/txt_Registered_Garges" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    
+    android:textColor="@android:color/black"
+    android:layout_marginTop="15dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:layout_marginRight="15dp"
+    android:text="Select a repair "
+    android:layout_below="@+id/Registered_Garges"
+   />
+    
+    <TextView
+     android:id="@+id/txt_Registered_Garges_part" 
+   	
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    
+    android:textColor="@android:color/black"
+ 	android:layout_below="@+id/txt_Registered_Garges"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:layout_marginRight="15dp"
+    android:text="centre"
+    
+   />
+    <TextView
+        android:id="@+id/spinner_registered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   		android:layout_below="@+id/Registered_Garges"
+   		android:layout_alignParentRight="true"
+   		android:textColor="@android:color/black"
+   		android:layout_marginTop="15dp"
+   		android:layout_marginRight="20dp"
+   		android:layout_marginLeft="50dp"
+   		android:paddingLeft="10dp"
+   		android:gravity="center_vertical"
+   		android:background="@drawable/drop_down"
+   		
+   		/>
+   		 
+    <ImageView 
+        android:id="@+id/btnContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_continue"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingBottom="20dp"
+        android:layout_alignParentBottom="true"
+      
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_Registered_Garges"
+        />
+         </RelativeLayout>
+         
+        
+       
+           
+           
+           
+       
+        
+        
+        
+        </ScrollView> 
+    </RelativeLayout>
+    
+    
+</RelativeLayout>

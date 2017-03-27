@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+   android:background="@drawable/bg_image" 
+    >
+    
+    
+    
+     <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+         <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+ 
+
+           <TextView
+               android:id="@+id/title"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+              	android:layout_marginTop="15dp"
+               android:layout_toRightOf="@+id/imageView1"
+               android:textAllCaps="true"
+               android:textColor="#fff"
+              	android:layout_marginLeft="5dp"
+              	android:text = "ewk"
+           
+               android:textSize="@dimen/head_size" />
+           
+           
+    <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+
+           </RelativeLayout> 
+    
+
+        
+    
+   
+ 
+    <ListView
+       
+       android:background="@drawable/payment_history_bg" 
+       	 android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/relTop"
+               android:cacheColorHint="#00000000"
+        
+		 android:divider="@drawable/divider_listing"      
+        android:id="@+id/listOfCustodian_claim_center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        />
+ </RelativeLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="fill_parent"
+    
+    android:background="@drawable/background720x1280" >
+
+ <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar_gray">
+        
+     
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textAllCaps="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font_size"
+        android:textColor="#fff"
+        
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "CUSTODIAN DIRECT"
+        
+        />
+          
+        </RelativeLayout>
+        
+  <RelativeLayout
+        
+        android:id="@+id/Menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relTop"
+          android:paddingBottom="10dp"
+        >
+           
+      <ImageView 
+        android:id="@+id/Manage_Policy_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="26dp"
+        
+        android:layout_marginTop="10dp"
+        android:background="@drawable/icon_manage_policy"  
+          />
+      
+      <TextView
+          android:id="@+id/txt_Manage_Policy"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/Manage_Policy_Img"
+          android:layout_marginTop="20dp"
+        
+          android:gravity="center"
+          android:text="MANAGE POLICY"
+          
+        	android:layout_marginLeft="20dp"
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/font_size" />
+
+</RelativeLayout>
+
+   <ImageView 
+        android:id="@+id/Manage_Policy_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        
+        android:layout_below="@+id/Menu"
+        android:background="@drawable/divider_home_listing"  
+          />
+   
+   
+    <RelativeLayout
+        
+        android:id="@+id/Claim_center_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Menu"
+     	android:paddingBottom="10dp"
+        
+        >
+           
+      <ImageView 
+        android:id="@+id/Claim_center_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/icon_claims_centre"  
+          />
+      
+      <TextView
+          android:id="@+id/txt_Claim_center"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/Claim_center_Img"
+          android:layout_marginTop="20dp"
+          android:layout_marginLeft="20dp"
+         
+          android:text="CLAIM CENTRE"
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/font_size" />
+
+</RelativeLayout>
+
+   <ImageView 
+        android:id="@+id/Menu_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+  
+        android:layout_below="@+id/Claim_center_menu"
+        android:background="@drawable/divider_home_listing"  
+          />
+   
+   
+   
+    <RelativeLayout
+        
+        android:id="@+id/Information_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Claim_center_menu"
+     	android:paddingBottom="10dp"
+   
+        >
+           
+      <ImageView 
+        android:id="@+id/Information_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="26dp"
+              android:layout_marginTop="10dp"
+       
+        android:background="@drawable/icon_information_centre"  
+          />
+      
+      <TextView
+          android:id="@+id/txt_info_center"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/Information_Img"
+          android:layout_marginTop="20dp"
+         android:layout_marginLeft="20dp"
+          android:text="INFORMATION CENTRE"
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/font_size" />
+
+</RelativeLayout>
+
+   <ImageView 
+        android:id="@+id/Menu_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        
+        android:layout_below="@+id/Information_menu"
+        android:background="@drawable/divider_home_listing"  
+          />
+   
+   
+    <RelativeLayout
+        
+        android:id="@+id/My_Info_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Information_menu"
+     	android:paddingBottom="10dp"
+        
+        >
+           
+      <ImageView 
+        android:id="@+id/My_Info_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="26dp"
+         android:layout_marginTop="10dp"
+       
+        android:background="@drawable/icon_my_info"  
+          />
+      
+      <TextView
+          android:id="@+id/txt_my_info"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@+id/My_Info_Img"
+          android:layout_marginTop="20dp"
+         	
+          android:layout_marginLeft="20dp"
+          android:text="MY INFO"
+          
+         
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/font_size" />
+
+</RelativeLayout>
+
+   <ImageView 
+        android:id="@+id/Menu_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+       
+        android:layout_below="@+id/My_Info_menu"
+        android:background="@drawable/divider_home_listing"  
+          />
+   
+   
+   
+   <RelativeLayout
+        
+        android:id="@+id/Logout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/My_Info_menu"
+     	android:paddingBottom="10dp"
+       
+        >
+           
+      <ImageView 
+        android:id="@+id/My_Info_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="26dp"
+  		android:layout_marginTop="10dp"
+       
+        android:background="@drawable/icon_logout"  
+          />
+      
+      <TextView
+          android:id="@+id/txt_Log_out"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/My_Info_Img"
+         android:layout_marginTop="20dp"
+          android:text="LOGOUT"
+          android:layout_marginLeft="20dp"
+        
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/font_size" />
+
+</RelativeLayout>
+
+   <ImageView 
+        android:id="@+id/Menu_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+       
+        android:layout_below="@+id/Logout_menu"
+        android:background="@drawable/divider_home_listing"  
+          />
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image" >
+    
+   
+<RelativeLayout 
+   android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_view_bg"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+ >
+    
+    <ImageView 
+        android:id = "@+id/manage_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="15dp"
+       android:layout_marginLeft="20dp"
+       android:background="@drawable/icon_view_your_policies"
+        />
+   <TextView
+        android:id="@+id/manage_policies_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW YOUR POLICIES" 
+        android:layout_toRightOf="@+id/manage_img"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+   
+    <ImageView 
+        android:id = "@+id/manage_arrow_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="60dp"
+       android:layout_toRightOf="@+id/manage_policies_menu"
+       android:background="@drawable/arrow"/>
+   <View
+ 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewId"
+        android:layout_below="@+id/manage_policies_menu"
+        android:background="@android:color/black"/>
+   
+   
+        <ImageView
+        android:id="@+id/payment_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/manage_img"
+        android:layout_alignParentLeft="true"
+     	android:layout_marginTop="26dp"
+     	android:layout_marginLeft="20dp"
+     
+        android:src="@drawable/icon_make_a_paymet"/>
+    <TextView
+        android:id="@+id/make_payment_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/manage_policies_menu"
+        android:text="PAYMENT HISTORY" 
+        android:paddingLeft="78dp"
+        android:paddingTop="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="20dp"
+        android:textSize="16sp"/>
+     <ImageView 
+        android:id = "@+id/payment_arrow_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="42dp"
+       android:layout_marginLeft="72dp"
+       android:layout_below="@+id/manage_arrow_img"
+       android:layout_toRightOf="@+id/make_payment_menu"
+       android:background="@drawable/arrow"/>
+<View
+ 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewId"
+        android:layout_below="@+id/make_payment_menu"
+        android:background="@android:color/black"/>
+
+
+<ImageView
+        android:id="@+id/document_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_img"
+        android:layout_alignParentLeft="true"
+     	android:layout_marginTop="25dp"
+     	android:layout_marginLeft="17dp"
+     	
+        android:src="@drawable/icon_view_documents"/>
+    <TextView
+        android:id="@+id/view_your_document"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW YOUR DOCUMENTS" 
+        android:layout_below="@+id/make_payment_menu"
+        android:paddingLeft="78dp"
+        android:textSize="16sp"
+        android:paddingTop="20dp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="20dp"/>
+
+       <ImageView 
+        android:id = "@+id/document_arrow_img"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="43dp"
+       android:layout_marginLeft="73dp"
+       android:layout_below="@+id/payment_arrow_img"
+       android:layout_toRightOf="@+id/make_payment_menu"
+       android:background="@drawable/arrow"/>
+    
+    </RelativeLayout>
+      
+
+</RelativeLayout>

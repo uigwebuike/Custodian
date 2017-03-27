@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image"
+      android:id = "@+id/mainLayout">
+    <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      		android:background="@android:color/transparent"
+        android:src="@drawable/btn_menu" />
+        
+       
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+       	android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "INFORMATION CENTRE"
+        
+        />
+          
+        </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/information_center_menu_layout" 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" 
+    	android:background="@drawable/list_view_bg"
+    	 android:layout_marginLeft="15dp"
+     	android:layout_marginRight="15dp"
+     	android:layout_marginTop="20dp"
+     	android:layout_below="@+id/relTop">
+     	
+        
+    <RelativeLayout
+         android:id="@+id/layout1" 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" 
+    	android:layout_marginTop="10dp"
+    	android:layout_marginBottom="10dp"
+    	
+        >
+<ImageView
+        android:id="@+id/about_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_alignParentLeft="true"
+     	
+     	android:layout_marginLeft="15dp"
+     
+        android:src="@drawable/icon_about_custodian" />
+     <TextView
+        android:id="@+id/about_custodian_direct_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABOUT CUSTODIAN DIRECT" 
+  		android:layout_toRightOf="@+id/about_img"
+  		android:textColor="@android:color/black"
+  		android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+      
+     
+        android:textSize="16sp"
+        />
+     
+     <TextView 
+         android:id="@+id/about_arrow_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/arrow"
+       
+        />
+     
+     
+     </RelativeLayout>
+     <View
+ 
+
+ 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+    
+        android:id="@+id/viewId"
+        android:layout_below="@+id/layout1"
+        android:background="@android:color/black"/>
+        
+       <RelativeLayout
+           
+        android:id="@+id/layout2" 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"  
+    	android:layout_below="@+id/layout1" 
+    		android:layout_marginTop="10dp"
+    	android:layout_marginBottom="10dp">
+          <ImageView
+        android:id="@+id/claims_process_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      
+        android:layout_alignParentLeft="true"
+     
+     	android:layout_marginLeft="15dp"
+     
+        android:src="@drawable/icon_claims_process" />
+    <TextView
+        android:id="@+id/claims_process_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLAIMS PROCESS" 
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@+id/claims_process_img"
+  		android:layout_centerHorizontal="true"
+       	android:layout_marginLeft="10dp"
+      
+   		android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+    
+       <TextView 
+        android:id="@+id/claims_process_arrow_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/arrow"
+        android:layout_marginRight="10dp"
+        android:layout_alignBaseline="@+id/claims_process_menu"/>
+</RelativeLayout>
+     <View
+  
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+  
+        android:id="@+id/viewId"
+        android:layout_below="@+id/layout2"
+        android:background="@android:color/black"/>
+     
+  
+     <RelativeLayout
+
+          android:id="@+id/layout3" 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"  
+    	android:layout_below="@+id/layout2"
+    		android:layout_marginTop="10dp"
+    	android:layout_marginBottom="10dp" >
+     <ImageView
+        android:id="@+id/contact_us_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    
+        android:layout_alignParentLeft="true"
+     
+     	android:layout_marginLeft="15dp"
+     	
+        android:src="@drawable/icon_contact_us" />
+    <TextView
+        android:id="@+id/contact_us_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:textColor="@android:color/black"
+        android:text="CONTACT US" 
+        android:layout_toRightOf="@+id/contact_us_img"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="14dp"
+   		android:layout_marginTop="10dp"
+        android:textSize="16sp"
+    
+       />
+    
+    <TextView 
+        android:id="@+id/contact_us_arrow_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      	android:layout_alignParentRight="true"
+      	android:layout_centerVertical="true"
+        android:background="@drawable/arrow"
+        android:layout_marginRight="10dp"/>
+    
+    </RelativeLayout>
+  <!--   <View
+  
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewId"
+        android:layout_below="@+id/contact_us_menu"
+       	android:background="@android:color/black"/> -->
+
+    
+ 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#99000000"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/bPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+     		
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icon_phone"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/bEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bPhone"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/bPhone"
+            android:background="@drawable/icon_email"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/bBranches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+     
+            android:layout_marginLeft="40dp"
+          
+            android:layout_toRightOf="@+id/bEmail"
+            android:background="@drawable/icon_branches"
+              android:layout_centerHorizontal="true"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

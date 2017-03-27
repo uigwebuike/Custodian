@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@drawable/background720x1280"
+    android:gravity="top"
+    >
+     <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:layout_marginRight = "10dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/btn_back" />
+        
+     
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "REPORT A CLAIM"
+        
+        />
+
+           <ImageButton
+               android:id="@+id/home"
+               android:layout_width="50dp"
+               android:layout_height="wrap_content"
+              	android:layout_centerVertical="true"
+              	android:layout_marginRight="2dp"
+               android:layout_alignParentRight="true"
+               android:background="@android:color/transparent"
+               android:src="@drawable/icon_home" />
+          
+        </RelativeLayout>
+<ScrollView 
+    	android:layout_below="@+id/relTop"
+    	android:id="@+id/Heading1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+     <RelativeLayout
+        android:id="@+id/Heading1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        >
+        
+         
+        <RelativeLayout 
+        android:id="@+id/Edit_rel_first"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+         <TextView
+        android:id="@+id/Heading_Of_Tabs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:text="START"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        
+        android:background="@drawable/gray_bar"/>
+         
+         
+         <ImageButton 
+             android:id="@+id/edit_button_first"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"
+             
+             />
+         
+         </RelativeLayout>
+         
+        <RelativeLayout 
+            android:id="@+id/Edit_rel_first_fields"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_first" >
+         
+           <TextView
+     android:id="@+id/report_dateOfincident" 
+ 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Date of Incident:" />
+           
+      <TextView
+     android:id="@+id/report_dateOfincident_value" 
+   
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_dateOfincident"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="60dp"
+    android:textSize="14sp"
+    android:text="Date of Incident" />
+     
+      
+      
+      <TextView
+     android:id="@+id/report_timeOfincident" 
+   	android:layout_below="@+id/report_dateOfincident"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Time of Incident:" />
+           
+      <TextView
+     android:id="@+id/report_timeOfincident_value" 
+   	android:layout_below="@+id/report_dateOfincident_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_dateOfincident"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="60dp"
+    android:textSize="14sp"
+    android:text="Time of Incident" /> 
+    
+      
+      <TextView
+     android:id="@+id/report_start" 
+   	android:layout_below="@+id/report_timeOfincident"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="State:" />
+           
+      <TextView
+     android:id="@+id/report_start_value" 
+   	android:layout_below="@+id/report_timeOfincident_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_dateOfincident"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="59dp"
+    android:textSize="14sp"
+    android:text="Start" /> 
+    
+      
+      <TextView
+     android:id="@+id/report_city" 
+   	android:layout_below="@+id/report_start"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="City:" />
+           
+      <TextView
+     android:id="@+id/report_city_value" 
+   	android:layout_below="@+id/report_start_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_dateOfincident"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="60dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+    </RelativeLayout>
+    
+        
+    <RelativeLayout 
+        android:id="@+id/Edit_rel_second"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_first_fields">
+       <TextView
+        android:id="@+id/Heading_Of_Tabs1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:text="BASICS"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        android:layout_marginTop="20dp"
+        
+        android:background="@drawable/gray_bar"/>
+       
+       <ImageButton 
+             android:id="@+id/edit_button_second"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:paddingTop="20dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"></ImageButton>
+       
+       </RelativeLayout>
+        <RelativeLayout 
+        android:id="@+id/Edit_rel_third"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_second">
+        <TextView
+     android:id="@+id/report_vehicle_involved" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Vehicle involved:" />
+           
+      <TextView
+     android:id="@+id/report_vehicle_involved_value" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_vehicle_involved"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="60dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+    
+      
+      <TextView
+     android:id="@+id/report_cause_damge" 
+   	android:layout_below="@+id/report_vehicle_involved"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="30dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Cause of Damage:" />
+           
+      <TextView
+     android:id="@+id/report_cause_damge_value" 
+   	android:layout_below="@+id/report_vehicle_involved_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_cause_damge"
+    android:layout_alignBaseline="@+id/report_cause_damge"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="49dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+    
+      
+       <TextView
+     android:id="@+id/report_cause_desc" 
+   	android:layout_below="@+id/report_cause_damge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="60dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Incident Description:" />
+           
+      <TextView
+     android:id="@+id/report_cause_desc_value" 
+   	android:layout_below="@+id/report_cause_damge_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_cause_desc"
+    android:layout_alignBaseline="@+id/report_cause_desc"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="36dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+    
+      </RelativeLayout>
+      <RelativeLayout 
+          android:id="@+id/Edit_rel_fourth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_third">
+             <TextView
+        android:id="@+id/report_vehicles_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      
+        android:text="YOUR CONTACT INFO"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        android:layout_marginTop="80dp"
+        
+        android:background="@drawable/gray_bar"/>
+         <ImageButton 
+             android:id="@+id/edit_button_third"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:paddingTop="77dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"></ImageButton>
+             
+          </RelativeLayout>   
+             
+             <RelativeLayout 
+                   android:id="@+id/Edit_rel_fifth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_fourth">
+           <TextView
+     android:id="@+id/report_Contact_number" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+
+    android:text="Contact Number:" />
+           
+      <TextView
+     android:id="@+id/report_Contact_number_value" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_Contact_number"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="54dp"
+    android:textSize="14sp"
+       
+    android:text="fguhuo" /> 
+    
+      <TextView
+     android:id="@+id/report_Contact_Email" 
+  android:layout_below="@+id/report_Contact_number"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+
+    android:text="Contact Email:" />
+           
+      <TextView
+     android:id="@+id/report_Contact_Email_value" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_Contact_Email"
+    android:layout_below="@+id/report_Contact_number_value"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="70dp"
+    android:textSize="14sp"
+      
+    android:text="xcygio" /> 
+      
+      
+      </RelativeLayout>
+               
+      <RelativeLayout 
+          android:id="@+id/Edit_rel_sixth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_fifth">
+             <TextView
+        android:id="@+id/report_vehicles_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      
+        android:text="VEHICLES"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        android:layout_marginTop="20dp"
+        
+        android:background="@drawable/gray_bar"/>
+         <ImageButton 
+             android:id="@+id/edit_button_fourth"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="5dp"
+      	android:paddingTop="20dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"></ImageButton>
+             
+          </RelativeLayout>   
+          
+      
+      <RelativeLayout 
+          
+       	android:id="@+id/Edit_rel_seventh"
+        android:layout_width="fill_parent"                                                                                                                
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_sixth">
+         
+       <RelativeLayout 
+          
+       	android:id="@+id/Edit_rel_child"
+        android:layout_width="fill_parent"                                                                                                                
+        android:layout_height="wrap_content"
+        >  
+          
+	<TextView
+     android:id="@+id/report_vehicle_Model" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="16sp"
+    android:layout_marginRight="55dp"
+    android:text="" />
+	
+	
+	
+	<ImageButton 
+	    
+	android:id="@+id/report_Plus_Button" 
+ 	android:layout_width="60dp"
+    android:layout_height="50dp"   
+	android:src = "@drawable/add"
+	android:layout_alignParentRight="true"
+	android:background="@android:color/transparent"
+	android:layout_centerVertical="true"
+	android:layout_marginTop="1dp"
+	android:layout_marginRight="1dp"/>
+	</RelativeLayout>
+	
+	 <RelativeLayout  
+        android:id="@+id/Edit_rel_eighth"
+        android:layout_width="fill_parent"                                                                                                                
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_child"
+        android:visibility="gone"
+       >
+        
+              <TextView
+     android:id="@+id/report_driver_of_vehicle" 
+ 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Driver of this vehicle:" />
+           
+      <TextView
+     android:id="@+id/report_driver_of_vehicle_value"
+   
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_driver_of_vehicle"
+ 
+    android:layout_marginTop="20dp"
+    android:paddingLeft="29dp"
+    android:textSize="14sp"
+    android:text="Date of Incident" />
+     
+      
+      
+     <TextView
+     android:id="@+id/report_review_Vehicle_Use" 
+   	android:layout_below="@+id/report_driver_of_vehicle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Vehicle Use:" />
+           
+      <TextView
+     android:id="@+id/report_review_Vehicle_Use_value" 
+   	android:layout_below="@+id/report_driver_of_vehicle_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Vehicle_Use"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="85dp"
+    android:textSize="14sp"
+    android:text="Time of Incident" /> 
+    
+      
+         <TextView
+     android:id="@+id/report_review_was_vehicle_damaged" 
+   	android:layout_below="@+id/report_review_Vehicle_Use"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Was the vehicle" />
+         
+         <TextView
+     android:id="@+id/report_review_was_vehicle_damaged1" 
+   	android:layout_below="@+id/report_review_was_vehicle_damaged"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+   
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="damaged?: " />
+           
+      <TextView
+     android:id="@+id/report_review_was_vehicle_damaged_value" 
+   	android:layout_below="@+id/report_review_Vehicle_Use_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_was_vehicle_damaged1"
+    android:layout_alignBaseline="@+id/report_review_was_vehicle_damaged1"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="90dp"
+    android:textSize="14sp"
+    android:text="Start" /> 
+    
+      
+     <TextView
+     android:id="@+id/report_review_Was_Vehicle_Towed" 
+   	android:layout_below="@+id/report_review_was_vehicle_damaged"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="40dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Was Vehicle Towed?:" />
+           
+      <TextView
+     android:id="@+id/report_review_Was_Vehicle_Towed_value" 
+   	android:layout_below="@+id/report_review_was_vehicle_damaged_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Was_Vehicle_Towed"
+    android:layout_marginTop="40dp"
+    android:paddingLeft="28dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+    
+      
+       <TextView
+     android:id="@+id/report_review_Airbags_inflate" 
+   	android:layout_below="@+id/report_review_Was_Vehicle_Towed"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Airbags Inflate? :" />
+           
+      <TextView
+     android:id="@+id/report_review_Airbags_inflate_value" 
+   	android:layout_below="@+id/report_review_Was_Vehicle_Towed_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Airbags_inflate"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="58dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+
+    
+     
+       <TextView
+     android:id="@+id/report_review_Vehicle_Color" 
+   	android:layout_below="@+id/report_review_Airbags_inflate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Vehicle Color :" />
+           
+      <TextView
+     android:id="@+id/report_review_Vehicle_Color_value" 
+   	android:layout_below="@+id/report_review_Airbags_inflate_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Vehicle_Color"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="76dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+
+       
+       <TextView
+     android:id="@+id/report_review_Vehicle_No" 
+   	android:layout_below="@+id/report_review_Vehicle_Color"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Vehicle No:" />
+           
+      <TextView
+     android:id="@+id/report_review_Vehicle_No_value" 
+   	android:layout_below="@+id/report_review_Vehicle_Color_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Vehicle_No"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="95dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+   
+      
+       <TextView
+     android:id="@+id/report_review_Chassis_No" 
+   	android:layout_below="@+id/report_review_Vehicle_No"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Chassis No:" />
+           
+      <TextView
+     android:id="@+id/report_review_Chassis_No_value" 
+   	android:layout_below="@+id/report_review_Vehicle_No_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Chassis_No"
+    android:layout_alignBaseline="@+id/report_review_Chassis_No"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="91dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+      
+     <TextView
+     android:id="@+id/report_review_Engine" 
+   	android:layout_below="@+id/report_review_Chassis_No"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Engine No:" />
+           
+      <TextView
+     android:id="@+id/report_review_Engine_value" 
+   	android:layout_below="@+id/report_review_Chassis_No_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_review_Engine"
+    android:layout_alignBaseline="@+id/report_review_Engine"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="97dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+      
+          
+          </RelativeLayout>  
+          
+	
+	</RelativeLayout>
+
+   
+    
+    <RelativeLayout
+        android:id = "@+id/Edit_rel_nine"
+          android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_seventh">
+	 
+        <RelativeLayout 
+           android:id = "@+id/Edit_rel_registered_garages"
+          android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      
+            >
+       <TextView
+        android:id="@+id/Heading_Of_RepairCentres"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:text="REGISTERED GARAGES"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        android:layout_marginTop="20dp"
+        
+        android:background="@drawable/gray_bar"/>
+       
+       
+        <ImageButton 
+             android:id="@+id/edit_button_fifth"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+   		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"       
+      	android:layout_marginLeft="5dp"
+      	android:paddingTop="20dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"></ImageButton>
+        
+        </RelativeLayout>
+        
+        
+        <RelativeLayout 
+         android:id = "@+id/Edit_rel_registered_garages_values"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_registered_garages">
+         <TextView
+     android:id="@+id/report_select_garage" 
+  	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="10dp"
+    android:textSize="14sp"
+    android:text="Selected Garage:" />
+         
+         
+         <TextView
+     android:id="@+id/report_select_garage_value" 
+  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black"
+    android:layout_toRightOf="@+id/report_select_garage"
+    android:layout_alignBaseline="@+id/report_select_garage"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="60dp"
+    android:textSize="14sp"
+    android:text="City" /> 
+     
+     </RelativeLayout>
+     <RelativeLayout
+      android:id = "@+id/Edit_rel_upload_values"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_registered_garages_values">
+         
+          <TextView
+        android:id="@+id/Heading_Of_uploadedDoc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+     
+        android:text="UPLOADED DOCUMENTS"
+        android:textColor="@android:color/white"
+        android:gravity="center" 
+        android:layout_marginTop="20dp"
+        
+        android:background="@drawable/gray_bar"/> 
+        
+          <ImageButton 
+             android:id="@+id/edit_button_sixth"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_alignBaseline="@+id/Heading_Of_uploadedDoc"
+      	android:layout_marginLeft="5dp"
+      	android:paddingTop="20dp"
+      	android:layout_marginRight = "1dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/icon_edit"></ImageButton>  
+         
+     </RelativeLayout>
+     
+     <RelativeLayout 
+          android:id = "@+id/Edit_rel_uploadedPictures"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_upload_values">
+          
+        
+          
+          <TextView
+        android:id="@+id/Heading_Of_Photographs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     
+        android:text="Photographs:"
+            android:textColor="@android:color/black"
+    	android:layout_marginTop="20dp"
+    	android:paddingLeft="10dp"
+    	android:textSize="14sp"
+        
+       />   
+         
+         
+          <RelativeLayout
+          android:id = "@+id/UploadPicsRel"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+           android:layout_centerHorizontal="true"
+           
+        android:layout_below="@+id/Heading_Of_Photographs">
+        
+        <RelativeLayout
+         android:id = "@+id/UploadPicsRel1"
+         android:layout_width="fill_parent"
+    
+        android:layout_height="wrap_content">
+        
+            <ImageView
+           
+    android:id="@+id/review_upload_photos1" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+    
+   />  
+   
+            <ImageView
+           
+    android:id="@+id/review_upload_photos2" 
+ 
+   	android:layout_toRightOf="@+id/review_upload_photos1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+
+    
+    
+   />
+           
+        </RelativeLayout>   
+         <RelativeLayout
+         android:id = "@+id/UploadPicsRel2"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       
+      
+        android:layout_below="@+id/UploadPicsRel1"
+        >
+        
+            <ImageView
+           
+    android:id="@+id/review_upload_photos3" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+   
+   />  
+   
+            <ImageView
+           
+    android:id="@+id/review_upload_photos4" 
+ 
+   	android:layout_toRightOf="@+id/review_upload_photos3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+ 
+    
+    
+   />
+        </RelativeLayout>
+        
+         <RelativeLayout
+         android:id = "@+id/UploadPicsRel3"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/UploadPicsRel2"
+            
+        >
+            
+               <ImageView
+           
+    android:id="@+id/review_upload_photos5" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+          
+       
+     
+   />  
+            </RelativeLayout>
+        </RelativeLayout>
+       
+         
+         
+         
+         
+         
+         
+         
+         </RelativeLayout>
+          <RelativeLayout
+             android:id = "@+id/UploadPicsRelSecond"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Edit_rel_uploadedPictures"
+
+             >
+            
+                
+          <TextView
+        android:id="@+id/Heading_Of_PoliceReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     
+        android:text="Police Report:"
+            android:textColor="@android:color/black"
+    	android:layout_marginTop="20dp"
+    	android:paddingLeft="10dp"
+    	android:textSize="14sp"></TextView>
+          
+             <RelativeLayout
+          android:id = "@+id/UploadPicsRelPoliceReport"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+        android:layout_below="@+id/Heading_Of_PoliceReport">
+         
+               <ImageView
+           
+    android:id="@+id/review_upload_photos6" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+       
+
+   />  
+      
+                 
+         </RelativeLayout>
+         
+             
+               
+          
+          
+          
+          
+              
+        </RelativeLayout>
+        
+          <RelativeLayout
+                  android:id = "@+id/UploadPicsRelThird"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/UploadPicsRelSecond">
+                 
+                   <TextView
+        android:id="@+id/Heading_Of_RepairEstimate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     
+        android:text="Repair Estimate:"
+            android:textColor="@android:color/black"
+    	android:layout_marginTop="20dp"
+    	android:paddingLeft="10dp"
+    	android:textSize="14sp"></TextView>
+                   
+             <RelativeLayout
+          android:id = "@+id/UploadPicsRelRepairEstimate"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+           	android:layout_marginLeft="20dp"
+        android:layout_below="@+id/Heading_Of_RepairEstimate">        
+             
+                 
+                 
+               <ImageView
+           
+    android:id="@+id/review_upload_photos7" 
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="20dp"
+     android:scaleType="fitXY"
+       
+    ></ImageView> 
+                 
+                 </RelativeLayout>
+                   
+             </RelativeLayout>
+          
+          <RelativeLayout
+                  android:id = "@+id/UploadPicsRelFour"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/UploadPicsRelThird"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+             
+                    
+                 
+               <ImageView
+           
+    android:id="@+id/review_submit" 
+   	
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    
+     android:layout_marginTop="40dp"
+     android:layout_marginBottom="20dp"
+   
+       
+    android:background="@drawable/btn_submit" ></ImageView> 
+              
+             </RelativeLayout>
+          
+    
+          </RelativeLayout>
+
+    
+          </RelativeLayout>
+          
+      
+       
+        
+
+    
+      	
+     </ScrollView>
+    
+    
+    
+</RelativeLayout>

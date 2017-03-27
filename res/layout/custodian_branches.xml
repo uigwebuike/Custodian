@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_image">
+  
+      <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="10dp"
+      	android:layout_marginRight="10dp"
+        android:src="@drawable/btn_back" />
+        
+          <ImageView
+        android:id="@+id/imageViewdivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+      	android:layout_marginLeft="6dp"
+      	android:layout_toRightOf="@+id/imageView1"
+        android:src="@drawable/divider_top_bar" />
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+      	android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title"
+        android:text = "BRANCHES"
+        
+        />
+           </RelativeLayout> 
+    <ScrollView  android:id ="@+id/layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/relTop"
+     android:background="@drawable/payment_history_bg"
+      android:layout_marginTop="20dp"
+      android:paddingBottom="20dp"
+      android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+    <RelativeLayout 
+         android:id ="@+id/Lagos_layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   
+   
+   
+  
+   >
+    <TextView
+    android:id = "@+id/Lagos"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Lagos Office"
+    android:layout_marginLeft="15dp"
+  	android:layout_marginTop="10dp"
+    android:textStyle="bold"
+    android:textSize="@dimen/font_size"/>
+    
+     <TextView
+    android:id = "@+id/Lagos1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="16A, Commercial Avenue,"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos"
+    android:textSize="@dimen/font_size"/>   
+   
+       <TextView
+    android:id = "@+id/Lagos2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Sabo, Yaba,"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos1"
+    android:textSize="@dimen/font_size"/>    
+    <TextView
+    android:id = "@+id/Lagos3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Lagos."
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos2"
+    android:textSize="@dimen/font_size"/>   
+    
+    
+    <TextView
+    android:id = "@+id/Lagos4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:text="Tel: (+234) 2774000-9, 2707204–8, 27937401
+0700-CUSTODIAN"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos3"
+    android:textSize="@dimen/font_size"/> 
+    
+     <TextView
+    android:id = "@+id/Lagos5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Phone: +234 2774000-9, 070027872337"
+android:layout_marginLeft="15dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Lagos4"/> 
+    
+      <TextView
+    android:id = "@+id/Lagos6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Fax: (+234) 1 2707203"
+	android:textSize="@dimen/font_size"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos5"/> 
+    
+       <TextView
+    android:id = "@+id/Lagos7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="P. O. Box 2101, Lagos."
+	android:textSize="@dimen/font_size"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos6"/> 
+
+    
+       <TextView
+    android:id = "@+id/Abuja"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Abuja Offices"
+	android:layout_marginTop="20dp"
+    android:textStyle = "bold"
+    android:textSize="@dimen/font_size"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos7"/>  
+     <TextView
+    android:id = "@+id/Abuja1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="4th Floor, ITF House,"
+	android:layout_marginLeft="15dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja"/> 
+    
+     <TextView
+    android:id = "@+id/Abuja2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="6, Adetokunbo Ademola Crescent, Maitama"
+	android:layout_marginLeft="15dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja1"/> 
+        
+     
+     <TextView
+    android:id = "@+id/Abuja3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Tel: 09–7817420"
+	android:layout_marginTop="15dp"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja2"/>    
+    
+     <TextView
+    android:id = "@+id/Kano"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kano Office"
+	android:textStyle="bold"
+	android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   android:layout_marginTop="20dp"
+    android:layout_below="@+id/Abuja3"/>    
+         <TextView
+    android:id = "@+id/Kano1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="2, Bank Road,Kano,"
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   
+    android:layout_below="@+id/Kano"/>    
+      <TextView
+    android:id = "@+id/Kano2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kano State."
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   
+    android:layout_below="@+id/Kano1"/>  
+     <TextView
+    android:id = "@+id/Kano3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Tel: 064-895969"
+	android:layout_marginLeft="15dp"
+   android:layout_marginTop="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Kano2"/>  
+                 
+      <TextView
+    android:id = "@+id/port"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Port Harcourt Office"
+	android:textStyle="bold"
+	android:layout_marginLeft="15dp"
+   android:layout_marginTop="20dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Kano3"/>  
+    
+      
+         <TextView
+    android:id = "@+id/Port1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="180 Aba Road,PortHarcourt,"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port"/> 
+    
+          <TextView
+    android:id = "@+id/Port2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Rivers State"
+    android:textSize="@dimen/font_size"
+   android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Port1"/> 
+    
+           <TextView
+    android:id = "@+id/Port3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Tel: 07085000046"
+   android:layout_marginTop="15dp"
+   android:textSize="@dimen/font_size"
+   android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Port2"/> 
+     
+               <TextView
+    android:id = "@+id/Onitsha"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Onitsha Office"
+   	android:textStyle="bold"
+   	android:layout_marginLeft="15dp"
+   	android:layout_marginTop="20dp"
+   	android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port3"/> 
+    
+                       <TextView
+    android:id = "@+id/Onitsha1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="60A, Old Market Road,Onitsha,"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha"/> 
+    
+          <TextView
+    android:id = "@+id/Onitsha2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Anambra State."
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha1"/> 
+    
+           <TextView
+    android:id = "@+id/Benin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benin Office"
+   	android:textStyle="bold"
+   	android:layout_marginLeft="15dp"
+   	android:layout_marginTop="20dp"
+   	android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha2"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:text="95A, 1st East Circular Road,"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benin City,"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin1"/> 
+           <TextView
+    android:id = "@+id/Benin3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Edo State."
+   android:layout_marginLeft="15dp"
+  
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin2"/> 
+    </RelativeLayout>
+
+</ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id = "@+id/about_custodian_direct_mainLayout"
+    android:background="@drawable/bg_image"
+    >
+    <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+   <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+         
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title_text"
+        android:text = "ABOUT CUSTODIAN DIRECT"
+        
+        />
+
+               <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+          
+        </RelativeLayout>
+  <RelativeLayout 
+    android:id = "@+id/about_custodian_direct_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/payment_history_bg"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="80dp"
+    android:layout_below="@+id/relTop"
+    >
+   <ScrollView
+    android:id="@+id/scroll_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout 
+    android:id="@+id/scroll_layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+	<TextView
+    android:id = "@+id/about_paragraph1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:textSize="@dimen/mid_size"
+	android:layout_marginTop="10dp"
+    android:paddingLeft="10dp"
+    android:textColor="@android:color/black"
+    android:paddingRight="10dp"
+  	
+    android:text = "Custodian direct is a self-service insurance product that lets you experience a start to finish process for car insurance purchase within a few moments on your mobile device."/>
+    <TextView
+    android:id = "@+id/about_paragraph2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph1"
+    android:layout_marginTop="10dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+   android:textColor="@android:color/black"
+    android:text = "This product operates a self-help one stop shop, where you can generate a quote, make payment and receive your motor certificate and policy documents without interacting with a life agent."/>
+
+     <TextView
+    android:id = "@+id/about_paragraph3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph2"
+    android:layout_marginTop="10dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+  android:textColor="@android:color/black"
+    android:text = "Ultimately, customers in the comfort of their homes or offices can manage their policies, report claims from the scene of any incident involving the covered vehicle(s) without visiting our offices or speaking to an agent." />
+	
+    <TextView
+    android:id = "@+id/about_paragraph4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/about_paragraph3"
+    android:layout_marginTop="15dp"
+	android:textSize="@dimen/mid_size"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="15dp"
+ android:textColor="@android:color/black"
+	android:text = "It ensures that our services are available to anyone 24 hours a day which includes weekdays and weekends."/>
+</RelativeLayout>
+</ScrollView>
+  
+</RelativeLayout>
+  
+  
+  
+  
+
+    <RelativeLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+         android:background="#99000000"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/bPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+     		
+           
+            
+            android:background="@drawable/icon_phone"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/bEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bPhone"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/bPhone"
+            android:background="@drawable/icon_email"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/bBranches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+     
+            android:layout_marginLeft="40dp"
+      
+            android:layout_toRightOf="@+id/bEmail"
+            android:background="@drawable/icon_branches"
+        
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

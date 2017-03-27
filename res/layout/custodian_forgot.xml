@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/background720x1280"
+    android:gravity="top">
+    
+    
+      <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="10dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+        android:src="@drawable/btn_back" />
+        
+    
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+        android:textSize = "@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title"
+        android:text = "FORGOT PASSWORD "
+        
+        />
+           
+                      
+
+          
+           </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+       	android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edt_forgot_password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_submit"
+         />
+
+    <EditText
+        android:id="@+id/edt_forgot_password"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/forgot_password_email"
+        android:layout_below="@+id/forgot_password_email"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/text_field"
+        android:ems="10"
+      android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:hint="User Id"
+        android:inputType="textEmailAddress"
+        android:textSize="@dimen/font_size" />
+
+    <TextView
+        android:id="@+id/forgot_password_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/submit"
+        android:layout_below="@+id/relTop"
+        android:paddingLeft="6dp"
+        android:paddingRight="30dp"
+        android:paddingTop="40dp"
+        android:textColor="@android:color/black"
+        android:text="Enter username to reset password"
+        android:textSize="@dimen/font_size" />
+
+</RelativeLayout>

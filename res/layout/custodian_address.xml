@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/payment_history_bg" 
+      android:id="@+id/layout_address">
+      
+       <!-- android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="50dp"  -->
+    
+  <!--   
+   <ScrollView  android:id ="@+id/layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/relTop"
+     android:background="@drawable/payment_history_bg"
+      android:layout_marginTop="20dp"
+      android:paddingBottom="20dp"
+      android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+    <RelativeLayout 
+         android:id ="@+id/Lagos_layout"
+   	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   
+   
+   
+  
+   >
+    <TextView
+    android:id = "@+id/Lagos"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Lagos Office"
+    android:layout_marginLeft="15dp"
+  	android:layout_marginTop="10dp"
+    android:textStyle="bold"
+    android:textSize="@dimen/font_size"/>
+    
+     <TextView
+    android:id = "@+id/Lagos1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="16A, Commercial Avenue,"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos"
+    android:textSize="@dimen/font_size"/>   
+   
+       <TextView
+    android:id = "@+id/Lagos2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Sabo, Yaba,Lagos State."
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos1"
+    android:textSize="@dimen/font_size"/>    
+   
+    
+     
+    
+
+    
+       <TextView
+    android:id = "@+id/Abuja"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Abuja Offices"
+	android:layout_marginTop="20dp"
+    android:textStyle = "bold"
+    android:textSize="@dimen/font_size"
+    android:layout_marginLeft="15dp"
+    android:layout_below="@+id/Lagos2"/>  
+     <TextView
+    android:id = "@+id/Abuja1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="4th Floor, ITF House,"
+	android:layout_marginLeft="15dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja"/> 
+    
+     <TextView
+    android:id = "@+id/Abuja2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="6, Adetokunbo Ademola Crescent, Maitama,Abuja"
+	android:layout_marginLeft="15dp"
+    android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Abuja1"/> 
+        
+     
+       
+    
+     <TextView
+    android:id = "@+id/Kano"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kano Office"
+	android:textStyle="bold"
+	android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   android:layout_marginTop="20dp"
+    android:layout_below="@+id/Abuja2"/>    
+         <TextView
+    android:id = "@+id/Kano1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="2, Bank Road,"
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   
+    android:layout_below="@+id/Kano"/>    
+      <TextView
+    android:id = "@+id/Kano2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kano,Kano State."
+    android:textSize="@dimen/font_size"
+	android:layout_marginLeft="15dp"
+   
+    android:layout_below="@+id/Kano1"/>  
+    
+                 
+      <TextView
+    android:id = "@+id/Port"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Port Harcourt Office"
+	android:textStyle="bold"
+	android:layout_marginLeft="15dp"
+   android:layout_marginTop="20dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Kano2"/>  
+    
+      
+         <TextView
+    android:id = "@+id/Port1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="180 Aba Road,"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port"/>
+         
+          
+         <TextView
+    android:id = "@+id/Port2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PortHarcourt, Rivers State"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port1"/> 
+    
+     
+    
+          
+     
+               <TextView
+    android:id = "@+id/Onitsha"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Onitsha Office"
+   	android:textStyle="bold"
+   	android:layout_marginLeft="15dp"
+   	android:layout_marginTop="20dp"
+   	android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Port2"/> 
+    
+                       <TextView
+    android:id = "@+id/Onitsha1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="60A, Old Market Road,"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha"/> 
+    
+          <TextView
+    android:id = "@+id/Onitsha2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Onitsha, Anambra State."
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha1"/> 
+    
+           <TextView
+    android:id = "@+id/Benin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benin Office"
+   	android:textStyle="bold"
+   	android:layout_marginLeft="15dp"
+   	android:layout_marginTop="20dp"
+   	android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Onitsha2"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:text="95A, 1st East Circular Road,"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin"/> 
+    
+                 <TextView
+    android:id = "@+id/Benin2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benin City,Edo State"
+   android:layout_marginLeft="15dp"
+   android:textSize="@dimen/font_size"
+    android:layout_below="@+id/Benin1"/> 
+           
+    </RelativeLayout>
+
+</ScrollView> -->
+</RelativeLayout>

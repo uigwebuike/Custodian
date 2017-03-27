@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_image">
+  
+      <RelativeLayout
+        
+        android:id="@+id/relTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bar">
+        
+        
+        
+        <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+      	android:layout_marginLeft="2dp"
+      	android:layout_marginRight="10dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/btn_back" />
+        
+         
+          
+           <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
+      	android:textSize="@dimen/head_size"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/title"
+        android:text = "VIEW DETAILS"
+        
+        />
+            <ImageButton
+        android:id="@+id/home"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+  		android:layout_alignParentRight="true"
+  		android:layout_centerVertical="true"
+      	android:layout_marginRight="1dp"
+      	android:background="@android:color/transparent"
+      	
+        android:src="@drawable/icon_home" />
+           </RelativeLayout> 
+ <TextView
+        android:id="@+id/viewClaimsHeading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="18sp"
+		android:background="@drawable/red_tab_view_details"
+		android:textColor="@android:color/white"
+		android:textStyle="bold"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp" 
+        android:layout_below="@+id/relTop"
+        android:text="CLAIM NO. : 000001201"    
+         /> 
+         
+ 
+ 
+ <ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:layout_marginBottom="22dp"
+        android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp"
+
+        android:layout_below="@+id/viewClaimsHeading"
+          android:background="@drawable/payment_history_bg">
+     
+    
+<RelativeLayout 
+     android:id="@+id/viewPolicy_first" 
+  	android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout 
+   
+    android:id="@+id/viewPolicy" 
+  	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+ 
+
+   >
+   
+        <TextView
+        android:id="@+id/viewClaimsHeadingFirst"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+		android:textSize="@dimen/font_size"
+
+		android:textColor="@android:color/white"
+		android:gravity="left|center_vertical"
+        android:paddingLeft="15dp"
+       	android:layout_centerVertical="true"
+        
+        android:background="@drawable/top_bar_gray"
+        android:text="When And Where it happened"    
+         /> 
+        </RelativeLayout>
+    
+    <RelativeLayout
+        
+    android:id="@+id/viewPolicy_tab1" 
+  	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+ 
+		android:layout_below="@+id/viewPolicy"
+         >
+        
+      
+         
+   		<TextView
+        android:id="@+id/dateOfIncident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp" 
+        
+        android:text="Date of Incident:"    
+         />  
+         
+   		<TextView
+        android:id="@+id/dateOfIncident_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/dateOfIncident"
+
+		android:textColor="@android:color/black"
+        android:paddingLeft="50dp"
+        android:paddingTop="20dp" 
+        android:text="Date of Incident:"    
+         /> 
+         
+   			
+   		<TextView
+        android:id="@+id/timeOfIncident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/dateOfIncident"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+       
+        android:text="Time of Incident:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/timeOfIncident_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/timeOfIncident"
+		android:layout_below="@+id/dateOfIncident_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="48dp"
+        android:paddingTop="15dp" 
+    
+        android:text="Time of Incident:"    
+         />  
+         
+   		<TextView
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/timeOfIncident"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="State:"    
+        
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/state_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/state"
+		android:layout_below="@+id/timeOfIncident_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="119dp"
+        android:paddingTop="15dp" 
+        
+  
+         />  
+   		
+   		<TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/state"
+		
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:paddingBottom="10dp"
+        android:text="City:"   
+        android:textColor="@android:color/black" 
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/city_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/state"
+		android:layout_below="@+id/state_Value"
+		
+        android:paddingLeft="119dp"
+        android:paddingTop="15dp" 
+        android:paddingBottom="10dp"
+       android:textColor="@android:color/black"
+         />  
+        
+   		
+   		<TextView
+        android:id="@+id/viewClaimsHeadingSecond"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/city"
+		android:textColor="@android:color/white"
+        android:paddingLeft="15dp"
+        
+       android:layout_centerVertical="true"
+        
+       
+      	android:gravity="left|center_vertical"
+        android:background="@drawable/top_bar_gray"
+        android:text=""    
+         />  
+         
+   		<TextView
+        android:id="@+id/vehicleInvolved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/viewClaimsHeadingSecond"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Vehicle Involved:" 
+         
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleInvolved_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/vehicleInvolved"
+		android:layout_below="@+id/viewClaimsHeadingSecond"
+		android:textColor="@android:color/black"
+        android:paddingLeft="47dp"
+        android:paddingTop="15dp"
+      
+         />  
+         
+   		<TextView
+        android:id="@+id/causeOfDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/vehicleInvolved"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Cause of Damage:"  
+      
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/causeOfDamage_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/causeOfDamage"
+		android:layout_below="@+id/vehicleInvolved_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="37dp"
+        android:paddingTop="15dp" 
+        android:paddingRight="10dp"
+        android:text="giuf9o4iyh8wjoe4bgugtrdfsytwegf7wlyre 8ium9 youjEHiwh"
+    
+         />  
+         
+   		<TextView
+        android:id="@+id/incidentDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/causeOfDamage"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="70dp" 
+        
+        android:paddingBottom="10dp"
+        android:text="Incident Description:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/incidentDesc_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/incidentDesc"
+		android:layout_below="@+id/causeOfDamage_Value"
+		android:textColor="@android:color/black"
+      android:layout_alignBaseline="@+id/incidentDesc"
+        android:layout_marginLeft="22dp"
+     android:layout_marginTop="16dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+        android:layout_marginBottom="20dp"
+        android:text = "hijs"
+         
+         />  
+   		
+   		  
+   		<TextView
+        android:id="@+id/yourContactInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/incidentDesc"
+		android:textColor="@android:color/white"
+		android:gravity="left|center_vertical"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="70dp"
+       android:layout_centerVertical="true"
+        
+        android:background="@drawable/top_bar_gray"
+        android:text="Your Contact Info"    
+         />  
+   		
+   		<TextView
+        android:id="@+id/contactNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/yourContactInfo"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Contact Number:"    
+      
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/contactNumber_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/contactNumber"
+		android:layout_below="@+id/yourContactInfo"
+		android:textColor="@android:color/black"
+        android:paddingLeft="45dp"
+        android:paddingTop="15dp" 
+      
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/contactEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/contactNumber"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Contact Email:"   
+        
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/contactEmail_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/contactNumber_Value"
+		android:layout_toRightOf="@+id/contactEmail"
+		android:textColor="@android:color/black"
+        android:paddingLeft="60dp"
+        android:paddingTop="15dp" 
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+      
+         />  
+         
+   		
+   		
+   		
+   		<TextView
+        android:id="@+id/VehicleDetails"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+		android:textSize="@dimen/font_size"
+		android:textStyle="bold"
+		android:layout_below="@+id/contactEmail_Value"
+		android:textColor="@android:color/white"
+        android:paddingLeft="15dp"
+     
+       android:layout_centerVertical="true"
+        
+        android:paddingRight="10dp"
+        android:background="@drawable/top_bar_gray"
+        android:gravity="left|center_vertical"
+        android:text="Vehicles Details"    
+         /> 
+         
+   		
+   		<TextView
+        android:id="@+id/driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/VehicleDetails"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Driver of this vehicle:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/driver_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/driver"
+		android:layout_below="@+id/VehicleDetails"
+		android:textColor="@android:color/black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp" 
+          
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleUse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/driver"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Vehicle Use:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleUse_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/vehicleUse"
+		android:layout_below="@+id/driver_Value"
+		android:textColor="@android:color/black"
+        android:layout_marginLeft = "75dp"
+        android:paddingTop="15dp" 
+           
+         />  
+         
+   		<TextView
+        android:id="@+id/damaged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/vehicleUse"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Was the vehicle"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/damaged_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/damaged"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        
+        android:text="damaged?:"    
+         />  
+   		
+   		<TextView
+        android:id="@+id/damaged_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/damaged"
+		android:layout_alignBaseline="@+id/damaged_next"
+		android:layout_below="@+id/vehicleUse_Value"
+		android:textColor="@android:color/black"
+       android:layout_marginLeft = "53dp"
+        android:paddingTop="15dp" 
+       
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/towed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/damaged_next"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Was the vehicle"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/towed_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/towed"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+       
+        android:text="towed?:"    
+         />  
+   		
+   		<TextView
+        android:id="@+id/towed_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/towed"
+		android:layout_alignBaseline="@+id/towed_next"
+		android:layout_below="@+id/damaged_Value"
+		android:textColor="@android:color/black"
+       android:layout_marginLeft = "53dp"
+        android:paddingTop="15dp" 
+          
+         />  
+         
+   		<TextView
+        android:id="@+id/Airbags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/towed_next"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Airbags Inflate? :"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/Airbags_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/Airbags"
+		android:layout_alignBaseline="@+id/Airbags"
+		android:layout_below="@+id/towed_Value"
+		android:textColor="@android:color/black"
+        android:layout_marginLeft = "47dp"
+        android:paddingTop="15dp" 
+       
+         />  
+         
+   			<TextView
+        android:id="@+id/vehicleColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/Airbags"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Vehicle Colour:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleColor_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/vehicleColor"
+		android:layout_alignBaseline="@+id/vehicleColor"
+		android:layout_below="@+id/Airbags_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="60dp"
+        android:paddingTop="15dp" 
+       
+         />  
+         
+   		<TextView
+        android:id="@+id/vehicleNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/vehicleColor"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Vehicle No.:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleNo_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/vehicleNo"
+		android:layout_alignBaseline="@+id/vehicleNo"
+		android:layout_below="@+id/vehicleColor_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="80dp"
+        android:paddingTop="15dp" 
+          
+         />  
+         
+   		
+         
+   		
+   		<TextView
+        android:id="@+id/vehicleNo_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/vehicleNo"
+		android:layout_below="@+id/vehicleColor_Value"
+		android:layout_alignBaseline="@+id/vehicleNo"
+		android:textColor="@android:color/black"
+        android:paddingLeft="80dp"
+        android:paddingTop="15dp" 
+          
+         /> 
+         
+   		
+   		<TextView
+        android:id="@+id/ChassisNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/vehicleNo"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Chassis No.:"    
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/ChassisNo_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/ChassisNo"
+		android:layout_below="@+id/vehicleNo_Value"
+		android:textColor="@android:color/black"
+		android:layout_alignBaseline="@+id/ChassisNo"
+        android:paddingLeft="76dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" 
+         
+         /> 
+   		
+   		
+   		<TextView
+        android:id="@+id/EngineNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_below="@+id/ChassisNo"
+		android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp" 
+        android:text="Engine No.:" 
+        android:paddingBottom="20dp"   
+         />  
+         
+   		
+   		<TextView
+        android:id="@+id/EngineNo_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+		android:layout_toRightOf="@+id/EngineNo"
+		android:layout_alignBaseline="@+id/EngineNo"
+		android:layout_below="@+id/ChassisNo_Value"
+		android:textColor="@android:color/black"
+        android:paddingLeft="83dp"
+        android:paddingTop="15dp" 
+        
+        android:paddingBottom="20dp"   
+         /> 
+        
+    </RelativeLayout>
+    
+    
+    
+        </RelativeLayout>
+        </ScrollView>
+      </RelativeLayout>
