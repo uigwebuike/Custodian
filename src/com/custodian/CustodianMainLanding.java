@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.custodian.CONSTANT.CONSTANTS;
 import com.custodian.InformationCenter.AboutCustodianDirect;
+import com.custodian.InformationCenter.BuyAPolicy;
 import com.custodian.InformationCenter.ContactUs;
 
 public class CustodianMainLanding extends Activity implements OnClickListener {
@@ -66,9 +67,14 @@ public class CustodianMainLanding extends Activity implements OnClickListener {
 			break;
 
 		case R.id.landing_page_buy_one_policy_layout:
-			mIntent = new Intent(android.content.Intent.ACTION_VIEW);
-			mIntent.setData(Uri
-					.parse("http://www.custodiandirect.com/index.php?page=guest.GetAQuote&reset=1"));
+//			mIntent = new Intent(android.content.Intent.ACTION_VIEW);
+//			mIntent.setData(Uri
+//					.parse("http://www.custodiandirect.com/index.php?page=guest.GetAQuote&reset=1"));
+//			startActivity(mIntent);
+//			break;
+			mIntent = new Intent(CustodianMainLanding.this,
+					BuyAPolicy.class);
+			mIntent.putExtra("aboutKey","aboutKey");
 			startActivity(mIntent);
 			break;
 
