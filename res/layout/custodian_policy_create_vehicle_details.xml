@@ -35,6 +35,7 @@
 			android:layout_centerInParent="true"
 			android:textAllCaps="true"
 			android:textSize="@dimen/head_size"
+
 			android:textColor="#fff"
 			android:layout_toRightOf="@+id/title_text"
 			android:text = "Get A Quote"
@@ -82,7 +83,7 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 
-		android:text="Customer Details"
+		android:text="Vehicle Details"
 		android:textColor="@android:color/white"
 		android:gravity="center"
 
@@ -96,8 +97,8 @@
 		android:id="@+id/scrollview"
 		android:layout_width="fill_parent"
 		android:layout_height="match_parent"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/Heading_Of_Tabs">
+		android:layout_below="@+id/Heading_Of_Tabs"
+		android:layout_alignParentLeft="true">
 
 
 
@@ -116,28 +117,29 @@
 
 
 		<TextView
-			android:text="Title"
-			android:layout_width="112dp"
+			android:text="Registration Number"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_row="0"
 			android:layout_column="0"
 			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView2"/>
 
-		<Spinner
+		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/title_spinner"
+			android:inputType="textPersonName"
+			android:ems="10"
+			android:id="@+id/reg_no"
 			android:layout_row="1"
 			android:layout_column="0"
-			android:entries="@array/title"
-			android:prompt="@string/title_prompt"
-			android:background="@drawable/drop_down_large"
+			android:hint="Registration Number"
+			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
 
 		<TextView
-			android:text="Surname"
-			android:layout_width="268dp"
+			android:text="Vehicle MAke"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView3"
 			android:textColor="@android:color/background_dark"
@@ -149,20 +151,20 @@
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName"
 			android:ems="10"
-			android:id="@+id/surname"
+			android:id="@+id/vehicle_make"
 			android:layout_row="3"
 			android:layout_column="0"
-			android:hint="Surname"
+			android:hint="Vehicle Make"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
 
 		<TextView
-			android:text="Othernames"
-			android:layout_width="77dp"
+			android:text="Chassis Number"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView4"
 			android:layout_row="4"
+			android:textColor="@android:color/background_dark"
 			android:layout_column="0"/>
 
 		<EditText
@@ -170,41 +172,44 @@
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName"
 			android:ems="10"
-			android:id="@+id/othernames"
+			android:id="@+id/chassis_number"
 			android:layout_row="5"
 			android:layout_column="0"
-			android:hint="Othernames"
+			android:hint="Chassis Number"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
 
 		<TextView
-			android:text="Date of Birth"
-			android:layout_width="134dp"
+			android:text="Vehicle Value"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView5"
+			android:textColor="@android:color/background_dark"
 			android:layout_row="6"
 			android:layout_column="0"
 			tools:ignore="HardcodedText"/>
 
+
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="date"
-			android:ems="10"
-			android:textColor="@android:color/background_dark"
-			android:id="@+id/dateofbirth"
+			android:inputType="number"
+			android:ems="7"
+			android:id="@+id/vehicle_value"
 			android:layout_row="7"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
+			android:hint="Vehicle Value"
 			android:paddingLeft="10dp"/>
 
+
+
 		<TextView
-			android:text="Occupation"
-			android:layout_width="134dp"
+			android:text="Type of Cover"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView6"
+			android:textColor="@android:color/background_dark"
 			android:layout_row="8"
 			android:layout_column="0"/>
 
@@ -214,29 +219,45 @@
 		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/occupation_spinner"
+			android:id="@+id/cover_spinner"
 			android:layout_row="9"
 			android:layout_column="0"
-			android:entries="@array/occupation"
-			android:prompt="@string/occupation_prompt"
+			android:entries="@array/coverType"
+			android:prompt="@string/cover_prompt"
 			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
 
 
-		<TextView
-			android:text="Address"
-			android:layout_width="134dp"
-			android:layout_height="wrap_content"
-			android:id="@+id/textView7"
-			android:layout_row="10"
-			android:textColor="@android:color/background_dark"
-			android:layout_column="0"/>
+
+
+
 
 		<TextView
-			android:text="Username"
-			android:layout_width="134dp"
+			android:text="Insurance StartDate"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/textView8"
+			android:id="@+id/textView7"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="10"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="7"
+			android:id="@+id/insurance_startdate"
+			android:layout_row="11"
+			android:layout_column="0"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"
+			android:hint="yyyy/mm/dd"/>
+
+		<TextView
+			android:text="Insurance EndDate"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView9"
 			android:textColor="@android:color/background_dark"
 			android:layout_row="12"
 			android:layout_column="0"/>
@@ -244,59 +265,54 @@
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="text"
-			android:ems="10"
-			android:id="@+id/username"
+			android:inputType="number"
+			android:ems="7"
+			android:id="@+id/insurance_enddate"
 			android:layout_row="13"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			android:paddingLeft="10dp"
+			android:hint="yyyy/mm/dd"/>
 
 		<TextView
-			android:text="Password"
-			android:layout_width="134dp"
-			android:layout_height="wrap_content"
-			android:id="@+id/textView9"
-			android:layout_row="14"
-			android:textColor="@android:color/background_dark"
-			android:layout_column="0"/>
-
-		<EditText
+			android:text="The Company will settle any claim under this policy within 3 days from the date of receipt of the signed discharged voucher. In the event that the company decides to reject a claim made under this policy, the company shall inform you with a period of seven days of the inspection report."
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:inputType="textWebPassword"
-			android:ems="10"
-			android:id="@+id/password"
+			android:layout_height="match_parent"
+			android:id="@+id/textView11"
+
 			android:layout_row="15"
 			android:layout_column="0"
-			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			android:layout_marginTop="2dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/holo_red_light"
+			android:textAlignment="gravity"
+			android:textSize="12sp"/>
+
 
 		<ImageView
-			android:id="@+id/continue_imag_policy"
+			android:id="@+id/continue_imag_vehicleDetails"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-
 			android:layout_centerHorizontal="true"
-			android:layout_below="@+id/edt_forgot_password"
-			android:layout_row="16"
+			android:layout_row="17"
 			android:layout_column="0"
 			android:layout_marginTop="10dp"
 			android:background="@drawable/btn_continue"
 			android:layout_marginBottom="30dp"/>
 
-		<EditText
-			android:layout_width="match_parent"
-			android:layout_height="118dp"
-			android:inputType="textMultiLine"
-			android:lines="3"
-			android:ems="10"
-			android:id="@+id/address"
-			android:layout_row="11"
+		<TextView
+			android:text="Claim Settlement"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/textView10"
+			android:layout_row="14"
 			android:layout_column="0"
-			android:background="@drawable/text_field_large"
-			android:paddingLeft="10dp"
-			android:paddingRight="10dp"/>
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/background_dark"
+			android:textAlignment="gravity"
+			android:textStyle="normal|bold"/>
+
 
 	</GridLayout>
 

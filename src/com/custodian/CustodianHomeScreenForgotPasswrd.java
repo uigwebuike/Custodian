@@ -16,13 +16,9 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -75,7 +71,7 @@ public class CustodianHomeScreenForgotPasswrd extends Activity implements Custod
 
         mForgotPassword = (TextView)findViewById(R.id.forgot_password_email);
         edtForgotPassd = (EditText)findViewById(R.id.edt_forgot_password);
-        mSubmit = (ImageView)findViewById(R.id.submit);
+        mSubmit = (ImageView)findViewById(R.id.continue_imag_policy);
         
         Typeface face = Typeface.createFromAsset(getAssets(),CONSTANTS.FONT_NAME);
         
@@ -213,7 +209,7 @@ public class CustodianHomeScreenForgotPasswrd extends Activity implements Custod
 //	        startActivity(myIntent);
 			finish();
 	        break;
-		case R.id.submit :
+		case R.id.continue_imag_policy:
 			 mUserID= edtForgotPassd.getText().toString();
 				if(mUserID.equalsIgnoreCase("")){
 					new DisplayMessageAlert(CustodianHomeScreenForgotPasswrd.this,"Please enter User ID","Ok");

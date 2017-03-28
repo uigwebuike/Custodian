@@ -1,43 +1,32 @@
 package com.custodian;
 
-import java.util.regex.Pattern;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.custodian.CONSTANT.CONSTANTS;
 import com.custodian.CustodianWebservices.CommonWebservice;
-import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.ForgotInterface;
 import com.custodian.CustodianWebservices.ForgotWebservice;
-import com.custodian.InformationCenter.ContactUs;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class CustodianHomeScreenForgotID extends Activity implements CustodianInterface,OnClickListener, ForgotInterface{
@@ -78,7 +67,7 @@ public class CustodianHomeScreenForgotID extends Activity implements CustodianIn
 			}
         	}
         };
-        mSubmit = (ImageView)findViewById(R.id.submit);
+        mSubmit = (ImageView)findViewById(R.id.continue_imag_policy);
         mForgotPassword = (TextView)findViewById(R.id.forgot_password_email);
         edtForgotPassd = (EditText)findViewById(R.id.edt_forgot_password);
         
@@ -261,7 +250,7 @@ public class CustodianHomeScreenForgotID extends Activity implements CustodianIn
 			finish();
 	        break;
 	    
-		case R.id.submit :
+		case R.id.continue_imag_policy:
 			mGetEmail = edtForgotPassd.getText().toString();
 			if(mGetEmail.equalsIgnoreCase("")){
 				new DisplayMessageAlert(CustodianHomeScreenForgotID.this,"Email address is required","Ok");

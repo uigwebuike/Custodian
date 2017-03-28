@@ -5,11 +5,15 @@
     <string name="action_settings"></string>
     <string name="hello_world"></string>
 
+    <string name="title_prompt">Choose a title</string>
+    <string name="occupation_prompt">Choose your Occupation</string>
+    <string name="cover_prompt">Choose your Cover Type</string>
+
     
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
- <string name = "discuss_about_header_state">States</string>
- <string name = "discuss_about_header_city">Cities</string>
+    <string name = "discuss_about_header_state">States</string>
+    <string name = "discuss_about_header_city">Cities</string>
  
     <string-array name="countries">
         <item>MANAGE POLICY</item>
@@ -19,7 +23,7 @@
         <item>MY INFO</item>
         <item>LOGOUT</item>
         
-           </string-array>
+    </string-array>
       
         <string-array name = "reportclaimbasics">
             <item>My vehicle was hit when it was parked</item>
@@ -47,4 +51,62 @@
             
      
     </string-array>
+
+
+
+
+
+    <string-array name = "title">
+        <item>MISS</item>
+        <item>MASTER</item>
+        <item>MR</item>
+        <item>MRS</item>
+        <item>DR</item>
+        <item>PROF</item>
+        <item>CHIEF</item>
+        <item>ALHAJI</item>
+        <item>PASTOR</item>
+        <item>REV</item>
+    </string-array>
+
+
+
+
+
+    <string-array name = "occupation">
+
+        <item>Medical Practitioner</item>
+        <item>Engineer</item>
+        <item>Lawyer</item>
+        <item>Civil Servant</item>
+        <item>Banker</item>
+        <item>Military</item>
+        <item>Accountant</item>
+        <item>Insurance Broker</item>
+        <item>Journalist</item>
+        <item>Pharmacist</item>
+        <item>Technician</item>
+        <item>Pilot</item>
+        <item>Architect</item>
+        <item>Teacher</item>
+        <item>Stock Broker</item>
+        <item>Economist</item>
+        <item>Geologist</item>
+        <item>Quantity Surveyor</item>
+        <item>Fashion Designer</item>
+        <item>Others</item>
+
+    </string-array>
+
+
+    <string-array name = "coverType">
+
+        <item>Comprehensive</item>
+        <item>Third Party</item>
+
+
+    </string-array>
+
+
+
 </resources>

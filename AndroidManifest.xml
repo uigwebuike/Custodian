@@ -56,12 +56,12 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
-        <activity
+        <!--activity
             android:name="com.custodian.CustodianHomeScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+        </activity-->
         <activity
             android:name="com.custodian.ManagePolicy.Documents"
             android:label="@string/app_name"
@@ -92,6 +92,19 @@
                 android:label="@string/app_name"
                 android:screenOrientation="portrait"
                 android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.custodian.InformationCenter.BuyAPolicyVehicledetails"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.custodian.InformationCenter.BuyAPolicyPayment"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="com.custodian.InformationCenter.ClaimsProcess"

@@ -16,22 +16,20 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
+
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
-import com.custodian.ClaimsCenter.ReportClaimBasic;
-import com.custodian.ClaimsCenter.ReportClaimWhoWasInvolved;
 import com.custodian.CustodianHomeScreenMain;
 import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,12 +39,10 @@ import java.util.regex.Pattern;
  * Contact us class is used to submit the contact us form using webservice that
  * takes the id of the user as a json paramater.
  */
-public class BuyAPolicy extends Activity implements OnClickListener,
+public class BuyAPolicyPayment extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText surname, othername, address, username,password,dateofbirth;
-    ;
-    Spinner title_spinner, occupation_spinner;
+
     String flag;
 
     boolean value;
@@ -80,7 +76,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custodian_policy_create_start);
+        setContentView(R.layout.custodian_policy_create_payment);
 
         mSplaHandler = new Handler() {
             @Override
@@ -102,25 +98,14 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         mback.setOnClickListener(this);
         mHome = (ImageButton) findViewById(R.id.home);
         mHome.setOnClickListener(this);
-        btnContinue = (ImageView)findViewById(R.id.continue_imag_policy);
-        btnContinue.setOnClickListener(this);
+       // btnContinue = (ImageView)findViewById(R.id.continue_imag_vehicleDetails);
+        //btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
 
-        title_spinner = (Spinner) findViewById(R.id.title_spinner) ;
-        occupation_spinner = (Spinner) findViewById(R.id.occupation_spinner);
-        surname = (EditText) findViewById(R.id.surname) ;
-        surname.setTypeface(face);
-        othername = (EditText) findViewById(R.id.othernames);
-        othername.setTypeface(face);
-        address = (EditText) findViewById(R.id.address);
-        address.setTypeface(face);
-        username  = (EditText) findViewById(R.id.username);
-        username.setTypeface(face);
-        password = (EditText) findViewById(R.id.password);
-        password.setTypeface(face);
-        dateofbirth = (EditText) findViewById(R.id.dateofbirth);
-        dateofbirth.setTypeface(face);
+
+
+
 
 
         /*
@@ -186,11 +171,11 @@ public class BuyAPolicy extends Activity implements OnClickListener,
             case R.id.imageView1:
                 // Back button will navigate the user to previous screen.
                 if (getContactKey != null) {
-                    myIntent = new Intent(BuyAPolicy.this,
-                            CustodianMainLanding.class);
+                    myIntent = new Intent(BuyAPolicyPayment.this,
+                            BuyAPolicyVehicledetails.class);
                     startActivity(myIntent);
                 } else {
-                    myIntent = new Intent(BuyAPolicy.this,
+                    myIntent = new Intent(BuyAPolicyPayment.this,
                             InformationCenterMenuScreen.class);
                     startActivity(myIntent);
                 }
@@ -199,12 +184,14 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicy.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyPayment.this, CustodianHomeScreenMain.class);
                 startActivity(myIntent);
                 break;
 
-            case R.id.continue_imag_policy:
+            case R.id.continue_imag_vehicleDetails:
 
+
+                EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
 
                 sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
@@ -212,26 +199,17 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
 
 
-                editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
-                Log.e("title_spinner",sharedPreferences.getString("title_spinner",""));
-                editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
-                Log.e("occupation_spinner",sharedPreferences.getString("occupation_spinner",""));
-                editor.putString("surname",surname.getText().toString());
-                Log.e("surname",sharedPreferences.getString("surname",""));
-                editor.putString("othername",othername.getText().toString());
-                Log.e("othername",sharedPreferences.getString("othername",""));
-                editor.putString("address",address.getText().toString());
-                Log.e("address",sharedPreferences.getString("address",""));
-                editor.putString("username",username.getText().toString());
-                Log.e("username",sharedPreferences.getString("username",""));
-                editor.putString("password",password.getText().toString());
-                Log.e("password",sharedPreferences.getString("password",""));
-                editor.putString("dateofbirth",dateofbirth.getText().toString());
-                Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
+              //dummy class to post and create a policy
+
 
                 editor.commit();
 
-                myIntent = new Intent(BuyAPolicy.this, BuyAPolicyVehicledetails.class);
+
+
+
+                //call the webservice to create leadquote
+
+                myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyPayment.class);
 
                 startActivity(myIntent);
 
@@ -313,9 +291,8 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json.put("reason", "FEEDBACK");
                 json.put("status", "NEW");
                 json.put("subject", subject);
-
                 new ContactUsWebservice(WebserviceURLs.CONTACT_US, "",
-                        BuyAPolicy.this, BuyAPolicy.this, true, json,
+                        BuyAPolicyPayment.this, BuyAPolicyPayment.this, true, json,
                         "Submitting...").execute();
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -338,7 +315,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     private void CheckStatus(String message) {
         // TODO Auto-generated method stub
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicy.this);
+                BuyAPolicyPayment.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
         alertDialog.setCancelable(false);
@@ -354,11 +331,11 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                     public void onClick(DialogInterface dialog, int which) {
 
                         if (getContactKey != null) {
-                            myIntent = new Intent(BuyAPolicy.this,
+                            myIntent = new Intent(BuyAPolicyPayment.this,
                                     CustodianMainLanding.class);
                             startActivity(myIntent);
                         } else {
-                            myIntent = new Intent(BuyAPolicy.this,
+                            myIntent = new Intent(BuyAPolicyPayment.this,
                                     InformationCenterMenuScreen.class);
                             startActivity(myIntent);
                         }
@@ -377,7 +354,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     private void Showalerts(String message) {
         // TODO Auto-generated method stub
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicy.this);
+                BuyAPolicyPayment.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
 

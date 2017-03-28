@@ -16,22 +16,20 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
+
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
-import com.custodian.ClaimsCenter.ReportClaimBasic;
-import com.custodian.ClaimsCenter.ReportClaimWhoWasInvolved;
 import com.custodian.CustodianHomeScreenMain;
 import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,12 +39,76 @@ import java.util.regex.Pattern;
  * Contact us class is used to submit the contact us form using webservice that
  * takes the id of the user as a json paramater.
  */
-public class BuyAPolicy extends Activity implements OnClickListener,
+public class BuyAPolicyVehicledetails extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText surname, othername, address, username,password,dateofbirth;
-    ;
-    Spinner title_spinner, occupation_spinner;
+    EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public Spinner getCover_spinner() {
+        return cover_spinner;
+    }
+
+    public void setCover_spinner(Spinner cover_spinner) {
+        this.cover_spinner = cover_spinner;
+    }
+
+    public EditText getInsurance_enddate() {
+        return insurance_enddate;
+    }
+
+    public void setInsurance_enddate(EditText insurance_enddate) {
+        this.insurance_enddate = insurance_enddate;
+    }
+
+    public EditText getInsurance_startdate() {
+        return insurance_startdate;
+    }
+
+    public void setInsurance_startdate(EditText insurance_startdate) {
+        this.insurance_startdate = insurance_startdate;
+    }
+
+    public EditText getVehicle_value() {
+        return vehicle_value;
+    }
+
+    public void setVehicle_value(EditText vehicle_value) {
+        this.vehicle_value = vehicle_value;
+    }
+
+    public EditText getChassis_number() {
+        return chassis_number;
+    }
+
+    public void setChassis_number(EditText chassis_number) {
+        this.chassis_number = chassis_number;
+    }
+
+    public EditText getVehicle_make() {
+        return vehicle_make;
+    }
+
+    public void setVehicle_make(EditText vehicle_make) {
+        this.vehicle_make = vehicle_make;
+    }
+
+    public EditText getReg_no() {
+        return reg_no;
+    }
+
+    public void setReg_no(EditText reg_no) {
+        this.reg_no = reg_no;
+    }
+
+    Spinner cover_spinner;
     String flag;
 
     boolean value;
@@ -80,7 +142,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custodian_policy_create_start);
+        setContentView(R.layout.custodian_policy_create_vehicle_details);
 
         mSplaHandler = new Handler() {
             @Override
@@ -102,25 +164,26 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         mback.setOnClickListener(this);
         mHome = (ImageButton) findViewById(R.id.home);
         mHome.setOnClickListener(this);
-        btnContinue = (ImageView)findViewById(R.id.continue_imag_policy);
+        btnContinue = (ImageView)findViewById(R.id.continue_imag_vehicleDetails);
         btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
 
-        title_spinner = (Spinner) findViewById(R.id.title_spinner) ;
-        occupation_spinner = (Spinner) findViewById(R.id.occupation_spinner);
-        surname = (EditText) findViewById(R.id.surname) ;
-        surname.setTypeface(face);
-        othername = (EditText) findViewById(R.id.othernames);
-        othername.setTypeface(face);
-        address = (EditText) findViewById(R.id.address);
-        address.setTypeface(face);
-        username  = (EditText) findViewById(R.id.username);
-        username.setTypeface(face);
-        password = (EditText) findViewById(R.id.password);
-        password.setTypeface(face);
-        dateofbirth = (EditText) findViewById(R.id.dateofbirth);
-        dateofbirth.setTypeface(face);
+
+        this.setReg_no((EditText)findViewById(R.id.reg_no));
+        this.getReg_no().setTypeface(face);
+        this.setVehicle_make((EditText)findViewById(R.id.vehicle_make));
+        this.getVehicle_make().setTypeface(face);
+        this.setChassis_number((EditText) findViewById(R.id.chassis_number)) ;
+        this.getChassis_number().setTypeface(face);
+        this.setVehicle_value((EditText)findViewById(R.id.vehicle_value));
+        this.getVehicle_value().setTypeface(face);
+        this.setInsurance_startdate((EditText) findViewById(R.id.insurance_startdate));
+        this.getInsurance_startdate().setTypeface(face);
+        this.setInsurance_enddate((EditText) findViewById(R.id.insurance_enddate));
+        this.getInsurance_enddate().setTypeface(face);
+        this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
+
 
 
         /*
@@ -186,11 +249,11 @@ public class BuyAPolicy extends Activity implements OnClickListener,
             case R.id.imageView1:
                 // Back button will navigate the user to previous screen.
                 if (getContactKey != null) {
-                    myIntent = new Intent(BuyAPolicy.this,
-                            CustodianMainLanding.class);
+                    myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                            BuyAPolicy.class);
                     startActivity(myIntent);
                 } else {
-                    myIntent = new Intent(BuyAPolicy.this,
+                    myIntent = new Intent(BuyAPolicyVehicledetails.this,
                             InformationCenterMenuScreen.class);
                     startActivity(myIntent);
                 }
@@ -199,12 +262,14 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicy.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyVehicledetails.this, CustodianHomeScreenMain.class);
                 startActivity(myIntent);
                 break;
 
-            case R.id.continue_imag_policy:
+            case R.id.continue_imag_vehicleDetails:
 
+
+                EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
 
                 sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
@@ -212,26 +277,30 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
 
 
-                editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
-                Log.e("title_spinner",sharedPreferences.getString("title_spinner",""));
-                editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
-                Log.e("occupation_spinner",sharedPreferences.getString("occupation_spinner",""));
-                editor.putString("surname",surname.getText().toString());
-                Log.e("surname",sharedPreferences.getString("surname",""));
-                editor.putString("othername",othername.getText().toString());
-                Log.e("othername",sharedPreferences.getString("othername",""));
-                editor.putString("address",address.getText().toString());
-                Log.e("address",sharedPreferences.getString("address",""));
-                editor.putString("username",username.getText().toString());
-                Log.e("username",sharedPreferences.getString("username",""));
-                editor.putString("password",password.getText().toString());
-                Log.e("password",sharedPreferences.getString("password",""));
-                editor.putString("dateofbirth",dateofbirth.getText().toString());
-                Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
+                editor.putString("reg_no",this.getReg_no().getText().toString());
+                Log.e("reg_no",sharedPreferences.getString("reg_no",""));
+                editor.putString("vehicle_make",this.getVehicle_make().getText().toString());
+                Log.e("vehicle_make",sharedPreferences.getString("vehicle_make",""));
+                editor.putString("chassis_number",this.getChassis_number().getText().toString());
+                Log.e("chassis_number",sharedPreferences.getString("chassis_number",""));
+                editor.putString("vehicle_value",this.getVehicle_value().getText().toString());
+                Log.e("vehicle_value",sharedPreferences.getString("vehicle_value",""));
+                editor.putString("insurance_startdate",this.getInsurance_startdate().getText().toString());
+                Log.e("insurance_startdate",sharedPreferences.getString("insurance_startdate",""));
+                editor.putString("insurance_enddate",this.getInsurance_enddate().getText().toString());
+                Log.e("insurance_enddate",sharedPreferences.getString("insurance_enddate",""));
+                editor.putString("cover_spinner",this.getCover_spinner().getSelectedItem().toString());
+                Log.e("cover_spinner",sharedPreferences.getString("cover_spinner",""));
+
 
                 editor.commit();
 
-                myIntent = new Intent(BuyAPolicy.this, BuyAPolicyVehicledetails.class);
+
+
+
+                //call the webservice to create leadquote
+
+                myIntent = new Intent(BuyAPolicyVehicledetails.this, BuyAPolicyPayment.class);
 
                 startActivity(myIntent);
 
@@ -313,9 +382,8 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json.put("reason", "FEEDBACK");
                 json.put("status", "NEW");
                 json.put("subject", subject);
-
                 new ContactUsWebservice(WebserviceURLs.CONTACT_US, "",
-                        BuyAPolicy.this, BuyAPolicy.this, true, json,
+                        BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
                         "Submitting...").execute();
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -338,7 +406,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     private void CheckStatus(String message) {
         // TODO Auto-generated method stub
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicy.this);
+                BuyAPolicyVehicledetails.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
         alertDialog.setCancelable(false);
@@ -354,11 +422,11 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                     public void onClick(DialogInterface dialog, int which) {
 
                         if (getContactKey != null) {
-                            myIntent = new Intent(BuyAPolicy.this,
+                            myIntent = new Intent(BuyAPolicyVehicledetails.this,
                                     CustodianMainLanding.class);
                             startActivity(myIntent);
                         } else {
-                            myIntent = new Intent(BuyAPolicy.this,
+                            myIntent = new Intent(BuyAPolicyVehicledetails.this,
                                     InformationCenterMenuScreen.class);
                             startActivity(myIntent);
                         }
@@ -377,7 +445,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     private void Showalerts(String message) {
         // TODO Auto-generated method stub
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicy.this);
+                BuyAPolicyVehicledetails.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
 

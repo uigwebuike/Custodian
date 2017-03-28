@@ -510,7 +510,7 @@ public final class R {
         public static final int start_date=0x7f0900dd;
         public static final int state=0x7f09018f;
         public static final int state_Value=0x7f090190;
-        public static final int submit=0x7f09007b;
+        public static final int continue_imag_policy =0x7f09007b;
         public static final int textView1=0x7f090066;
         public static final int textview_spinner=0x7f0901fd;
         public static final int third_layout=0x7f0900ab;
