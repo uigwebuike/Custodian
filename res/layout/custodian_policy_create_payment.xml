@@ -112,40 +112,47 @@
 		tools:targetApi="ice_cream_sandwich">
 
 
+
 		<TextView
-			android:text="Bank Details"
+			android:text="Pay with Interswitch"
 			android:layout_width="match_parent"
-			android:id="@+id/textView"
+			android:id="@+id/textView10"
 			android:layout_row="0"
-			android:textColor="@android:color/background_dark"
 			android:layout_column="0"
+			android:textColor="@android:color/background_dark"
 			android:gravity="center"/>
 
+
 		<LinearLayout
-			android:orientation="horizontal"
+			android:orientation="vertical"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="wrap_content"
 			android:layout_row="2"
 			android:layout_column="0"
-			android:layout_marginTop="5dp"
-			android:layout_marginBottom="5dp">
+			>
 
-			<ImageView
-				android:src="@drawable/img_ibtc"
-				android:layout_width="100dp"
-				android:layout_height="89dp"
+			<TextView
+				android:text="Pay offline (Bank Details)"
+				android:layout_width="match_parent"
+				android:id="@+id/textView"
+				android:layout_row="0"
+				android:textColor="@android:color/background_dark"
+				android:layout_column="0"
+				android:gravity="center"
+				android:layout_height="30dp"
+				android:background="@android:color/darker_gray"/>
 
-				android:id="@+id/imageView2"
-				android:layout_weight="1"/>
+			<TextView
+				android:text="Complete your order by paying N7,500.00 into any of the bank accounts below.
+Please remember to provide your reference no LQLQ000033227 when making the payment."
+				android:layout_width="match_parent"
+				android:id="@+id/summaryText"
+				android:layout_row="1"
+				android:textColor="@android:color/background_dark"
+				android:layout_column="0"
+				android:gravity="center"
+				android:layout_height="87dp"/>
 
-			<ImageView
-				android:src="@drawable/img_uba"
-				android:layout_width="100dp"
-				android:layout_height="89dp"
-				android:layout_row="2"
-				android:layout_column="1"
-				android:id="@+id/imageView3"
-				android:layout_weight="1"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -154,25 +161,93 @@
 			android:layout_height="match_parent"
 			android:layout_row="3"
 			android:layout_column="0"
-			android:layout_marginBottom="5dp"
-			android:layout_marginTop="5dp">
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp">
 
 			<ImageView
-				android:src="@drawable/img_firsbanklogo"
-				android:layout_width="100dp"
+				android:src="@drawable/img_ibtc"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 
-				android:id="@+id/imageView4"
+				android:id="@+id/imageView2"
 				android:layout_weight="1"/>
 
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="29dp"
+				android:layout_height="match_parent"
+				android:layout_weight="12.98">
+
+				<TextView
+					android:text="Stanbic IBTC"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView17"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"/>
+
+				<TextView
+					android:text="1011564309"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView18"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="10dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+					/>
+
+					/>
+			</LinearLayout>
+
 			<ImageView
-				android:src="@drawable/img_fidelitybank"
-				android:layout_width="100dp"
+				android:src="@drawable/img_uba"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 				android:layout_row="2"
 				android:layout_column="1"
-				android:id="@+id/imageView5"
+				android:id="@+id/imageView3"
 				android:layout_weight="1"/>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="UBA"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView19"
+
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+					/>
+
+				<TextView
+					android:text="1003347987"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView20"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+
+
+					/>
+			</LinearLayout>
+
 		</LinearLayout>
 
 		<LinearLayout
@@ -181,27 +256,93 @@
 			android:layout_height="match_parent"
 			android:layout_row="4"
 			android:layout_column="0"
-			android:layout_margin="5dp"
+			android:layout_marginBottom="5dp"
 			android:layout_marginTop="5dp">
 
 			<ImageView
-				android:src="@drawable/img_gtbank"
-				android:layout_width="100dp"
+				android:src="@drawable/img_firsbanklogo"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 
-				android:id="@+id/imageView6"
+				android:id="@+id/imageView4"
 				android:layout_weight="1"/>
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="FIRST BANK"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView21"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+
+					/>
+
+				<TextView
+					android:text="2003014725"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView22"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+
+					/>
+			</LinearLayout>
 
 			<ImageView
-				android:src="@drawable/img_skyebank"
-				android:layout_width="100dp"
+				android:src="@drawable/img_fidelitybank"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 				android:layout_row="2"
 				android:layout_column="1"
-				android:id="@+id/imageView7"
+				android:id="@+id/imageView5"
 				android:layout_weight="1"/>
-		</LinearLayout>
 
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="FIDELITY BANK"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView23"
+
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+					/>
+
+				<TextView
+					android:text="4010121914"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView24"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+					/>
+			</LinearLayout>
+		</LinearLayout>
 
 		<LinearLayout
 			android:orientation="horizontal"
@@ -213,79 +354,162 @@
 			android:layout_marginTop="5dp">
 
 			<ImageView
+				android:src="@drawable/img_gtbank"
+				android:layout_width="80dp"
+				android:layout_height="89dp"
+
+				android:id="@+id/imageView6"
+				android:layout_weight="1"/>
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="GT BANK"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView25"
+
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+					/>
+
+				<TextView
+					android:text="0003033066"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView26"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+					/>
+			</LinearLayout>
+
+			<ImageView
+				android:src="@drawable/img_skyebank"
+				android:layout_width="80dp"
+				android:layout_height="89dp"
+				android:layout_row="2"
+				android:layout_column="1"
+				android:id="@+id/imageView7"
+				android:layout_weight="1"/>
+
+
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="SKYE BANK"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView27"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+
+					/>
+
+				<TextView
+					android:text="1770023658"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView28"
+
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+					/>
+			</LinearLayout>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_row="6"
+			android:layout_column="0"
+			android:layout_margin="5dp"
+			android:layout_marginTop="5dp">
+
+			<ImageView
 				android:src="@drawable/img_zenithbank"
-				android:layout_width="100dp"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 
 				android:id="@+id/imageView8"
-				android:layout_weight="1"/>
+				android:layout_weight="0.06"/>
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="94dp"
+				android:layout_height="match_parent"
+				>
+
+
+				<TextView
+					android:text="ZENITH BANK"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView29"
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="20dp"
+					android:paddingLeft="2dp"
+					/>
+
+				<TextView
+					android:text="1011564309"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textView30"
+
+					android:textStyle="normal|bold"
+					android:textColor="@android:color/black"
+					android:paddingBottom="5dp"
+					android:paddingTop="5dp"
+					android:paddingLeft="2dp"
+					/>
+			</LinearLayout>
 
 			<ImageView
 				android:src="@android:drawable/status_bar_item_app_background"
-				android:layout_width="100dp"
+				android:layout_width="80dp"
 				android:layout_height="89dp"
 
 				android:id="@+id/imageView9"
 				android:layout_weight="1"/>
 		</LinearLayout>
 
-
-
-		<TextView
-			android:text="Pay with Interswitch"
-			android:layout_width="match_parent"
-			android:id="@+id/textView10"
-			android:layout_row="6"
-			android:layout_column="0"
-			android:textColor="@android:color/background_dark"
-			android:gravity="center"/>
-
 		<ImageView
 			android:src="@drawable/img_interswitch"
-			android:layout_width="match_parent"
-			android:layout_height="89dp"
-			android:layout_row="7"
+			android:layout_width="223dp"
+			android:layout_height="83dp"
+			android:layout_row="1"
 			android:layout_column="0"
 			android:id="@+id/imageView11"
-			android:layout_weight="1"/>
+			android:layout_weight="1"
+			android:layout_margin="30dp"
+			android:layout_gravity="center_vertical|center"/>
 
-
-		<TextView
-			android:text="Pay with Paga"
-			android:layout_width="match_parent"
-			android:id="@+id/textView12"
-			android:layout_row="8"
-			android:layout_column="0"
-			android:textColor="@android:color/background_dark"
-			android:gravity="center"/>
-
-		<ImageView
-			android:src="@drawable/img_paga"
-			android:layout_width="match_parent"
-			android:layout_height="89dp"
-			android:layout_row="9"
-			android:layout_column="0"
-			android:id="@+id/imageView13"
-			android:layout_weight="1"/>
-
-
-		<TextView
-			android:text="Pay with Flutterwave"
-			android:layout_width="match_parent"
-			android:id="@+id/textView14"
-			android:layout_row="10"
-			android:layout_column="0"
-			android:gravity="center"
-			android:textColor="@android:color/background_dark"/>
-
-		<ImageView
-			android:src="@drawable/img_flutterwave"
-			android:layout_width="match_parent"
-			android:layout_height="89dp"
-			android:layout_row="11"
-			android:layout_column="0"
-			android:id="@+id/imageView15"
-			android:layout_weight="1"/>
 
 	</GridLayout>
 
