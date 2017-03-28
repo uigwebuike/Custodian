@@ -57,6 +57,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <!--activity
+
             android:name="com.custodian.CustodianHomeScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
