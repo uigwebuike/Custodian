@@ -30,6 +30,7 @@ import com.custodian.CustodianHomeScreenMain;
 import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
+import com.custodian.CustodianWebservices.LeadCaptureWebservice;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
 import org.json.JSONException;
@@ -235,6 +236,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
                 startActivity(myIntent);
 
+                goToWebservice();
                 break;
 
 
@@ -250,6 +252,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 email = edt_email.getText().toString();
                 phone_number = edt_phone_number.getText().toString();
 */
+                /*
                 if (getContactKey != null) {
                     if (email.equalsIgnoreCase("")) {
                         Showalerts(Alerts.ENTER_EMAIL);
@@ -277,6 +280,9 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                         goToWebservice();
                     }
                 }
+                */
+
+                goToWebservice();
         }
     }
 
@@ -297,24 +303,57 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 // string to boolean.
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
-                if (getContactKey != null) {
-                    json.put("account", "3001");
-                    json.put("mobilePhone", phone_number);
-                    json.put("emailAddress", email);
-                } else {
-                    json.put("account", AccountID);
-                }
 
+                /*
+                   "active" => true,
+            "custom" => NULL,
+            "id" => $lq->getId(),
+            "label" => $lq->getFirstName() . " " . $lq->getLastName(),
+            "birthDate" => Util::convertToJavaDate($lq->getDateOfBirth()),
+            "assignedTo" => NULL,
+            "description" => "Started insurance quote from custodian direct",
+            "leadSource" => "CUSTODIAN_DIRECT",
+            "organization" => $lq->getFirstName() . " " . $lq->getLastName(),
+            "profession" => $lq->getOccupation(),
+            "emailAddress" => $lq->getEmail(),
+            "identifier" => $lq->getUsername(),
+            "leadType" => $lq->getLeadType() == null ? "INDIVIDUAL"
+                    : $lq->getLeadType(), //todo clean up this wacky logic
+            "status" => "NEW",
+            "fax" => NULL,
+            "firstName" => $lq->getFirstName(),
+            "lastName" => $lq->getLastName(),
+            "middleName" => NULL,
+            "homePhone" => NULL,
+            "mobilePhone" => $lq->getCellPhone(),
+            "officePhone" => NULL,
+            "prefix" => NULL,
+            "primaryCity" => $lq->getCity(),
+            "primaryCountry" => "NIGERIA",
+            "primaryPostCode" => NULL,
+            "primaryState" => $lq->getState(),
+            "primaryStreet" => $lq->getAddressLine1(),
+            "primaryStreet1" => $lq->getAddressLine2(),
+            "sex" => $lq->getGender(),
+            "title" => $lq->getTitle(),
+            "typeOfEmployment" => $lq->getSourceOfFunds(),
+            "kycAvailable" => $lq->getCardOwner(),
+            "webSite" => NULL
+                 */
                 json.put("active", value);
-                json.put("description", desc);
-                json.put("label", subject);
-                json.put("origin", "MOBILE");
-                json.put("priority", "MEDIUM");
-                json.put("reason", "FEEDBACK");
-                json.put("status", "NEW");
-                json.put("subject", subject);
+                json.put("description", "Started insurance quote from custodian direct andriod mobile application");
+                json.put("label", othername.  + " " + surname);
+                json.put("leadSource", "CUSTODIAN_DIRECT_MOBILE_ANDRIOD");
+                json.put("organization", othername  + " " + surname);
+                json.put("profession", occupation_spinner.getSelectedItem().toString());
+                json.put("emailAddress", email);
+                json.put("firstName", othername);
+                json.put("lastName", surname);
+                json.put("mobilePhone", phone_number);
+                json.put("primaryStreet", address);
+                json.put("title", title_spinner.getSelectedItem().toString());
 
-                new ContactUsWebservice(WebserviceURLs.CONTACT_US, "",
+                new LeadCaptureWebservice(WebserviceURLs.LEAD_CAPTURE, "",
                         BuyAPolicy.this, BuyAPolicy.this, true, json,
                         "Submitting...").execute();
             } catch (JSONException e) {

@@ -2,11 +2,13 @@ package com.custodian.URLS;
 
 public class WebserviceURLs {
 	
-	public static String BASE_URL ="https://custodian.zanibal.com/hermes/rest/api/v1/";
+	//public static String BASE_URL ="https://custodian.zanibal.com/hermes/rest/api/v1/";
+	public static String BASE_URL ="http://192.168.1.182:8080/hermes/rest/api/v1/";
 	public static String  HOME_SCREEN = BASE_URL + "partner/customer/username/";
 	public static String  FORGOT_ID =	BASE_URL + "partner/customer/email-address/";
 	public static String LOGIN_SCREEN = BASE_URL +"security/login/customer?username=";
 	public static String CONTACT_US = BASE_URL +"partner/case/create";
+	public static String LEAD_CAPTURE = BASE_URL +"partner/lead/create";
 	public static String VIEW_POLICY_DETAIL = BASE_URL + "partner/policy/list/line?policyId=";
 	public static String VIEW_POLICY_MAIN_PART1 =BASE_URL + "partner/customer/list/policy?customerId=";
 	public static String VIEW_POLICY_MAIN_PART2_APPEND = "&orderBy=name&orderDr=ASC&start=0&limit=1000";
