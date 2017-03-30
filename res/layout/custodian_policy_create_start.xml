@@ -161,7 +161,7 @@
 			android:layout_width="77dp"
 			android:layout_height="wrap_content"
 			android:textColor="@android:color/background_dark"
-			android:id="@+id/textView4"
+			android:id="@+id/textView41"
 			android:layout_row="4"
 			android:layout_column="0"/>
 
@@ -178,12 +178,55 @@
 			android:paddingLeft="10dp"/>
 
 		<TextView
+			android:text="Email"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@android:color/background_dark"
+			android:id="@+id/textView42"
+			android:layout_row="6"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="textEmailAddress"
+			android:ems="10"
+			android:id="@+id/emailaddress"
+			android:layout_row="7"
+			android:layout_column="0"
+			android:hint="Email"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"/>
+
+		<TextView
+			android:text="Phone Number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@android:color/background_dark"
+			android:id="@+id/textView4"
+			android:layout_row="8"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:ems="10"
+			android:id="@+id/phonenumber"
+			android:layout_row="9"
+			android:layout_column="0"
+			android:hint="Phone Number"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"/>
+
+
+		<TextView
 			android:text="Date of Birth"
-			android:layout_width="134dp"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView5"
-			android:layout_row="6"
+			android:layout_row="10"
 			android:layout_column="0"
 			tools:ignore="HardcodedText"/>
 
@@ -194,10 +237,31 @@
 			android:ems="10"
 			android:textColor="@android:color/background_dark"
 			android:id="@+id/dateofbirth"
-			android:layout_row="7"
+			android:layout_row="11"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
+		<TextView
+			android:text="Address"
+			android:layout_width="134dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/textView7"
+			android:layout_row="12"
+			android:textColor="@android:color/background_dark"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="118dp"
+			android:inputType="textMultiLine"
+			android:lines="3"
+			android:ems="10"
+			android:id="@+id/address"
+			android:layout_row="13"
+			android:layout_column="0"
+			android:background="@drawable/text_field_large"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"/>
 
 		<TextView
 			android:text="Occupation"
@@ -205,7 +269,7 @@
 			android:layout_height="wrap_content"
 			android:textColor="@android:color/background_dark"
 			android:id="@+id/textView6"
-			android:layout_row="8"
+			android:layout_row="14"
 			android:layout_column="0"/>
 
 
@@ -215,7 +279,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/occupation_spinner"
-			android:layout_row="9"
+			android:layout_row="15"
 			android:layout_column="0"
 			android:entries="@array/occupation"
 			android:prompt="@string/occupation_prompt"
@@ -223,14 +287,7 @@
 			android:paddingLeft="10dp"/>
 
 
-		<TextView
-			android:text="Address"
-			android:layout_width="134dp"
-			android:layout_height="wrap_content"
-			android:id="@+id/textView7"
-			android:layout_row="10"
-			android:textColor="@android:color/background_dark"
-			android:layout_column="0"/>
+
 
 		<TextView
 			android:text="Username"
@@ -238,7 +295,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView8"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="12"
+			android:layout_row="16"
 			android:layout_column="0"/>
 
 		<EditText
@@ -247,7 +304,7 @@
 			android:inputType="text"
 			android:ems="10"
 			android:id="@+id/username"
-			android:layout_row="13"
+			android:layout_row="17"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
@@ -257,7 +314,7 @@
 			android:layout_width="134dp"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView9"
-			android:layout_row="14"
+			android:layout_row="18"
 			android:textColor="@android:color/background_dark"
 			android:layout_column="0"/>
 
@@ -265,9 +322,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textWebPassword"
-			android:ems="10"
+			android:ems="18"
 			android:id="@+id/password"
-			android:layout_row="15"
+			android:layout_row="19"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
@@ -279,24 +336,13 @@
 
 			android:layout_centerHorizontal="true"
 			android:layout_below="@+id/edt_forgot_password"
-			android:layout_row="16"
+			android:layout_row="20"
 			android:layout_column="0"
 			android:layout_marginTop="10dp"
 			android:background="@drawable/btn_continue"
 			android:layout_marginBottom="30dp"/>
 
-		<EditText
-			android:layout_width="match_parent"
-			android:layout_height="118dp"
-			android:inputType="textMultiLine"
-			android:lines="3"
-			android:ems="10"
-			android:id="@+id/address"
-			android:layout_row="11"
-			android:layout_column="0"
-			android:background="@drawable/text_field_large"
-			android:paddingLeft="10dp"
-			android:paddingRight="10dp"/>
+
 
 	</GridLayout>
 

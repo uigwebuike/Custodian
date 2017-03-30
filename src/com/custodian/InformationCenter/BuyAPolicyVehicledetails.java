@@ -27,12 +27,16 @@ import com.custodian.CustodianHomeScreenMain;
 import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
+import com.custodian.CustodianWebservices.LeadCaptureWebservice;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
@@ -55,6 +59,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
     public Spinner getCover_spinner() {
         return cover_spinner;
     }
+
+
+
 
     public void setCover_spinner(Spinner cover_spinner) {
         this.cover_spinner = cover_spinner;
@@ -125,6 +132,24 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
     Handler mSplaHandler = null;
     String getContactKey = "";
     String subject, desc, email, phone_number;
+
+    public SharedPreferences getSharedPreferences() {
+        return sharedPreferences;
+    }
+
+    public void setSharedPreferences(SharedPreferences sharedPreferences) {
+        this.sharedPreferences = sharedPreferences;
+    }
+
+
+    public Editor getEditor() {
+        return editor;
+    }
+
+    public void setEditor(Editor editor) {
+        this.editor = editor;
+    }
+
     private static final Pattern LoginEmail_PATTERN = Pattern
             .compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
@@ -150,9 +175,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 // TODO Auto-generated method stub
                 super.handleMessage(msg);
                 if (msg.what == 1) {
-                    Showalerts(Alerts.CONTACT_US_SUBMISSION_FAILURE);
+                    Showalerts(Alerts.LEADQUOTE_SUBMISSION_FAILURE);
                 } else if (msg.what == 2) {
-                    CheckStatus(Alerts.CONTACT_US_SUBMISSION_SUCCESS);
+                    CheckStatus(Alerts.LEADQUOTE_SUBMISSION_SUCCESS);
                 } else if (msg.what == 3) {
                     Showalerts(Alerts.CHECK_INTERNET);
 
@@ -168,8 +193,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
-
-
         this.setReg_no((EditText)findViewById(R.id.reg_no));
         this.getReg_no().setTypeface(face);
         this.setVehicle_make((EditText)findViewById(R.id.vehicle_make));
@@ -184,60 +207,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.getInsurance_enddate().setTypeface(face);
         this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
 
-
-
-        /*
-
-        // initialisations and listeners
-        // *******************************************************************************
-        Typeface face = Typeface.createFromAsset(getAssets(),
-                CONSTANTS.FONT_NAME);
-        txt_subject = (TextView) findViewById(R.id.txt_subject);
-        txt_subject.setTypeface(face);
-        edt_subject = (EditText) findViewById(R.id.edt_subject);
-        txt_desc = (TextView) findViewById(R.id.txt_desc);
-        txt_desc.setTypeface(face);
-        txt_subject.setTypeface(face);
-        edt_desc = (EditText) findViewById(R.id.edt_desc);
-        btnContact = (ImageView) findViewById(R.id.btnContactUs);
-        edt_email = (EditText) findViewById(R.id.edt_email);
-        edt_phone_number = (EditText) findViewById(R.id.edt_phone_number);
-        mHeading = (TextView) findViewById(R.id.title);
-        mHeading.setTypeface(face);
-        txt_email = (TextView) findViewById(R.id.txt_email);
-        txt_email.setTypeface(face);
-        txt_phone = (TextView) findViewById(R.id.txt_phone_number);
-        txt_phone.setTypeface(face);
-        img_email = (ImageView) findViewById(R.id.imag_star);
-        img_phone = (ImageView) findViewById(R.id.imag_star_phone);
-        mback = (ImageButton) findViewById(R.id.imageView1);
-        mback.setOnClickListener(this);
-        mHome = (ImageButton) findViewById(R.id.home);
-        mHome.setOnClickListener(this);
-        btnContact.setOnClickListener(this);
-        txt_email.setVisibility(View.GONE);
-        txt_phone.setVisibility(View.GONE);
-        edt_email.setVisibility(View.GONE);
-        edt_phone_number.setVisibility(View.GONE);
-        img_email.setVisibility(View.GONE);
-        img_phone.setVisibility(View.GONE);
-
-        getContactKey = getIntent().getStringExtra("contactKey");
-        if (getContactKey != null) {
-            mHome.setVisibility(View.GONE);
-            txt_email.setVisibility(View.VISIBLE);
-            txt_phone.setVisibility(View.VISIBLE);
-            edt_email.setVisibility(View.VISIBLE);
-            edt_phone_number.setVisibility(View.VISIBLE);
-            img_email.setVisibility(View.VISIBLE);
-            img_phone.setVisibility(View.VISIBLE);
-
-        } else {
-
-        }
-        // *****************************************************************************
-
-        */
 
     }
 
@@ -269,83 +238,61 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             case R.id.continue_imag_vehicleDetails:
 
 
-                EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
-
-                sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                editor = sharedPreferences.edit();
-                editor.putString("BasicsKey", "Basics");
+                this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
+                this.setEditor(sharedPreferences.edit());
+                this.getEditor().putString("BasicsKey", "Basics");
 
 
+                this.getEditor().putString("reg_no",this.getReg_no().getText().toString());
 
-                editor.putString("reg_no",this.getReg_no().getText().toString());
-                Log.e("reg_no",sharedPreferences.getString("reg_no",""));
-                editor.putString("vehicle_make",this.getVehicle_make().getText().toString());
-                Log.e("vehicle_make",sharedPreferences.getString("vehicle_make",""));
-                editor.putString("chassis_number",this.getChassis_number().getText().toString());
-                Log.e("chassis_number",sharedPreferences.getString("chassis_number",""));
-                editor.putString("vehicle_value",this.getVehicle_value().getText().toString());
-                Log.e("vehicle_value",sharedPreferences.getString("vehicle_value",""));
-                editor.putString("insurance_startdate",this.getInsurance_startdate().getText().toString());
-                Log.e("insurance_startdate",sharedPreferences.getString("insurance_startdate",""));
-                editor.putString("insurance_enddate",this.getInsurance_enddate().getText().toString());
-                Log.e("insurance_enddate",sharedPreferences.getString("insurance_enddate",""));
-                editor.putString("cover_spinner",this.getCover_spinner().getSelectedItem().toString());
-                Log.e("cover_spinner",sharedPreferences.getString("cover_spinner",""));
+                this.getEditor().putString("vehicle_make",this.getVehicle_make().getText().toString());
 
+                this.getEditor().putString("chassis_number",this.getChassis_number().getText().toString());
 
-                editor.commit();
+                this.getEditor().putString("vehicle_value",this.getVehicle_value().getText().toString());
 
+                this.getEditor().putString("insurance_startdate",this.getInsurance_startdate().getText().toString());
 
+                this.getEditor().putString("insurance_enddate",this.getInsurance_enddate().getText().toString());
 
+                this.getEditor().putString("cover_spinner",this.getCover_spinner().getSelectedItem().toString());
 
-                //call the webservice to create leadquote
+                this.getEditor().commit();
 
-                myIntent = new Intent(BuyAPolicyVehicledetails.this, BuyAPolicyPayment.class);
+                // editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
+                Log.e("title_spinner",this.getSharedPreferences().getString("title_spinner",""));
+                //editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
+                Log.e("occupation_spinner",this.getSharedPreferences().getString("occupation_spinner",""));
+                // editor.putString("surname",surname.getText().toString());
+                Log.e("surname",this.getSharedPreferences().getString("surname",""));
+                // editor.putString("othername",othername.getText().toString());
+                Log.e("othername",this.getSharedPreferences().getString("othername",""));
+                // editor.putString("address",address.getText().toString());
+                Log.e("address",this.getSharedPreferences().getString("address",""));
+                //  editor.putString("username",username.getText().toString());
+                Log.e("username",this.getSharedPreferences().getString("username",""));
+                //  editor.putString("password",password.getText().toString());
+                Log.e("password",this.getSharedPreferences().getString("password",""));
+                // editor.putString("dateofbirth",dateofbirth.getText().toString());
+                Log.e("dateofbirth",this.getSharedPreferences().getString("dateofbirth",""));
+                Log.e("cover_spinner",this.getSharedPreferences().getString("cover_spinner",""));
+                Log.e("insurance_enddate",this.getSharedPreferences().getString("insurance_enddate",""));
+                Log.e("insurance_startdate",this.getSharedPreferences().getString("insurance_startdate",""));
+                Log.e("vehicle_value",this.getSharedPreferences().getString("vehicle_value",""));
+                Log.e("chassis_number",this.getSharedPreferences().getString("chassis_number",""));
+                Log.e("vehicle_make",this.getSharedPreferences().getString("vehicle_make",""));
+                Log.e("reg_no",this.getSharedPreferences().getString("reg_no",""));
 
+                goToWebservice();
+
+                goToWebservice2();
+
+                myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                      BuyAPolicyPayment.class);
                 startActivity(myIntent);
 
+
                 break;
-
-
-            case R.id.btnContactUs:
-                /**
-                 * Clicking on Contact us button gets the details from fields filled
-                 * by the user,then validate them and hit the webservice to submit
-                 * the contact us form. To hit webservice , id of the user will be
-                 * used as a json parameter which is procured from the preferences.
-                 */
-                /*subject = edt_subject.getText().toString();
-                desc = edt_desc.getText().toString();
-                email = edt_email.getText().toString();
-                phone_number = edt_phone_number.getText().toString();
-*/
-                if (getContactKey != null) {
-                    if (email.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_EMAIL);
-                    } else if (!CheckEmail(email)) {
-                        Showalerts(Alerts.INVALID_EMAIL);
-                    } else if (phone_number.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_PHONE);
-                    } else if (phone_number.length() > 16) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (!CheckPhone(phone_number)) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
-                } else if (getContactKey == null) {
-                    if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
-                }
         }
     }
 
@@ -360,29 +307,33 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 SharedPreferences sharedPreferences = this
                         .getSharedPreferences(MyPREFERENCES,
                                 Context.MODE_PRIVATE);
-                String AccountID = sharedPreferences.getString("id", "");
-
-                // Send true as a json parameter by converting it from
-                // string to boolean.
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = new Date();
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
-                if (getContactKey != null) {
-                    json.put("account", "3001");
-                    json.put("mobilePhone", phone_number);
-                    json.put("emailAddress", email);
-                } else {
-                    json.put("account", AccountID);
-                }
-
                 json.put("active", value);
-                json.put("description", desc);
-                json.put("label", subject);
-                json.put("origin", "MOBILE");
-                json.put("priority", "MEDIUM");
-                json.put("reason", "FEEDBACK");
+                json.put("description", this.getCover_spinner().getSelectedItem().toString()+" policy for  - " +this.getSharedPreferences().getString("othername","")+" "+ this.getSharedPreferences().getString("surname","").toString());
+                json.put("label", this.getCover_spinner()+" policy for  - " +this.getSharedPreferences().getString("othername","").toString()+" "+ this.getSharedPreferences().getString("surname","").toString());
+                json.put("lead", this.getSharedPreferences().getString("leadID","").toString());
+                json.put("quoteDate", dateFormat.format(date));
+                json.put("requestStartDttm", dateFormat.format(date));
+                json.put("startDate", this.getInsurance_startdate().getText());
+                json.put("requestEndDttm", this.getInsurance_enddate().getText());
+                json.put("validUntil", this.getInsurance_enddate().getText());
+                json.put("paymentTermLabel", "Pay_Quarterly");
+                json.put("paymentTerm", 1200);
+                json.put("endDate", this.getInsurance_enddate().getText());
+                json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
+                json.put("quoteReference", this.getVehicle_make().getText()+"private");
+                json.put("quoteAmount", this.getVehicle_value().getText());
+                json.put("category", "SERVICE");
                 json.put("status", "NEW");
-                json.put("subject", subject);
-                new ContactUsWebservice(WebserviceURLs.CONTACT_US, "",
+                json.put("origin", "MOBILE");
+                json.put("currency", "NGN");
+                json.put("origin", "MOBILE");
+                json.put("salesOffice", 1600);
+                json.put("salesChannel", 1200);
+                new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_CAPTURE, "",
                         BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
                         "Submitting...").execute();
             } catch (JSONException e) {
@@ -395,6 +346,60 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         }
     }
 
+
+
+
+
+
+
+
+
+    private void goToWebservice2() {
+        // TODO Auto-generated method stub
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager
+                .getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            try {
+                SharedPreferences sharedPreferences = this
+                        .getSharedPreferences(MyPREFERENCES,
+                                Context.MODE_PRIVATE);
+                value = Boolean.valueOf("true");
+                json = new JSONObject();
+                json.put("active", value);
+                json.put("leadQuote", this.getSharedPreferences().getString("leadQuoteID",""));
+                json.put("lead",this.getSharedPreferences().getString("lead",""));
+                json.put("label", this.getVehicle_make().getText().toString() +" - License # " + this.getChassis_number().getText().toString());
+                json.put("modelYear", "2008");
+                json.put("vehicleMileage", "7889789");
+                json.put("vehicleMake", this.getVehicle_make().getText().toString());
+                json.put("vehicleColor", "YELLOW");
+                json.put("vehicleModel", "2013");
+                json.put("vehicleNo", this.getReg_no().getText().toString());
+                json.put("chassisNo", this.getChassis_number().getText().toString());
+                json.put("engineNo", "566757867698");
+                json.put("vehicleUse", "COMMERCIAL");
+                json.put("description", "private some description");
+                json.put("vehicleValue", this.getVehicle_value().getText());
+                json.put("premium", this.getVehicle_value().getText());
+                json.put("requestedItem", 1200);
+                json.put("origin", "MOBILE");
+                json.put("status", "NEW");
+                json.put("salesOffice", 1600);
+                json.put("salesChannel", 1200);
+                new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_LINE, "",
+                        BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
+                        "Submitting...").execute();
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        } else {
+            mSplaHandler.sendEmptyMessage(3);
+        }
+    }
     /**
      * CheckStatus(String message) is used to show alerts.
      *
@@ -422,13 +427,13 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                     public void onClick(DialogInterface dialog, int which) {
 
                         if (getContactKey != null) {
-                            myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                                    CustodianMainLanding.class);
-                            startActivity(myIntent);
+                           // myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                             //       BuyAPolicyPayment.class);
+                            //startActivity(myIntent);
                         } else {
-                            myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                                    InformationCenterMenuScreen.class);
-                            startActivity(myIntent);
+                            //myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                              //      BuyAPolicyPayment.class);
+                            //startActivity(myIntent);
                         }
 
                     }
@@ -491,11 +496,24 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Showalerts(loginError);
             } else {
                 String status = json.optString("success");
+                String id = json.optString("msgCode");
                 if (status.equalsIgnoreCase("false")) {
-                    // Showalerts(Alerts.CONTACT_US_SUBMISSION_FAILURE);
                     mSplaHandler.sendEmptyMessage(1);
                 } else if (status.equalsIgnoreCase("true")) {
-                    // CheckStatus(Alerts.CONTACT_US_SUBMISSION_SUCCESS);
+                    sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                    if(sharedPreferences.getString("leadQuoteID","").toString()==null){
+                        editor = sharedPreferences.edit();
+                        editor.putString("leadQuoteID", id);
+                        editor.commit();
+                        Log.e("leadQuoteID",sharedPreferences.getString("leadQuoteID",""));
+                    }
+
+                    if(sharedPreferences.getString("policyLineID","").toString()==null){
+                        editor = sharedPreferences.edit();
+                        editor.putString("policyLineID", id);
+                        editor.commit();
+                        Log.e("policyLineID",sharedPreferences.getString("policyLineID",""));
+                    }
                     mSplaHandler.sendEmptyMessage(2);
 
                 }

@@ -45,7 +45,7 @@ import java.util.regex.Pattern;
 public class BuyAPolicy extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText surname, othername, address, username,password,dateofbirth;
+    EditText surname, othername, address, username,password,dateofbirth, emailaddress,phonenumber;
     ;
     Spinner title_spinner, occupation_spinner;
     String flag;
@@ -89,9 +89,9 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 // TODO Auto-generated method stub
                 super.handleMessage(msg);
                 if (msg.what == 1) {
-                    Showalerts(Alerts.CONTACT_US_SUBMISSION_FAILURE);
+                    Showalerts(Alerts.LEAD_SUBMISSION_FAILURE);
                 } else if (msg.what == 2) {
-                    CheckStatus(Alerts.CONTACT_US_SUBMISSION_SUCCESS);
+                    CheckStatus(Alerts.LEAD_SUBMISSION_SUCCESS);
                 } else if (msg.what == 3) {
                     Showalerts(Alerts.CHECK_INTERNET);
 
@@ -107,7 +107,6 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
-
         title_spinner = (Spinner) findViewById(R.id.title_spinner) ;
         occupation_spinner = (Spinner) findViewById(R.id.occupation_spinner);
         surname = (EditText) findViewById(R.id.surname) ;
@@ -122,61 +121,10 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         password.setTypeface(face);
         dateofbirth = (EditText) findViewById(R.id.dateofbirth);
         dateofbirth.setTypeface(face);
-
-
-        /*
-
-        // initialisations and listeners
-        // *******************************************************************************
-        Typeface face = Typeface.createFromAsset(getAssets(),
-                CONSTANTS.FONT_NAME);
-        txt_subject = (TextView) findViewById(R.id.txt_subject);
-        txt_subject.setTypeface(face);
-        edt_subject = (EditText) findViewById(R.id.edt_subject);
-        txt_desc = (TextView) findViewById(R.id.txt_desc);
-        txt_desc.setTypeface(face);
-        txt_subject.setTypeface(face);
-        edt_desc = (EditText) findViewById(R.id.edt_desc);
-        btnContact = (ImageView) findViewById(R.id.btnContactUs);
-        edt_email = (EditText) findViewById(R.id.edt_email);
-        edt_phone_number = (EditText) findViewById(R.id.edt_phone_number);
-        mHeading = (TextView) findViewById(R.id.title);
-        mHeading.setTypeface(face);
-        txt_email = (TextView) findViewById(R.id.txt_email);
-        txt_email.setTypeface(face);
-        txt_phone = (TextView) findViewById(R.id.txt_phone_number);
-        txt_phone.setTypeface(face);
-        img_email = (ImageView) findViewById(R.id.imag_star);
-        img_phone = (ImageView) findViewById(R.id.imag_star_phone);
-        mback = (ImageButton) findViewById(R.id.imageView1);
-        mback.setOnClickListener(this);
-        mHome = (ImageButton) findViewById(R.id.home);
-        mHome.setOnClickListener(this);
-        btnContact.setOnClickListener(this);
-        txt_email.setVisibility(View.GONE);
-        txt_phone.setVisibility(View.GONE);
-        edt_email.setVisibility(View.GONE);
-        edt_phone_number.setVisibility(View.GONE);
-        img_email.setVisibility(View.GONE);
-        img_phone.setVisibility(View.GONE);
-
-        getContactKey = getIntent().getStringExtra("contactKey");
-        if (getContactKey != null) {
-            mHome.setVisibility(View.GONE);
-            txt_email.setVisibility(View.VISIBLE);
-            txt_phone.setVisibility(View.VISIBLE);
-            edt_email.setVisibility(View.VISIBLE);
-            edt_phone_number.setVisibility(View.VISIBLE);
-            img_email.setVisibility(View.VISIBLE);
-            img_phone.setVisibility(View.VISIBLE);
-
-        } else {
-
-        }
-        // *****************************************************************************
-
-        */
-
+        emailaddress = (EditText) findViewById(R.id.emailaddress);
+        emailaddress.setTypeface(face);
+        phonenumber = (EditText) findViewById(R.id.phonenumber);
+        phonenumber.setTypeface(face);
     }
 
     @Override
@@ -207,12 +155,14 @@ public class BuyAPolicy extends Activity implements OnClickListener,
             case R.id.continue_imag_policy:
 
 
-                sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+
+
+
+
+              sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 editor.putString("BasicsKey", "Basics");
-
-
-
                 editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
                 Log.e("title_spinner",sharedPreferences.getString("title_spinner",""));
                 editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
@@ -229,60 +179,31 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 Log.e("password",sharedPreferences.getString("password",""));
                 editor.putString("dateofbirth",dateofbirth.getText().toString());
                 Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
+                editor.putString("emailaddress",emailaddress.getText().toString());
+                Log.e("emailaddress",sharedPreferences.getString("emailaddress",""));
+                editor.putString("phonenumber",phonenumber.getText().toString());
+                Log.e("phonenumber",sharedPreferences.getString("phonenumber",""));
 
                 editor.commit();
 
-                myIntent = new Intent(BuyAPolicy.this, BuyAPolicyVehicledetails.class);
+                //myIntent = new Intent(BuyAPolicy.this, BuyAPolicyVehicledetails.class);
 
-                startActivity(myIntent);
+                //startActivity(myIntent);
 
-                goToWebservice();
-                break;
-
-
-            case R.id.btnContactUs:
-                /**
-                 * Clicking on Contact us button gets the details from fields filled
-                 * by the user,then validate them and hit the webservice to submit
-                 * the contact us form. To hit webservice , id of the user will be
-                 * used as a json parameter which is procured from the preferences.
-                 */
-                /*subject = edt_subject.getText().toString();
-                desc = edt_desc.getText().toString();
-                email = edt_email.getText().toString();
-                phone_number = edt_phone_number.getText().toString();
-*/
-                /*
-                if (getContactKey != null) {
-                    if (email.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_EMAIL);
-                    } else if (!CheckEmail(email)) {
-                        Showalerts(Alerts.INVALID_EMAIL);
-                    } else if (phone_number.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_PHONE);
-                    } else if (phone_number.length() > 16) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (!CheckPhone(phone_number)) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
-                } else if (getContactKey == null) {
-                    if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
+                if (emailaddress.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_EMAIL);
+                } else if (!CheckEmail(emailaddress.getText().toString())) {
+                    Showalerts(Alerts.INVALID_EMAIL);
+                } else if (phonenumber.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_PHONE);
+                } else if (phonenumber.getText().toString().length() > 16) {
+                    Showalerts(Alerts.INVALID_PHONE);
+                } else if (!CheckPhone(phonenumber.getText().toString())) {
+                    Showalerts(Alerts.INVALID_PHONE);
+                }  else {
+                    goToWebservice();
                 }
-                */
-
-                goToWebservice();
+                break;
         }
     }
 
@@ -297,60 +218,21 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 SharedPreferences sharedPreferences = this
                         .getSharedPreferences(MyPREFERENCES,
                                 Context.MODE_PRIVATE);
-                String AccountID = sharedPreferences.getString("id", "");
 
-                // Send true as a json parameter by converting it from
-                // string to boolean.
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
 
-                /*
-                   "active" => true,
-            "custom" => NULL,
-            "id" => $lq->getId(),
-            "label" => $lq->getFirstName() . " " . $lq->getLastName(),
-            "birthDate" => Util::convertToJavaDate($lq->getDateOfBirth()),
-            "assignedTo" => NULL,
-            "description" => "Started insurance quote from custodian direct",
-            "leadSource" => "CUSTODIAN_DIRECT",
-            "organization" => $lq->getFirstName() . " " . $lq->getLastName(),
-            "profession" => $lq->getOccupation(),
-            "emailAddress" => $lq->getEmail(),
-            "identifier" => $lq->getUsername(),
-            "leadType" => $lq->getLeadType() == null ? "INDIVIDUAL"
-                    : $lq->getLeadType(), //todo clean up this wacky logic
-            "status" => "NEW",
-            "fax" => NULL,
-            "firstName" => $lq->getFirstName(),
-            "lastName" => $lq->getLastName(),
-            "middleName" => NULL,
-            "homePhone" => NULL,
-            "mobilePhone" => $lq->getCellPhone(),
-            "officePhone" => NULL,
-            "prefix" => NULL,
-            "primaryCity" => $lq->getCity(),
-            "primaryCountry" => "NIGERIA",
-            "primaryPostCode" => NULL,
-            "primaryState" => $lq->getState(),
-            "primaryStreet" => $lq->getAddressLine1(),
-            "primaryStreet1" => $lq->getAddressLine2(),
-            "sex" => $lq->getGender(),
-            "title" => $lq->getTitle(),
-            "typeOfEmployment" => $lq->getSourceOfFunds(),
-            "kycAvailable" => $lq->getCardOwner(),
-            "webSite" => NULL
-                 */
                 json.put("active", value);
                 json.put("description", "Started insurance quote from custodian direct andriod mobile application");
-                json.put("label", othername.  + " " + surname);
+                json.put("label", othername.getText()  + " " + surname.getText());
                 json.put("leadSource", "CUSTODIAN_DIRECT_MOBILE_ANDRIOD");
-                json.put("organization", othername  + " " + surname);
+                json.put("organization", othername.getText()  + " " + surname.getText());
                 json.put("profession", occupation_spinner.getSelectedItem().toString());
-                json.put("emailAddress", email);
-                json.put("firstName", othername);
-                json.put("lastName", surname);
-                json.put("mobilePhone", phone_number);
-                json.put("primaryStreet", address);
+                json.put("emailAddress", CheckEmail(emailaddress.getText().toString())?emailaddress.getText().toString():"");
+                json.put("mobilePhone", phonenumber.getText());
+                json.put("firstName", othername.getText());
+                json.put("lastName", surname.getText());
+                json.put("primaryStreet", address.getText());
                 json.put("title", title_spinner.getSelectedItem().toString());
 
                 new LeadCaptureWebservice(WebserviceURLs.LEAD_CAPTURE, "",
@@ -394,11 +276,11 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
                         if (getContactKey != null) {
                             myIntent = new Intent(BuyAPolicy.this,
-                                    CustodianMainLanding.class);
+                                    BuyAPolicyVehicledetails.class);
                             startActivity(myIntent);
                         } else {
                             myIntent = new Intent(BuyAPolicy.this,
-                                    InformationCenterMenuScreen.class);
+                                    BuyAPolicyVehicledetails.class);
                             startActivity(myIntent);
                         }
 
@@ -457,16 +339,19 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         try {
             json = new JSONObject(response);
             if (json.has("error")) {
-                String loginError = json.getString("error");
-
-                Showalerts(loginError);
+                String error = json.getString("error");
+                Showalerts(error);
             } else {
                 String status = json.optString("success");
+                String id = json.optString("msgCode");
                 if (status.equalsIgnoreCase("false")) {
-                    // Showalerts(Alerts.CONTACT_US_SUBMISSION_FAILURE);
                     mSplaHandler.sendEmptyMessage(1);
                 } else if (status.equalsIgnoreCase("true")) {
-                    // CheckStatus(Alerts.CONTACT_US_SUBMISSION_SUCCESS);
+                    sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                    editor = sharedPreferences.edit();
+                    editor.putString("leadID", id);
+                    editor.commit();
+                    Log.e("leadID",sharedPreferences.getString("leadID",""));
                     mSplaHandler.sendEmptyMessage(2);
 
                 }

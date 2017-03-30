@@ -244,7 +244,7 @@
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="date"
 			android:ems="7"
 			android:id="@+id/insurance_startdate"
 			android:layout_row="11"
@@ -265,7 +265,7 @@
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="number"
+			android:inputType="date"
 			android:ems="7"
 			android:id="@+id/insurance_enddate"
 			android:layout_row="13"

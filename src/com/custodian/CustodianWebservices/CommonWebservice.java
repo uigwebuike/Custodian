@@ -105,7 +105,7 @@ public class CommonWebservice extends AsyncTask<Void, Void, Void> {
 			HttpConnectionParams.setSoTimeout(myParams, 30* 10000);*/
 			HttpPost httpPost= new HttpPost(strUrl);
 			UsernamePasswordCredentials credentials =
-	                new UsernamePasswordCredentials("custodian", "Welcome123");
+	                new UsernamePasswordCredentials("root", "Admin$1234");
 	            BasicScheme scheme = new BasicScheme();
 	            Header authorizationHeader = scheme.authenticate(credentials, httpPost);
 	            httpPost.addHeader(authorizationHeader);

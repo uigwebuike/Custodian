@@ -37,6 +37,12 @@ public class Alerts{
 	public static String REPORT_CLAIM_WHOWASINVOLVED_CONTACT_EMAIL = "Contact email is required.";
 	public static String REPORT_CLAIM_WHOWASINVOLVED_NO_OF_PASSENGER = "Number of passengers in your vehicle is required.";
 	public static String REPORT_CLAIM_WHOWASINVOLVED_DRIVER = "Who was driving your vehicle is required.";
+	public static String LEAD_SUBMISSION_FAILURE =  "Unable to submit lead.";
+	public static String LEAD_SUBMISSION_SUCCESS = "Lead submitted successfully.";
+
+	public static String LEADQUOTE_SUBMISSION_FAILURE =  "Unable to submit details.";
+	public static String LEADQUOTE_SUBMISSION_SUCCESS = "Details submitted successfully.";
+
 	
 }
 
