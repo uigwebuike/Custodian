@@ -8,6 +8,7 @@
     <string name="title_prompt">Choose a title</string>
     <string name="occupation_prompt">Choose your Occupation</string>
     <string name="cover_prompt">Choose your Cover Type</string>
+    <string name="coverPeriod_prompt">Choose your Cover Type</string>
 
     
     <string name="drawer_open">Open navigation drawer</string>
@@ -107,6 +108,18 @@
 
     </string-array>
 
+
+
+
+
+    <string-array name = "coverPeriod">
+
+        <item>1 Year</item>
+        <item>6 Months</item>
+        <item>3 Months</item>
+
+
+    </string-array>
 
 
 </resources>

@@ -16,10 +16,12 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
@@ -30,14 +32,17 @@ import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.LeadCaptureWebservice;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
+import com.custodian.utils.StringDateUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
+
 
 /**
  * Contact us class is used to submit the contact us form using webservice that
@@ -46,7 +51,11 @@ import java.util.regex.Pattern;
 public class BuyAPolicyVehicledetails extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
+    EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate;
+
+    TextView insurance_enddate;
+
+    Spinner coverPeriod;
 
     public String getFlag() {
         return flag;
@@ -67,11 +76,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.cover_spinner = cover_spinner;
     }
 
-    public EditText getInsurance_enddate() {
+    public TextView getInsurance_enddate() {
         return insurance_enddate;
     }
 
-    public void setInsurance_enddate(EditText insurance_enddate) {
+    public void setInsurance_enddate(TextView insurance_enddate) {
         this.insurance_enddate = insurance_enddate;
     }
 
@@ -113,6 +122,15 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
     public void setReg_no(EditText reg_no) {
         this.reg_no = reg_no;
+    }
+
+
+    public Spinner getCoverPeriod() {
+        return coverPeriod;
+    }
+
+    public void setCoverPeriod(Spinner coverPeriod) {
+        this.coverPeriod = coverPeriod;
     }
 
     Spinner cover_spinner;
@@ -203,9 +221,44 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.getVehicle_value().setTypeface(face);
         this.setInsurance_startdate((EditText) findViewById(R.id.insurance_startdate));
         this.getInsurance_startdate().setTypeface(face);
-        this.setInsurance_enddate((EditText) findViewById(R.id.insurance_enddate));
+        this.setInsurance_enddate((TextView) findViewById(R.id.insuranceEnddate));
         this.getInsurance_enddate().setTypeface(face);
         this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
+
+
+        coverPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = null;
+                try {
+                    date = dt.parse(insurance_startdate.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                          if(coverPeriod.getSelectedItem().toString() ==  "1 year"){
+
+                    insurance_enddate.setText(dt.format(StringDateUtils.addYearsToDate(date,1)));
+
+                }else if(coverPeriod.getSelectedItem().toString() ==  "6 months"){
+
+                    insurance_enddate.setText(dt.format(StringDateUtils.addMonthsToDate(date,6)));
+
+                }else if(coverPeriod.getSelectedItem().toString() ==  "3 months"){
+
+                    insurance_enddate.setText(dt.format(StringDateUtils.addMonthsToDate(date,3)));
+               }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
 
 
     }
@@ -310,6 +363,22 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
                 Date date = new Date();
                 value = Boolean.valueOf("true");
+
+                String endDateLabel = null;
+
+                String endDate = this.getInsurance_enddate().getText().toString();
+
+                if(endDate == "1 Year"){
+                    endDateLabel =  "Pay_Anually";
+
+                }else if(endDate == "6 Months"){
+                    endDateLabel =  "Bi_Anually";
+
+                }else if(endDate == "3 Months"){
+                    endDateLabel =  "Pay_Quaterly";
+
+                }
+
                 json = new JSONObject();
                 json.put("active", value);
                 json.put("description", this.getCover_spinner().getSelectedItem().toString()+" policy for  - " +this.getSharedPreferences().getString("othername","")+" "+ this.getSharedPreferences().getString("surname","").toString());
@@ -320,7 +389,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("startDate", this.getInsurance_startdate().getText());
                 json.put("requestEndDttm", this.getInsurance_enddate().getText());
                 json.put("validUntil", this.getInsurance_enddate().getText());
-                json.put("paymentTermLabel", "Pay_Quarterly");
+                json.put("paymentTermLabel",endDateLabel);
                 json.put("paymentTerm", 1200);
                 json.put("endDate", this.getInsurance_enddate().getText());
                 json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
@@ -345,13 +414,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             mSplaHandler.sendEmptyMessage(3);
         }
     }
-
-
-
-
-
-
-
 
 
     private void goToWebservice2() {

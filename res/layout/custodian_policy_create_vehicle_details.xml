@@ -97,7 +97,7 @@
 		android:id="@+id/scrollview"
 		android:layout_width="fill_parent"
 		android:layout_height="match_parent"
-		android:layout_below="@+id/Heading_Of_Tabs"
+		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true">
 
 
@@ -213,9 +213,6 @@
 			android:layout_row="8"
 			android:layout_column="0"/>
 
-
-
-
 		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -226,9 +223,6 @@
 			android:prompt="@string/cover_prompt"
 			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
-
-
-
 
 
 
@@ -254,25 +248,65 @@
 			android:hint="yyyy/mm/dd"/>
 
 		<TextView
-			android:text="Insurance EndDate"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:id="@+id/textView9"
-			android:textColor="@android:color/background_dark"
-			android:layout_row="12"
-			android:layout_column="0"/>
+		android:text="Cover Period"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/textView9"
+		android:textColor="@android:color/background_dark"
+		android:layout_row="12"
+		android:layout_column="0"/>
 
-		<EditText
+		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="date"
-			android:ems="7"
-			android:id="@+id/insurance_enddate"
+			android:id="@+id/coverPeriod_spinner"
 			android:layout_row="13"
 			android:layout_column="0"
-			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"
-			android:hint="yyyy/mm/dd"/>
+			android:entries="@array/coverPeriod"
+			android:prompt="@string/coverPeriod_prompt"
+			android:background="@drawable/drop_down_large"
+			android:paddingLeft="10dp"/>
+
+
+
+
+
+		<TextView
+			android:text="Insurance End date"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView29"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="14"
+			android:layout_column="0"/>
+
+
+
+
+		<TextView
+			android:text=""
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/insuranceEnddate"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="14"
+			android:layout_column="0"/>
+
+
+		<TextView
+			android:text="Claim Settlement"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/textView10"
+			android:layout_row="16"
+			android:layout_column="0"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/background_dark"
+			android:textAlignment="gravity"
+			android:textStyle="normal|bold"/>
+
+
 
 		<TextView
 			android:text="The Company will settle any claim under this policy within 3 days from the date of receipt of the signed discharged voucher. In the event that the company decides to reject a claim made under this policy, the company shall inform you with a period of seven days of the inspection report."
@@ -280,7 +314,7 @@
 			android:layout_height="match_parent"
 			android:id="@+id/textView11"
 
-			android:layout_row="15"
+			android:layout_row="17"
 			android:layout_column="0"
 			android:layout_marginTop="2dp"
 			android:layout_marginBottom="10dp"
@@ -294,24 +328,13 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_centerHorizontal="true"
-			android:layout_row="17"
+			android:layout_row="18"
 			android:layout_column="0"
 			android:layout_marginTop="10dp"
 			android:background="@drawable/btn_continue"
 			android:layout_marginBottom="30dp"/>
 
-		<TextView
-			android:text="Claim Settlement"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:id="@+id/textView10"
-			android:layout_row="14"
-			android:layout_column="0"
-			android:layout_marginTop="20dp"
-			android:layout_marginBottom="10dp"
-			android:textColor="@android:color/background_dark"
-			android:textAlignment="gravity"
-			android:textStyle="normal|bold"/>
+
 
 
 	</GridLayout>
