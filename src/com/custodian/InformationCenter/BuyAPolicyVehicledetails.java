@@ -376,8 +376,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 this.goToWebservice();
 
-                this.callPolicyLineBlock();
-
                 myIntent = new Intent(BuyAPolicyVehicledetails.this,
                       BuyAPolicyPayment.class);
                 startActivity(myIntent);
@@ -426,17 +424,17 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 json = new JSONObject();
                 json.put("active", value);
-                json.put("description", this.getCover_spinner().getSelectedItem().toString()+" policy for  - " +this.getSharedPreferences().getString("othername","")+" "+ this.getSharedPreferences().getString("surname","").toString());
+                json.put("description", this.getCover_spinner().getSelectedItem().toString()+" policy for  - " +this.getSharedPreferences().getString("othername", "")+" "+ this.getSharedPreferences().getString("surname","").toString());
                 json.put("label", this.getCover_spinner().getSelectedItem()+" policy for  - " +this.getSharedPreferences().getString("othername","").toString()+" "+ this.getSharedPreferences().getString("surname","").toString());
-                json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID",""),10));
+                json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID", ""), 10));
                 json.put("quoteDate", dateFormat.format(date));
                 json.put("requestStartDttm", dateFormat.format(date));
-                json.put("startDate", this.getSharedPreferences().getString("insurance_startdate",""));
+                json.put("startDate", this.getSharedPreferences().getString("insurance_startdate", ""));
                 json.put("requestEndDttm", StringDateUtils.addYearsToDate(dates,2));
                 json.put("validUntil", StringDateUtils.addYearsToDate(dates,2));
                 json.put("paymentTermLabel",endDateLabel);
                 json.put("paymentTerm", 1200);
-                json.put("endDate", StringDateUtils.addYearsToDate(dates,2));
+                json.put("endDate", StringDateUtils.addYearsToDate(dates, 2));
                 //json.put("endDate", this.getInsurance_enddate().getText());
                 json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
                 json.put("quoteReference", this.getVehicle_make().getText()+"private");
@@ -448,6 +446,12 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("origin", "MOBILE");
                 json.put("salesOffice", 1600);
                 json.put("salesChannel", 1200);
+
+                //Clear the cached quote id and make the call
+                editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                editor.remove("leadQuoteID");
+                editor.commit();
+
                 new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_CAPTURE, "",
                         BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
                         "Submitting...").execute();
@@ -521,7 +525,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
     }
 
 
-    private String getLeadquote() {
+    private String getLeadquote(String leadQuoteId) {
         // TODO Auto-generated method stub
         SharedPreferences sharedPreferences = this
                 .getSharedPreferences(MyPREFERENCES,
@@ -529,7 +533,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         HttpClient httpClient;
         httpClient = 	getNewHttpClient();
 
-        HttpGet httpGet= new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID+"/"+this.getSharedPreferences().getString("leadQuoteID",""));
+        HttpGet httpGet= new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID+"/"+leadQuoteId);
         UsernamePasswordCredentials credentials =
                 new UsernamePasswordCredentials("root", "Admin$1234");
         BasicScheme scheme = new BasicScheme();
@@ -687,28 +691,39 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             } else {
                 String status = json.optString("success");
                 String id = json.optString("msgCode");
+
                 if (status.equalsIgnoreCase("false")) {
                     mSplaHandler.sendEmptyMessage(1);
                 } else if (status.equalsIgnoreCase("true")) {
 
+                    //First determine what you are responding to ie leadquote or a lead quote line.
+                    String leadQuoteId = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", null);
 
-                        String res = this.getLeadquote();
-                        JSONObject jsonObject = new JSONObject(res);
-                        editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                    //If nothing is found then we are dealing with a lead quote response
+                    editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                    if(leadQuoteId == null) {
                         editor.putString("leadQuoteID", id);
+
+                        //Now call back to get the details of the generated lead quote eg name etc.
+                        String res = this.getLeadquote(id);
+                        JSONObject jsonObject = new JSONObject(res);
+
+                        //Save the details from that response
                         editor.putString("leadName", jsonObject.optString("name"));
-                        editor.putString("textMessage", "Complete your order by paying N"+ this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("vehicle_value","")+" into any of the bank accounts below. Please remember to provide your reference no "+ this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadName","")+" when making the payment.");
+                        editor.putString("textMessage", "Complete your order by paying N"+ this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("vehicle_value","")
+                                +" into any of the bank accounts below. Please remember to provide your reference no "+ jsonObject.optString("name") +" when making the payment.");
                         editor.commit();
                         Log.e("leadQuoteID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID",""));
                         Log.e("leadName",  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadName",""));
 
-
-                    if( this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("policyLineID","").toString()==null){
-                        editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                        callPolicyLineBlock(); // continue with the policy line after the lead quote line has succeeded
+                    } else {
+                        // we are now dealing with a quote line reponse
                         editor.putString("policyLineID", id);
                         editor.commit();
-                        Log.e("policyLineID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("policyLineID",""));
+                        Log.e("policyLineID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("policyLineID", ""));
                     }
+
                     mSplaHandler.sendEmptyMessage(2);
 
                 }
