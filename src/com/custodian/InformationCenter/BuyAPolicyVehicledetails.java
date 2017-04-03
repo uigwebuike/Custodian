@@ -224,31 +224,33 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.setInsurance_enddate((TextView) findViewById(R.id.insuranceEnddate));
         this.getInsurance_enddate().setTypeface(face);
         this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
+        this.setCoverPeriod((Spinner) findViewById(R.id.coverPeriod_spinner));
 
 
-        coverPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+        this.getCover_spinner().setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
 
-                SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
                 Date date = null;
                 try {
-                    date = dt.parse(insurance_startdate.getText().toString());
+                    date = dt.parse(getInsurance_startdate().getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                          if(coverPeriod.getSelectedItem().toString() ==  "1 year"){
+                          if(getCover_spinner().getSelectedItem() ==  "1 year"){
 
-                    insurance_enddate.setText(dt.format(StringDateUtils.addYearsToDate(date,1)));
+                    getInsurance_enddate().setText(dt.format(StringDateUtils.addYearsToDate(date,1)).toString());
 
-                }else if(coverPeriod.getSelectedItem().toString() ==  "6 months"){
+                }else if(getCover_spinner().getSelectedItem().toString() ==  "6 months"){
+                    getInsurance_enddate().setText(dt.format(StringDateUtils.addMonthsToDate(date,6)).toString());
 
-                    insurance_enddate.setText(dt.format(StringDateUtils.addMonthsToDate(date,6)));
+                }else if(getCover_spinner().getSelectedItem().toString() ==  "3 months"){
 
-                }else if(coverPeriod.getSelectedItem().toString() ==  "3 months"){
-
-                    insurance_enddate.setText(dt.format(StringDateUtils.addMonthsToDate(date,3)));
+                    getInsurance_enddate().setText(dt.format(StringDateUtils.addMonthsToDate(date,3)).toString());
                }
             }
 
@@ -338,7 +340,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 goToWebservice();
 
-                goToWebservice2();
+                //goToWebservice2();
 
                 myIntent = new Intent(BuyAPolicyVehicledetails.this,
                       BuyAPolicyPayment.class);
@@ -378,20 +380,28 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                     endDateLabel =  "Pay_Quaterly";
 
                 }
+                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+                Date dates = null;
+                try {
+                    dates = dt.parse(dateFormat.format(date));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 json = new JSONObject();
                 json.put("active", value);
                 json.put("description", this.getCover_spinner().getSelectedItem().toString()+" policy for  - " +this.getSharedPreferences().getString("othername","")+" "+ this.getSharedPreferences().getString("surname","").toString());
-                json.put("label", this.getCover_spinner()+" policy for  - " +this.getSharedPreferences().getString("othername","").toString()+" "+ this.getSharedPreferences().getString("surname","").toString());
-                json.put("lead", this.getSharedPreferences().getString("leadID","").toString());
+                json.put("label", this.getCover_spinner().getSelectedItem()+" policy for  - " +this.getSharedPreferences().getString("othername","").toString()+" "+ this.getSharedPreferences().getString("surname","").toString());
+                json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID",""),10));
                 json.put("quoteDate", dateFormat.format(date));
                 json.put("requestStartDttm", dateFormat.format(date));
                 json.put("startDate", this.getInsurance_startdate().getText());
-                json.put("requestEndDttm", this.getInsurance_enddate().getText());
-                json.put("validUntil", this.getInsurance_enddate().getText());
+                json.put("requestEndDttm", StringDateUtils.addYearsToDate(dates,2));
+                json.put("validUntil", StringDateUtils.addYearsToDate(dates,2));
                 json.put("paymentTermLabel",endDateLabel);
                 json.put("paymentTerm", 1200);
-                json.put("endDate", this.getInsurance_enddate().getText());
+                json.put("endDate", StringDateUtils.addYearsToDate(dates,2));
+                //json.put("endDate", this.getInsurance_enddate().getText());
                 json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
                 json.put("quoteReference", this.getVehicle_make().getText()+"private");
                 json.put("quoteAmount", this.getVehicle_value().getText());
@@ -423,6 +433,15 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         NetworkInfo activeNetworkInfo = connectivityManager
                 .getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+            Date dates = null;
+            try {
+                dates = dt.parse(dateFormat.format(date));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             try {
                 SharedPreferences sharedPreferences = this
                         .getSharedPreferences(MyPREFERENCES,
@@ -430,8 +449,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
                 json.put("active", value);
-                json.put("leadQuote", this.getSharedPreferences().getString("leadQuoteID",""));
-                json.put("lead",this.getSharedPreferences().getString("lead",""));
+                json.put("leadQuote",  Long.parseLong(this.getSharedPreferences().getString("leadQuoteID",""),10));
+                json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID",""),10));
                 json.put("label", this.getVehicle_make().getText().toString() +" - License # " + this.getChassis_number().getText().toString());
                 json.put("modelYear", "2008");
                 json.put("vehicleMileage", "7889789");
@@ -443,8 +462,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("engineNo", "566757867698");
                 json.put("vehicleUse", "COMMERCIAL");
                 json.put("description", "private some description");
-                json.put("vehicleValue", this.getVehicle_value().getText());
-                json.put("premium", this.getVehicle_value().getText());
+                json.put("vehicleValue", this.getVehicle_value().getText().toString());
+                json.put("premium", this.getVehicle_value().getText().toString());
+                json.put("validUntil", StringDateUtils.addYearsToDate(dates,2));
                 json.put("requestedItem", 1200);
                 json.put("origin", "MOBILE");
                 json.put("status", "NEW");
