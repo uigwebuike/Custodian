@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
@@ -52,6 +53,7 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
     Intent myIntent;
     JSONObject json;
     Editor editor;
+    TextView summaryText;
     ImageButton mback;
     ImageView btnContinue;
     SharedPreferences sharedPreferences;
@@ -59,6 +61,25 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
     Handler mSplaHandler = null;
     String getContactKey = "";
     String subject, desc, email, phone_number;
+
+
+    public TextView getSummaryText() {
+        return summaryText;
+    }
+
+
+    public SharedPreferences getSharedPreferences() {
+        return sharedPreferences;
+    }
+
+    public void setSharedPreferences(SharedPreferences sharedPreferences) {
+        this.sharedPreferences = sharedPreferences;
+    }
+
+    public void setSummaryText(TextView summaryText) {
+        this.summaryText = summaryText;
+    }
+
     private static final Pattern LoginEmail_PATTERN = Pattern
             .compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
@@ -105,61 +126,15 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
 
 
 
+        this.setSummaryText((TextView) findViewById(R.id.summaryTextDetails));
+
+        this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
+
+        Log.e("textMessage",this.getSharedPreferences().getString("textMessage",""));
+
+        this.getSummaryText().setText(this.getSharedPreferences().getString("textMessage",""));
 
 
-
-        /*
-
-        // initialisations and listeners
-        // *******************************************************************************
-        Typeface face = Typeface.createFromAsset(getAssets(),
-                CONSTANTS.FONT_NAME);
-        txt_subject = (TextView) findViewById(R.id.txt_subject);
-        txt_subject.setTypeface(face);
-        edt_subject = (EditText) findViewById(R.id.edt_subject);
-        txt_desc = (TextView) findViewById(R.id.txt_desc);
-        txt_desc.setTypeface(face);
-        txt_subject.setTypeface(face);
-        edt_desc = (EditText) findViewById(R.id.edt_desc);
-        btnContact = (ImageView) findViewById(R.id.btnContactUs);
-        edt_email = (EditText) findViewById(R.id.edt_email);
-        edt_phone_number = (EditText) findViewById(R.id.edt_phone_number);
-        mHeading = (TextView) findViewById(R.id.title);
-        mHeading.setTypeface(face);
-        txt_email = (TextView) findViewById(R.id.txt_email);
-        txt_email.setTypeface(face);
-        txt_phone = (TextView) findViewById(R.id.txt_phone_number);
-        txt_phone.setTypeface(face);
-        img_email = (ImageView) findViewById(R.id.imag_star);
-        img_phone = (ImageView) findViewById(R.id.imag_star_phone);
-        mback = (ImageButton) findViewById(R.id.imageView1);
-        mback.setOnClickListener(this);
-        mHome = (ImageButton) findViewById(R.id.home);
-        mHome.setOnClickListener(this);
-        btnContact.setOnClickListener(this);
-        txt_email.setVisibility(View.GONE);
-        txt_phone.setVisibility(View.GONE);
-        edt_email.setVisibility(View.GONE);
-        edt_phone_number.setVisibility(View.GONE);
-        img_email.setVisibility(View.GONE);
-        img_phone.setVisibility(View.GONE);
-
-        getContactKey = getIntent().getStringExtra("contactKey");
-        if (getContactKey != null) {
-            mHome.setVisibility(View.GONE);
-            txt_email.setVisibility(View.VISIBLE);
-            txt_phone.setVisibility(View.VISIBLE);
-            edt_email.setVisibility(View.VISIBLE);
-            edt_phone_number.setVisibility(View.VISIBLE);
-            img_email.setVisibility(View.VISIBLE);
-            img_phone.setVisibility(View.VISIBLE);
-
-        } else {
-
-        }
-        // *****************************************************************************
-
-        */
 
     }
 

@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,13 +31,39 @@ import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.ContactUsWebservice;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.LeadCaptureWebservice;
+import com.custodian.CustodianWebservices.MySSLSocketFactory;
 import com.custodian.R;
 import com.custodian.URLS.WebserviceURLs;
 import com.custodian.utils.StringDateUtils;
 
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.auth.AuthenticationException;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.auth.BasicScheme;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.security.KeyStore;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,7 +78,9 @@ import java.util.regex.Pattern;
 public class BuyAPolicyVehicledetails extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate;
+    EditText reg_no, vehicle_make, chassis_number, vehicle_value;
+
+    DatePicker insurance_startdate;
 
     TextView insurance_enddate;
 
@@ -84,11 +113,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.insurance_enddate = insurance_enddate;
     }
 
-    public EditText getInsurance_startdate() {
+    public DatePicker getInsurance_startdate() {
         return insurance_startdate;
     }
 
-    public void setInsurance_startdate(EditText insurance_startdate) {
+    public void setInsurance_startdate(DatePicker insurance_startdate) {
         this.insurance_startdate = insurance_startdate;
     }
 
@@ -219,8 +248,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.getChassis_number().setTypeface(face);
         this.setVehicle_value((EditText)findViewById(R.id.vehicle_value));
         this.getVehicle_value().setTypeface(face);
-        this.setInsurance_startdate((EditText) findViewById(R.id.insurance_startdate));
-        this.getInsurance_startdate().setTypeface(face);
+        this.setInsurance_startdate((DatePicker) findViewById(R.id.insurance_startdate));
         this.setInsurance_enddate((TextView) findViewById(R.id.insuranceEnddate));
         this.getInsurance_enddate().setTypeface(face);
         this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
@@ -235,9 +263,13 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
 
                 SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+
+                String datePickerValue = getInsurance_startdate().getDayOfMonth()+"/"+getInsurance_startdate().getMonth()+"/"+getInsurance_startdate().getYear();
+
+
                 Date date = null;
                 try {
-                    date = dt.parse(getInsurance_startdate().getText().toString());
+                    date = dt.parse(datePickerValue);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -293,6 +325,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             case R.id.continue_imag_vehicleDetails:
 
 
+                String datePickerValue = this.getInsurance_startdate().getDayOfMonth()+"/"+this.getInsurance_startdate().getMonth()+"/"+this.getInsurance_startdate().getYear();
+
+
+
                 this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
                 this.setEditor(sharedPreferences.edit());
                 this.getEditor().putString("BasicsKey", "Basics");
@@ -306,7 +342,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 this.getEditor().putString("vehicle_value",this.getVehicle_value().getText().toString());
 
-                this.getEditor().putString("insurance_startdate",this.getInsurance_startdate().getText().toString());
+                this.getEditor().putString("insurance_startdate",datePickerValue);
 
                 this.getEditor().putString("insurance_enddate",this.getInsurance_enddate().getText().toString());
 
@@ -338,9 +374,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Log.e("vehicle_make",this.getSharedPreferences().getString("vehicle_make",""));
                 Log.e("reg_no",this.getSharedPreferences().getString("reg_no",""));
 
-                goToWebservice();
+                this.goToWebservice();
 
-                //goToWebservice2();
+                this.callPolicyLineBlock();
 
                 myIntent = new Intent(BuyAPolicyVehicledetails.this,
                       BuyAPolicyPayment.class);
@@ -395,7 +431,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID",""),10));
                 json.put("quoteDate", dateFormat.format(date));
                 json.put("requestStartDttm", dateFormat.format(date));
-                json.put("startDate", this.getInsurance_startdate().getText());
+                json.put("startDate", this.getSharedPreferences().getString("insurance_startdate",""));
                 json.put("requestEndDttm", StringDateUtils.addYearsToDate(dates,2));
                 json.put("validUntil", StringDateUtils.addYearsToDate(dates,2));
                 json.put("paymentTermLabel",endDateLabel);
@@ -426,7 +462,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
     }
 
 
-    private void goToWebservice2() {
+    private void callPolicyLineBlock() {
         // TODO Auto-generated method stub
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -443,15 +479,14 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 e.printStackTrace();
             }
             try {
-                SharedPreferences sharedPreferences = this
-                        .getSharedPreferences(MyPREFERENCES,
-                                Context.MODE_PRIVATE);
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
                 json.put("active", value);
-                json.put("leadQuote",  Long.parseLong(this.getSharedPreferences().getString("leadQuoteID",""),10));
-                json.put("lead", Long.parseLong(this.getSharedPreferences().getString("leadID",""),10));
-                json.put("label", this.getVehicle_make().getText().toString() +" - License # " + this.getChassis_number().getText().toString());
+                json.put("leadQuote", Long.parseLong(this.getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE).getString("leadQuoteID",""),10));
+                json.put("lead", Long.parseLong(this.getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE).getString("leadID",""),10));
+                json.put("label", this.getVehicle_make().getText().toString() +" -    # " + this.getChassis_number().getText().toString());
                 json.put("modelYear", "2008");
                 json.put("vehicleMileage", "7889789");
                 json.put("vehicleMake", this.getVehicle_make().getText().toString());
@@ -465,7 +500,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("vehicleValue", this.getVehicle_value().getText().toString());
                 json.put("premium", this.getVehicle_value().getText().toString());
                 json.put("validUntil", StringDateUtils.addYearsToDate(dates,2));
-                json.put("requestedItem", 1200);
+                json.put("requestedItem", 2000);
                 json.put("origin", "MOBILE");
                 json.put("status", "NEW");
                 json.put("salesOffice", 1600);
@@ -473,6 +508,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_LINE, "",
                         BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
                         "Submitting...").execute();
+
+
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -482,6 +519,77 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             mSplaHandler.sendEmptyMessage(3);
         }
     }
+
+
+    private String getLeadquote() {
+        // TODO Auto-generated method stub
+        SharedPreferences sharedPreferences = this
+                .getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE);
+        HttpClient httpClient;
+        httpClient = 	getNewHttpClient();
+
+        HttpGet httpGet= new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID+"/"+this.getSharedPreferences().getString("leadQuoteID",""));
+        UsernamePasswordCredentials credentials =
+                new UsernamePasswordCredentials("root", "Admin$1234");
+        BasicScheme scheme = new BasicScheme();
+        Header authorizationHeader = null;
+        try {
+            authorizationHeader = scheme.authenticate(credentials, httpGet);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+        httpGet.addHeader(authorizationHeader);
+        httpGet.setHeader("Accept", "application/json");
+        httpGet.setHeader("Content-type", "application/json");
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpClient.execute(httpGet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HttpEntity httpEntity = httpResponse.getEntity();
+
+        String response = null;
+        try {
+            response = EntityUtils.toString(httpEntity);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return  response;
+
+    }
+
+
+    public HttpClient getNewHttpClient() {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+
+            ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
+
+    }
+
+
+
     /**
      * CheckStatus(String message) is used to show alerts.
      *
@@ -582,19 +690,24 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 if (status.equalsIgnoreCase("false")) {
                     mSplaHandler.sendEmptyMessage(1);
                 } else if (status.equalsIgnoreCase("true")) {
-                    sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                    if(sharedPreferences.getString("leadQuoteID","").toString()==null){
-                        editor = sharedPreferences.edit();
-                        editor.putString("leadQuoteID", id);
-                        editor.commit();
-                        Log.e("leadQuoteID",sharedPreferences.getString("leadQuoteID",""));
-                    }
 
-                    if(sharedPreferences.getString("policyLineID","").toString()==null){
-                        editor = sharedPreferences.edit();
+
+                        String res = this.getLeadquote();
+                        JSONObject jsonObject = new JSONObject(res);
+                        editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                        editor.putString("leadQuoteID", id);
+                        editor.putString("leadName", jsonObject.optString("name"));
+                        editor.putString("textMessage", "Complete your order by paying N"+ this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("vehicle_value","")+" into any of the bank accounts below. Please remember to provide your reference no "+ this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadName","")+" when making the payment.");
+                        editor.commit();
+                        Log.e("leadQuoteID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID",""));
+                        Log.e("leadName",  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadName",""));
+
+
+                    if( this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("policyLineID","").toString()==null){
+                        editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
                         editor.putString("policyLineID", id);
                         editor.commit();
-                        Log.e("policyLineID",sharedPreferences.getString("policyLineID",""));
+                        Log.e("policyLineID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("policyLineID",""));
                     }
                     mSplaHandler.sendEmptyMessage(2);
 
