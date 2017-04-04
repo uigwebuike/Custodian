@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
@@ -160,10 +162,15 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
                 "_" + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("surname", "N/A");
 
         String url = "http://www.custodiandirect.com/webpay.php?ref=" + lqn + "&amt=" + premium + "&cl="+ cl+ "&cn="+ leadId;
-        Log.e("url",url);
-
+        this.getPaymentWebView().getSettings().setJavaScriptEnabled(true);
+        final Activity activity = this;
+        this.getPaymentWebView().setWebViewClient(new WebViewClient() {
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
+            }
+        });
         this.getPaymentWebView().loadUrl(url);
-
+        Log.e("url",url);
     }
 
     @Override

@@ -114,7 +114,7 @@
 
 
 		<TextView
-			android:text="Pay with Online"
+			android:text="Pay Online"
 			android:layout_width="match_parent"
 			android:id="@+id/textView10"
 			android:layout_row="0"
@@ -132,7 +132,7 @@
 			>
 
 			<TextView
-				android:text="Pay offline (Bank Details)"
+				android:text="Pay @ Bank"
 				android:layout_width="match_parent"
 				android:id="@+id/textView"
 				android:layout_row="0"

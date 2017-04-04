@@ -462,6 +462,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 //Clear the cached quote id and make the call
                 editor = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
                 editor.remove("leadQuoteID");
+                editor.remove("leadQuoteName");
+                editor.remove("textMessage");
                 editor.commit();
 
                 new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_CAPTURE, "",
