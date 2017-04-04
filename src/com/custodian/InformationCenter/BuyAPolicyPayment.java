@@ -48,7 +48,7 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
 
     boolean value;
 
-    ImageView btnContact, img_email, img_phone;
+    ImageView interswitchpaybutton, img_email, img_phone;
     ImageButton mHome;
     Intent myIntent;
     JSONObject json;
@@ -87,6 +87,15 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
 
     // OnBackPressed is used to disable the device back button as back button is
     // used in top bar for navigation.
+
+
+    public ImageView getInterswitchpaybutton() {
+        return interswitchpaybutton;
+    }
+
+    public void setInterswitchpaybutton(ImageView interswitchpaybutton) {
+        this.interswitchpaybutton = interswitchpaybutton;
+    }
 
     @Override
     public void onBackPressed() {
@@ -163,28 +172,10 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
                 startActivity(myIntent);
                 break;
 
-            case R.id.continue_imag_vehicleDetails:
+            case R.id.interswitchpaybutton:
 
 
-                EditText reg_no, vehicle_make, chassis_number, vehicle_value,insurance_startdate,insurance_enddate;
-
-                sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                editor = sharedPreferences.edit();
-                editor.putString("BasicsKey", "Basics");
-
-
-
-              //dummy class to post and create a policy
-
-
-                editor.commit();
-
-
-
-
-                //call the webservice to create leadquote
-
-                myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyPayment.class);
+                myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyInterswitch.class);
 
                 startActivity(myIntent);
 

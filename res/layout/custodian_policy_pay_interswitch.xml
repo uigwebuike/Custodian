@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/background720x1280"
+				android:gravity="top" >
+
+	<RelativeLayout
+
+		android:id="@+id/relTop"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/top_bar">
+
+
+		<ImageButton
+			android:id="@+id/imageView1"
+			android:layout_width="60dp"
+			android:layout_height="50dp"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="2dp"
+			android:layout_marginRight="10dp"
+			android:background="@android:color/transparent"
+
+			android:src="@drawable/btn_back" />
+
+
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:textAllCaps="true"
+			android:textSize="@dimen/head_size"
+			android:textColor="#fff"
+			android:layout_toRightOf="@+id/title_text"
+			android:text = "Get A Quote"
+
+			/>
+
+		<ImageButton
+			android:id="@+id/home"
+			android:layout_width="60dp"
+			android:layout_height="50dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="1dp"
+			android:background="@android:color/transparent"
+
+			android:src="@drawable/icon_home" />
+	</RelativeLayout>
+
+	<ScrollView
+		android:id="@+id/Heading1_scroll"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/Heading_Of_Tabs">
+		<RelativeLayout
+			android:id="@+id/Heading1_main"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" >
+			<RelativeLayout
+				android:id="@+id/Heading1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				>
+
+
+			</RelativeLayout>
+
+
+		</RelativeLayout>
+	</ScrollView>
+
+	<TextView
+		android:id="@+id/Heading_Of_Tabs"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+
+		android:text="Pay online"
+		android:textColor="@android:color/white"
+		android:gravity="center"
+
+		android:background="@drawable/gray_bar"
+		android:layout_below="@+id/relTop"
+		android:layout_alignParentLeft="true"
+		tools:ignore="HardcodedText"/>
+
+
+	<ScrollView
+		android:id="@+id/scrollview"
+		android:layout_width="fill_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/Heading_Of_Tabs"
+		android:layout_alignParentLeft="true">
+
+
+		<WebView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/webpayInterface"/>
+	</ScrollView>
+
+
+</RelativeLayout>
