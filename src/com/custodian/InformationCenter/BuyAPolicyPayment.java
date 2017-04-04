@@ -151,6 +151,7 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
     public void onClick(View v) {
         // TODO Auto-generated method stub
         int id = v.getId();
+
         switch (id) {
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
@@ -210,6 +211,27 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
             mSplaHandler.sendEmptyMessage(3);
         }
     }
+
+/*
+    imageView.setOnClickListener(clickListener);
+    OnClickListener clickListener = new OnClickListener() {
+        public void onClick(View v) {
+            if (v.equals(imageView)) {
+                // Write your awesome code here
+            }
+        }
+    };
+*/
+
+
+    public void imageClick(View view) {
+
+        Log.e("Image_clicked_called","called Interswitch");
+        //Implement image click function
+        myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyInterswitch.class);
+        startActivity(myIntent);
+    }
+
 
     /**
      * CheckStatus(String message) is used to show alerts.

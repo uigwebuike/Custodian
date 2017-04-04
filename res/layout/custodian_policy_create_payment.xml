@@ -472,7 +472,8 @@ Please remember to provide your reference no LQLQ000033227 when making the payme
 			android:layout_weight="1"
 			android:layout_margin="30dp"
 			android:layout_gravity="center_vertical|center"
-			android:clickable="true"/>
+			android:clickable="true"
+			android:onClick="imageClick"/>
 
 
 	</GridLayout>

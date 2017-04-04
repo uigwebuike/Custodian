@@ -91,6 +91,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     ImageButton mHome;
     JSONObject json;
     Editor editor;
+    Intent myIntent;
     ImageButton mback;
     ImageView btnContinue;
     SharedPreferences sharedPreferences;
@@ -124,7 +125,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custodian_policy_create_vehicle_details);
+        setContentView(R.layout.custodian_policy_pay_interswitch);
 
         mSplaHandler = new Handler() {
             @Override
@@ -147,7 +148,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         mHome = (ImageButton) findViewById(R.id.home);
         mHome.setOnClickListener(this);
         btnContinue = (ImageView)findViewById(R.id.continue_imag_vehicleDetails);
-        btnContinue.setOnClickListener(this);
+       // btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
         this.setPaymentWebView((WebView) findViewById(R.id.webpayInterface));
@@ -156,7 +157,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         String leadId = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", "N/A");
         String premium = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("premium", "0");
         String cl = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("othername", "N/A") +
-                " " + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("surname", "N/A");
+                "_" + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("surname", "N/A");
 
         String url = "http://www.custodiandirect.com/webpay.php?ref=" + lqn + "&amt=" + premium + "&cl="+ cl+ "&cn="+ leadId;
         Log.e("url",url);
@@ -167,7 +168,14 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
 
     @Override
     public void onClick(View v) {
-
+        int id = v.getId();
+        switch (id) {
+            case R.id.home:
+                // Home button will navigate the user directly to home screen.
+                myIntent = new Intent(BuyAPolicyInterswitch.this, CustodianHomeScreenMain.class);
+                startActivity(myIntent);
+                break;
+        }
     }
 
     private void goToWebservice() {
