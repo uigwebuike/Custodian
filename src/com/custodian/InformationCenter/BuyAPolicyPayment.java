@@ -152,20 +152,6 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
         // TODO Auto-generated method stub
         int id = v.getId();
         switch (id) {
-            case R.id.imageView1:
-                // Back button will navigate the user to previous screen.
-                if (getContactKey != null) {
-                    myIntent = new Intent(BuyAPolicyPayment.this,
-                            BuyAPolicyVehicledetails.class);
-                    startActivity(myIntent);
-                } else {
-                    myIntent = new Intent(BuyAPolicyPayment.this,
-                            InformationCenterMenuScreen.class);
-                    startActivity(myIntent);
-                }
-
-                break;
-
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
                 myIntent = new Intent(BuyAPolicyPayment.this, CustodianHomeScreenMain.class);
@@ -173,54 +159,9 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
                 break;
 
             case R.id.interswitchpaybutton:
-
-
                 myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyInterswitch.class);
-
                 startActivity(myIntent);
-
                 break;
-
-
-            case R.id.btnContactUs:
-                /**
-                 * Clicking on Contact us button gets the details from fields filled
-                 * by the user,then validate them and hit the webservice to submit
-                 * the contact us form. To hit webservice , id of the user will be
-                 * used as a json parameter which is procured from the preferences.
-                 */
-                /*subject = edt_subject.getText().toString();
-                desc = edt_desc.getText().toString();
-                email = edt_email.getText().toString();
-                phone_number = edt_phone_number.getText().toString();
-*/
-                if (getContactKey != null) {
-                    if (email.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_EMAIL);
-                    } else if (!CheckEmail(email)) {
-                        Showalerts(Alerts.INVALID_EMAIL);
-                    } else if (phone_number.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.ENTER_PHONE);
-                    } else if (phone_number.length() > 16) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (!CheckPhone(phone_number)) {
-                        Showalerts(Alerts.INVALID_PHONE);
-                    } else if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
-                } else if (getContactKey == null) {
-                    if (subject.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_SUBJECT);
-                    } else if (desc.equalsIgnoreCase("")) {
-                        Showalerts(Alerts.CONTACT_US_DESCRIPTION);
-                    } else {
-                        goToWebservice();
-                    }
-                }
         }
     }
 

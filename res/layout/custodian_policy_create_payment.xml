@@ -471,7 +471,8 @@ Please remember to provide your reference no LQLQ000033227 when making the payme
 			android:id="@+id/interswitchpaybutton"
 			android:layout_weight="1"
 			android:layout_margin="30dp"
-			android:layout_gravity="center_vertical|center"/>
+			android:layout_gravity="center_vertical|center"
+			android:clickable="true"/>
 
 
 	</GridLayout>
