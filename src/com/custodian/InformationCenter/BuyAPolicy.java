@@ -16,6 +16,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,8 +41,8 @@ import java.util.regex.Pattern;
 public class BuyAPolicy extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText surname, othername, address, username,password,dateofbirth, emailaddress,phonenumber;
-    ;
+    EditText surname, othername, address, username,password, emailaddress,phonenumber;
+    DatePicker dateofbirth;
     Spinner title_spinner, occupation_spinner;
     String flag;
 
@@ -114,8 +115,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         username.setTypeface(face);
         password = (EditText) findViewById(R.id.password);
         password.setTypeface(face);
-        dateofbirth = (EditText) findViewById(R.id.dateofbirth);
-        dateofbirth.setTypeface(face);
+        dateofbirth = (DatePicker) findViewById(R.id.dateofbirth);
         emailaddress = (EditText) findViewById(R.id.emailaddress);
         emailaddress.setTypeface(face);
         phonenumber = (EditText) findViewById(R.id.phonenumber);
@@ -153,9 +153,10 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
 
 
+                String datePickerValue = this.dateofbirth.getDayOfMonth() + "/" + this.dateofbirth.getMonth() + "/" + this.dateofbirth.getYear();
 
 
-              sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 editor.putString("BasicsKey", "Basics");
                 editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
@@ -172,7 +173,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 Log.e("username",sharedPreferences.getString("username",""));
                 editor.putString("password",password.getText().toString());
                 Log.e("password",sharedPreferences.getString("password",""));
-                editor.putString("dateofbirth",dateofbirth.getText().toString());
+                editor.putString("dateofbirth",dateofbirth.toString());
                 Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
                 editor.putString("emailaddress",emailaddress.getText().toString());
                 Log.e("emailaddress",sharedPreferences.getString("emailaddress",""));
