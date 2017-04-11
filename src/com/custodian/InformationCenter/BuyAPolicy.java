@@ -173,7 +173,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 Log.e("username",sharedPreferences.getString("username",""));
                 editor.putString("password",password.getText().toString());
                 Log.e("password",sharedPreferences.getString("password",""));
-                editor.putString("dateofbirth",dateofbirth.toString());
+                editor.putString("dateofbirth",datePickerValue.toString());
                 Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
                 editor.putString("emailaddress",emailaddress.getText().toString());
                 Log.e("emailaddress",sharedPreferences.getString("emailaddress",""));
