@@ -189,7 +189,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                     this.getPayment_status_image().setBackground(res);
                 }
             }else {
-                this.getPayment_status_message().setText("Sorry!, your transaction was not successful");
+                this.getPayment_status_message().setText("Sorry! your transaction was not successful");
                 uriToImage = "@drawable/signerroricon";  // where myresource (without the extension) is the file
                 int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
                 res = getResources().getDrawable(imageResource);
