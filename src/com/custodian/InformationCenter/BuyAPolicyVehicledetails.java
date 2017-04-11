@@ -353,14 +353,14 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                     startActivity(myIntent);
                 } else {
                     myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                            InformationCenterMenuScreen.class);
+                            CustodianMainLanding.class);
                     startActivity(myIntent);
                 }
                 break;
 
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyVehicledetails.this, InformationCenterMenuScreen.class);
+                myIntent = new Intent(BuyAPolicyVehicledetails.this, CustodianMainLanding.class);
                 startActivity(myIntent);
                 break;
 

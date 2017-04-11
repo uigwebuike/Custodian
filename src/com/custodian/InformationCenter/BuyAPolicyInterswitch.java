@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
 import com.custodian.CustodianHomeScreenMain;
+import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.LeadCaptureWebservice;
 import com.custodian.CustodianWebservices.MySSLSocketFactory;
@@ -207,7 +208,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         switch (id) {
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyInterswitch.this, InformationCenterMenuScreen.class);
+                myIntent = new Intent(BuyAPolicyInterswitch.this, CustodianMainLanding.class);
                 startActivity(myIntent);
                 break;
 

@@ -24,6 +24,7 @@ import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
 import com.custodian.CustodianHomeScreenMain;
 import com.custodian.CustodianLoginScreen;
+import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.MySSLSocketFactory;
 import com.custodian.R;
@@ -245,7 +246,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                 editor.commit();
 
                 myIntent = new Intent(BuyAPolicyPaymentMessage.this,
-                        InformationCenterMenuScreen.class);
+                        CustodianMainLanding.class);
                 startActivity(myIntent);
 
                 break;

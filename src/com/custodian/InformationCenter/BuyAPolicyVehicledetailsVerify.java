@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
 import com.custodian.CustodianHomeScreenMain;
+import com.custodian.CustodianMainLanding;
 import com.custodian.CustodianWebservices.CustodianInterface;
 import com.custodian.CustodianWebservices.LeadCaptureWebservice;
 import com.custodian.CustodianWebservices.MySSLSocketFactory;
@@ -270,7 +271,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
 
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,InformationCenterMenuScreen.class);
+                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,CustodianMainLanding.class);
                 startActivity(myIntent);
                 break;
 
