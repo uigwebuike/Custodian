@@ -78,13 +78,13 @@ import java.util.regex.Pattern;
 public class BuyAPolicyVehicledetails extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText reg_no, vehicle_make, chassis_number, vehicle_value;
+    EditText reg_no, chassis_number, vehicle_value;
 
     DatePicker insurance_startdate;
 
-    TextView insurance_enddate;
+    String insurance_enddate;
 
-    Spinner coverPeriod;
+    Spinner coverPeriod, cover, vehicle_make,paymentOption_spinner;
 
     public String getFlag() {
         return flag;
@@ -94,20 +94,38 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.flag = flag;
     }
 
+    public Spinner getCoverPeriod_spinner() {
+        return this.coverPeriod;
+    }
+
+
+    public void setCoverPeriod_spinner(Spinner coverPeriod_spinner) {
+        this.coverPeriod = coverPeriod_spinner;
+    }
+
     public Spinner getCover_spinner() {
-        return cover_spinner;
+        return cover;
     }
 
 
     public void setCover_spinner(Spinner cover_spinner) {
-        this.cover_spinner = cover_spinner;
+        this.cover = cover_spinner;
     }
 
-    public TextView getInsurance_enddate() {
+
+    public Spinner getPaymentOption_spinner() {
+        return this.paymentOption_spinner;
+    }
+
+    public void setPaymentOption_spinner(Spinner paymentOption_spinner) {
+        this.paymentOption_spinner = paymentOption_spinner;
+    }
+
+    public String getInsurance_enddate() {
         return insurance_enddate;
     }
 
-    public void setInsurance_enddate(TextView insurance_enddate) {
+    public void setInsurance_enddate(String insurance_enddate) {
         this.insurance_enddate = insurance_enddate;
     }
 
@@ -135,11 +153,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.chassis_number = chassis_number;
     }
 
-    public EditText getVehicle_make() {
+    public Spinner getVehicle_make() {
         return vehicle_make;
     }
 
-    public void setVehicle_make(EditText vehicle_make) {
+    public void setVehicle_make(Spinner vehicle_make) {
         this.vehicle_make = vehicle_make;
     }
 
@@ -240,24 +258,34 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 CONSTANTS.FONT_NAME);
         this.setReg_no((EditText) findViewById(R.id.reg_no));
         this.getReg_no().setTypeface(face);
-        this.setVehicle_make((EditText) findViewById(R.id.vehicle_make));
-        this.getVehicle_make().setTypeface(face);
+        this.setVehicle_make((Spinner) findViewById(R.id.vehicle_make));
         this.setChassis_number((EditText) findViewById(R.id.chassis_number));
         this.getChassis_number().setTypeface(face);
         this.setVehicle_value((EditText) findViewById(R.id.vehicle_value));
         this.getVehicle_value().setTypeface(face);
         this.setInsurance_startdate((DatePicker) findViewById(R.id.insurance_startdate));
-        this.setInsurance_enddate((TextView) findViewById(R.id.insuranceEnddate));
-        this.getInsurance_enddate().setTypeface(face);
         this.setCover_spinner((Spinner) findViewById(R.id.cover_spinner));
         this.setCoverPeriod((Spinner) findViewById(R.id.coverPeriod_spinner));
+        this.setPaymentOption_spinner((Spinner) findViewById(R.id.paymentOption_spinner));
+
+        SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+        String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
+
+        Date date = null;
+        try {
+            date = dt.parse(datePickerValue);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        setInsurance_enddate(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
+        Log.e("DefaultEndDate", getInsurance_enddate());
 
 
         this.getCover_spinner().setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-
-
                 SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
 
                 String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
@@ -271,22 +299,40 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 }
 
 
-                if (getCover_spinner().getSelectedItem() == "1 year") {
+                if (getCoverPeriod().getSelectedItem().toString() == "1 year") {
 
-                    getInsurance_enddate().setText(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
+                    setInsurance_enddate(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
+                    Log.e("EndDate", getInsurance_enddate());
 
-                } else if (getCover_spinner().getSelectedItem().toString() == "6 months") {
-                    getInsurance_enddate().setText(dt.format(StringDateUtils.addMonthsToDate(date, 6)).toString());
 
-                } else if (getCover_spinner().getSelectedItem().toString() == "3 months") {
+                } else if (getCoverPeriod().getSelectedItem().toString() == "6 months") {
+                    setInsurance_enddate(dt.format(StringDateUtils.addMonthsToDate(date, 6)).toString());
+                    Log.e("EndDate", getInsurance_enddate());
 
-                    getInsurance_enddate().setText(dt.format(StringDateUtils.addMonthsToDate(date, 3)).toString());
+                } else if (getCoverPeriod().getSelectedItem().toString() == "3 months") {
+
+                    setInsurance_enddate(dt.format(StringDateUtils.addMonthsToDate(date, 3)).toString());
+                    Log.e("EndDate", getInsurance_enddate());
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
+
+                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+
+                String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
+
+
+                Date date = null;
+                try {
+                    date = dt.parse(datePickerValue);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                setInsurance_enddate(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
+                Log.e("Insurance End Date", getInsurance_enddate());
             }
 
         });
@@ -310,7 +356,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                             InformationCenterMenuScreen.class);
                     startActivity(myIntent);
                 }
-
                 break;
 
             case R.id.home:
@@ -323,8 +368,32 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
 
                 String datePickerValue = this.getInsurance_startdate().getDayOfMonth() + "/" + this.getInsurance_startdate().getMonth() + "/" + this.getInsurance_startdate().getYear();
+                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
 
 
+                //todo please port over the logic for calculating the premium from the php script into this and save it
+                double premium = 0.03d * Double.valueOf(this.getVehicle_value().getText().toString());
+                double amountTopay = 0d;
+                Long paymentOption = null;
+
+                if (getCover_spinner().getSelectedItem().toString() == "Comprehensive"){
+                    if (getCover_spinner().getSelectedItem() == "1 year") {
+
+                        amountTopay = 0.03d * Double.valueOf(this.getVehicle_value().getText().toString());  //hard coded to 3% of the value - todo review this
+
+                    } else if (getCover_spinner().getSelectedItem().toString() == "6 months") {
+                        amountTopay = (0.03d * Double.valueOf(this.getVehicle_value().getText().toString()))/2;  //hard coded to 3% of the value - todo review this
+
+
+                    } else if (getCover_spinner().getSelectedItem().toString() == "3 months") {
+                        amountTopay = (0.03d * Double.valueOf(this.getVehicle_value().getText().toString()))/4;  //hard coded to 3% of the value - todo review this
+                    }
+                }else{
+                        premium = 5000d;
+                        amountTopay  = 5000d;
+                }
+
+                //Store the value in the shared settings.
                 this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
                 this.setEditor(sharedPreferences.edit());
                 this.getEditor().putString("BasicsKey", "Basics");
@@ -332,7 +401,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 this.getEditor().putString("reg_no", this.getReg_no().getText().toString());
 
-                this.getEditor().putString("vehicle_make", this.getVehicle_make().getText().toString());
+                this.getEditor().putString("amount_to_pay", String.valueOf(amountTopay));
+
+                this.getEditor().putString("vehicle_make", this.getVehicle_make().getSelectedItem().toString().toUpperCase());
 
                 this.getEditor().putString("chassis_number", this.getChassis_number().getText().toString());
 
@@ -340,43 +411,32 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 this.getEditor().putString("insurance_startdate", datePickerValue);
 
-                this.getEditor().putString("insurance_enddate", this.getInsurance_enddate().getText().toString());
+               this.getEditor().putString("insurance_enddate", this.getInsurance_enddate().toString());
 
-                this.getEditor().putString("cover_spinner", this.getCover_spinner().getSelectedItem().toString());
+                this.getEditor().putString("cover_spinner", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
 
-                //todo please port over the logic for calculating the premium from the php script into this and save it
-                double yearlyPremium = 0.03d * Double.valueOf(this.getVehicle_value().getText().toString());  //hard coded to 3% of the value - todo review this
-                double policyPremium = 0d;
+                this.getEditor().putString("premium", String.valueOf(premium));
 
-                //todo finish up this logic - remember that you need to look at the policy type e.g third party = 5K flat
-                if (getCover_spinner().getSelectedItem() == "1 year") {
-                    policyPremium = yearlyPremium;
-                } else if (getCover_spinner().getSelectedItem().toString() == "6 months") {
-                    policyPremium = yearlyPremium / 2;
-                } else if (getCover_spinner().getSelectedItem().toString() == "3 months") {
-                    policyPremium = yearlyPremium / 4;
+                this.getEditor().putString("paymentOptionLabel", this.getPaymentOption_spinner().getSelectedItem().toString());
+
+                if(this.getPaymentOption_spinner().getSelectedItem().toString() == "Pay_In_Full"){
+                    paymentOption =  1001l;
+                }else if(this.getPaymentOption_spinner().getSelectedItem().toString() == "Pay_Bi_Annually"){
+                    paymentOption = 1000l;
+                }else if(this.getPaymentOption_spinner().getSelectedItem().toString() == "Pay_Quarterly"){
+                    paymentOption = 1003l;
+                }else{
+                    paymentOption = 1200l;
                 }
-
-                //Store the value in the shared settings.
-                this.getEditor().putString("premium", String.valueOf(policyPremium));
-
+                this.getEditor().putLong("paymentOption", paymentOption);
                 this.getEditor().commit();
-
-                // editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
                 Log.e("title_spinner", this.getSharedPreferences().getString("title_spinner", ""));
-                //editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
                 Log.e("occupation_spinner", this.getSharedPreferences().getString("occupation_spinner", ""));
-                // editor.putString("surname",surname.getText().toString());
                 Log.e("surname", this.getSharedPreferences().getString("surname", ""));
-                // editor.putString("othername",othername.getText().toString());
                 Log.e("othername", this.getSharedPreferences().getString("othername", ""));
-                // editor.putString("address",address.getText().toString());
                 Log.e("address", this.getSharedPreferences().getString("address", ""));
-                //  editor.putString("username",username.getText().toString());
                 Log.e("username", this.getSharedPreferences().getString("username", ""));
-                //  editor.putString("password",password.getText().toString());
                 Log.e("password", this.getSharedPreferences().getString("password", ""));
-                // editor.putString("dateofbirth",dateofbirth.getText().toString());
                 Log.e("dateofbirth", this.getSharedPreferences().getString("dateofbirth", ""));
                 Log.e("cover_spinner", this.getSharedPreferences().getString("cover_spinner", ""));
                 Log.e("insurance_enddate", this.getSharedPreferences().getString("insurance_enddate", ""));
@@ -385,14 +445,13 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Log.e("chassis_number", this.getSharedPreferences().getString("chassis_number", ""));
                 Log.e("vehicle_make", this.getSharedPreferences().getString("vehicle_make", ""));
                 Log.e("reg_no", this.getSharedPreferences().getString("reg_no", ""));
-
+                Log.e("premium", this.getSharedPreferences().getString("premium", ""));
+                Log.e("payment_Option_Label", this.getSharedPreferences().getString("paymentOptionLabel", ""));
+                Log.e("payment_Option", String.valueOf(this.getSharedPreferences().getLong("paymentOption", 0L)));
                 this.goToWebservice();
-
                 myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                        BuyAPolicyPayment.class);
+                        BuyAPolicyVehicledetailsVerify.class);
                 startActivity(myIntent);
-
-
                 break;
         }
     }
@@ -412,20 +471,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Date date = new Date();
                 value = Boolean.valueOf("true");
 
-                String endDateLabel = null;
 
-                String endDate = this.getInsurance_enddate().getText().toString();
+                String endDate = this.getInsurance_enddate().toString();
 
-                if (endDate == "1 Year") {
-                    endDateLabel = "Pay_Anually";
 
-                } else if (endDate == "6 Months") {
-                    endDateLabel = "Bi_Anually";
-
-                } else if (endDate == "3 Months") {
-                    endDateLabel = "Pay_Quaterly";
-
-                }
                 SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
                 Date dates = null;
                 try {
@@ -442,15 +491,16 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("quoteDate", dateFormat.format(date));
                 json.put("requestStartDttm", dateFormat.format(date));
                 json.put("startDate", this.getSharedPreferences().getString("insurance_startdate", ""));
-                json.put("requestEndDttm", StringDateUtils.addYearsToDate(dates, 2));
-                json.put("validUntil", StringDateUtils.addYearsToDate(dates, 2));
-                json.put("paymentTermLabel", endDateLabel);
-                json.put("paymentTerm", 1200);
-                json.put("endDate", StringDateUtils.addYearsToDate(dates, 2));
+                json.put("requestEndDttm", endDate);
+                json.put("validUntil", endDate);
+                json.put("paymentTermLabel", this.getSharedPreferences().getString("payment_Option_Label", ""));
+                //json.put("paymentTerm", 1200);
+                json.put("paymentTerm", this.getSharedPreferences().getLong("payment_Option", 0l));
+                json.put("endDate", endDate);
                 //json.put("endDate", this.getInsurance_enddate().getText());
                 json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
-                json.put("quoteReference", this.getVehicle_make().getText() + "private");
-                json.put("quoteAmount", this.getVehicle_value().getText());
+                json.put("quoteReference", this.getVehicle_make().getSelectedItem() + " private");
+                json.put("quoteAmount", this.getSharedPreferences().getString("premium", ""));
                 json.put("category", "SERVICE");
                 json.put("status", "NEW");
                 json.put("origin", "MOBILE");
@@ -460,15 +510,18 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("salesChannel", 1200);
 
                 //Clear the cached quote id and make the call
-                editor = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
-                editor.remove("leadQuoteID");
-                editor.remove("leadQuoteName");
-                editor.remove("textMessage");
-                editor.commit();
 
                 new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_CAPTURE, "",
                         BuyAPolicyVehicledetails.this, BuyAPolicyVehicledetails.this, true, json,
                         "Submitting...").execute();
+
+                editor = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
+                editor.remove("leadQuoteID");
+                editor.remove("leadQuoteName");
+                // editor.remove("textMessage");
+                editor.commit();
+
+
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -504,10 +557,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                         Context.MODE_PRIVATE).getString("leadQuoteID", ""), 10));
                 json.put("lead", Long.parseLong(this.getSharedPreferences(MyPREFERENCES,
                         Context.MODE_PRIVATE).getString("leadID", ""), 10));
-                json.put("label", this.getVehicle_make().getText().toString() + " -    # " + this.getChassis_number().getText().toString());
+                json.put("label", this.getVehicle_make().getSelectedItem().toString().toUpperCase() + " -    # " + this.getChassis_number().getText().toString());
                 json.put("modelYear", "NA");
                 json.put("vehicleMileage", "NA");
-                json.put("vehicleMake", this.getVehicle_make().getText().toString());
+                json.put("vehicleMake", this.getVehicle_make().getSelectedItem().toString().toUpperCase());
                 json.put("vehicleColor", "NA");
                 json.put("vehicleModel", "NA");
                 json.put("vehicleNo", this.getReg_no().getText().toString());
@@ -516,8 +569,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("vehicleUse", "PRIVATE");
                 json.put("description", "NA");
                 json.put("vehicleValue", this.getVehicle_value().getText().toString());
-                json.put("premium", this.getVehicle_value().getText().toString());
-                json.put("validUntil", StringDateUtils.addYearsToDate(dates, 2));
+                json.put("premium", this.getSharedPreferences().getString("premium", ""));
+                json.put("validUntil", StringDateUtils.addYearsToDate(dates, 2)); //todo calculate the correct end date
                 json.put("requestedItem", 2000);
                 json.put("origin", "MOBILE");
                 json.put("status", "NEW");
@@ -723,7 +776,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                         //Save the details from that response
                         editor.putString("leadQuoteName", jsonObject.optString("name"));
-                        editor.putString("textMessage", "Complete your order by paying N" + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("vehicle_value", "")
+                        editor.putString("textMessage", "Complete your order by paying N" + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("premium", "")
                                 + " into any of the bank accounts below. Please remember to provide your reference no " + jsonObject.optString("name") + " when making the payment.");
                         editor.commit();
                         Log.e("leadQuoteID", this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""));

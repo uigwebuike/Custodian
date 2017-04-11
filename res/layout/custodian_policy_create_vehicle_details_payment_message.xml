@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/background720x1280"
+				android:gravity="top" >
+
+	<RelativeLayout
+
+		android:id="@+id/relTop"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/top_bar">
+
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:textAllCaps="true"
+			android:textSize="@dimen/head_size"
+
+			android:textColor="#fff"
+			android:layout_toRightOf="@+id/title_text"
+			android:text = "Get A Quote"
+
+			/>
+
+		<ImageButton
+			android:id="@+id/home"
+			android:layout_width="60dp"
+			android:layout_height="50dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="1dp"
+			android:background="@android:color/transparent"
+
+			android:src="@drawable/icon_home" />
+	</RelativeLayout>
+
+	<ScrollView
+		android:id="@+id/Heading1_scroll"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/Heading_Of_Tabs">
+		<RelativeLayout
+			android:id="@+id/Heading1_main"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" >
+			<RelativeLayout
+				android:id="@+id/Heading1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				>
+
+
+			</RelativeLayout>
+
+
+		</RelativeLayout>
+	</ScrollView>
+
+	<TextView
+		android:id="@+id/Heading_Of_Tabs"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+
+		android:text="Transaction Status"
+		android:textColor="@android:color/white"
+		android:gravity="center"
+
+		android:background="@drawable/gray_bar"
+		android:layout_below="@+id/relTop"
+		android:layout_alignParentLeft="true"
+		tools:ignore="HardcodedText"/>
+
+
+	<ScrollView
+		android:id="@+id/scrollview"
+		android:layout_width="fill_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/Heading_Of_Tabs"
+		android:layout_alignParentLeft="true">
+
+
+
+	<GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft="0dp"
+		android:paddingRight="0dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_marginTop="5dp"
+		tools:targetApi="ice_cream_sandwich">
+
+
+		<!--TextView
+			android:text="Insurance End date"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView29"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="14"
+			android:layout_column="0"/-->
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_row="5"
+			android:layout_column="0"
+			android:layout_height="match_parent">
+
+			<TableLayout
+				android:layout_width="match_parent"
+				android:layout_height="323dp">
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<LinearLayout
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent"
+						android:weightSum="1">
+
+						<TextView
+							android:text="Thank you, your transaction is successful"
+							android:layout_width="367dp"
+							android:layout_height="103dp"
+							android:id="@+id/payment_status_message"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="center"
+							android:textStyle="normal|bold"
+							android:textSize="24sp"
+							android:gravity="center"
+							android:layout_weight="0.48"/>
+
+
+						<ImageView
+							android:id="@+id/payment_status_image"
+							android:layout_width="181dp"
+							android:layout_height="170dp"
+							android:layout_centerHorizontal="true"
+
+							android:layout_marginTop="10dp"
+							android:background="@drawable/confirmacao"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="88dp"/>
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+			</TableLayout>
+
+
+
+		</LinearLayout>
+
+
+
+
+
+
+		<TextView
+			android:text="Your Kindly click on the finish button to log in to view and manage your policy information"
+			android:layout_width="356dp"
+			android:layout_height="93dp"
+			android:id="@+id/textView10"
+			android:layout_row="16"
+			android:layout_column="0"
+			android:layout_marginTop="2dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/background_dark"
+			android:textAlignment="center"
+			android:textStyle="normal|bold"
+			android:textSize="18sp"
+			android:gravity="center"
+			android:layout_weight="1.41"
+			android:layout_marginLeft="10dp"/>
+
+
+		<ImageView
+			android:id="@+id/continue_imag_vehicleDetails"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_row="18"
+			android:layout_column="0"
+			android:layout_marginTop="10dp"
+			android:background="@drawable/btn_finish"
+			android:layout_marginBottom="30dp"/>
+
+
+
+
+	</GridLayout>
+
+	</ScrollView>
+
+
+</RelativeLayout>

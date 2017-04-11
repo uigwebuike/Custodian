@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/background720x1280"
+				android:gravity="top" >
+
+	<RelativeLayout
+
+		android:id="@+id/relTop"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/top_bar">
+
+
+		<ImageButton
+			android:id="@+id/imageView1"
+			android:layout_width="60dp"
+			android:layout_height="50dp"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="2dp"
+			android:layout_marginRight="10dp"
+			android:background="@android:color/transparent"
+
+			android:src="@drawable/btn_back" />
+
+
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:textAllCaps="true"
+			android:textSize="@dimen/head_size"
+
+			android:textColor="#fff"
+			android:layout_toRightOf="@+id/title_text"
+			android:text = "Get A Quote"
+
+			/>
+
+		<ImageButton
+			android:id="@+id/home"
+			android:layout_width="60dp"
+			android:layout_height="50dp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="1dp"
+			android:background="@android:color/transparent"
+
+			android:src="@drawable/icon_home" />
+	</RelativeLayout>
+
+	<ScrollView
+		android:id="@+id/Heading1_scroll"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/Heading_Of_Tabs">
+		<RelativeLayout
+			android:id="@+id/Heading1_main"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" >
+			<RelativeLayout
+				android:id="@+id/Heading1"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				>
+
+
+			</RelativeLayout>
+
+
+		</RelativeLayout>
+	</ScrollView>
+
+	<TextView
+		android:id="@+id/Heading_Of_Tabs"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+
+		android:text="Verify Policy Details"
+		android:textColor="@android:color/white"
+		android:gravity="center"
+
+		android:background="@drawable/gray_bar"
+		android:layout_below="@+id/relTop"
+		android:layout_alignParentLeft="true"
+		tools:ignore="HardcodedText"/>
+
+
+	<ScrollView
+		android:id="@+id/scrollview"
+		android:layout_width="fill_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/Heading_Of_Tabs"
+		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="12dp">
+
+
+
+	<GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_marginTop="5dp"
+		tools:targetApi="ice_cream_sandwich">
+
+
+		<!--TextView
+			android:text="Insurance End date"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView29"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="14"
+			android:layout_column="0"/-->
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_row="5"
+			android:layout_column="0"
+			android:layout_height="match_parent">
+
+			<TableLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Label"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/label_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/label_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Vehicle No"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vehicle_no_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vehicle_number_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Vehicle Make"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vahicle_make_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vehicle_make_values"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Vehicle Use"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vahicle_use_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/vehicle_use_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Premium"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/premium_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/premium_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Ins. Start Date"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/insurance_startdate_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/insurance_startdate_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Ins. End Date"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/insurance_enddate_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/insurance_enddate_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Cover Period"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/coverperiod_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/coverperiod_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="to be extended on payment of additional premium"
+							android:layout_width="356dp"
+							android:layout_height="match_parent"
+							android:id="@+id/textView30"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/holo_red_light"
+							android:textAlignment="center"
+							android:textStyle="normal|bold"
+							android:gravity="center"/>
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+						<TextView
+							android:text="Payment Plan"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/payment_plan_label"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+						<TextView
+							android:text=""
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:id="@+id/payment_plan_value"
+							android:layout_marginTop="20dp"
+							android:layout_marginBottom="10dp"
+							android:layout_marginLeft="50dp"
+							android:textColor="@android:color/background_dark"
+							android:textAlignment="gravity"
+							android:textStyle="normal|bold"/>
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+
+				<TableRow
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					<LinearLayout
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_row="5"
+						android:layout_column="0"
+						android:layout_height="match_parent">
+
+
+
+
+
+
+
+
+					</LinearLayout>
+
+				</TableRow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</TableLayout>
+
+
+
+		</LinearLayout>
+
+
+		<TextView
+			android:text="For Comprehensive policy: This contract becomes binding subject to satisfactory inspection of the vehicle"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView11"
+
+			android:layout_row="17"
+			android:layout_column="0"
+			android:layout_marginTop="2dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/holo_red_light"
+			android:textAlignment="gravity"
+			android:textSize="12sp"/>
+
+
+		<ImageView
+			android:id="@+id/continue_imag_vehicleDetails"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_row="18"
+			android:layout_column="0"
+			android:layout_marginTop="10dp"
+			android:background="@drawable/btn_continue_three"
+			android:layout_marginBottom="30dp"/>
+
+
+
+
+	</GridLayout>
+
+	</ScrollView>
+
+
+</RelativeLayout>

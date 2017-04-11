@@ -28,4 +28,7 @@ public class WebserviceURLs {
 	public static String REPORT_CLAIM_REVIEW_CLAIM_ID = BASE_URL+"partner/claim/create";
 	public static String REPORT_CLAIM_REVIEW_PIC_UPLOAD = BASE_URL +"common/note/create";
 	public static String FORGOT_EMAIL_SEND = BASE_URL +"partner/email/send";
+	public static String INTERSWITCH_REQUERY_URL = "https://stageserv.interswitchng.com/test_paydirect/api/v1/gettransaction.json";
+	public static String INTERSWITCH_URL = "http://192.168.8.103:85/interswitch/index.php";
+
 }

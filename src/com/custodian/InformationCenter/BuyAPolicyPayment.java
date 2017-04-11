@@ -159,6 +159,12 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
                 startActivity(myIntent);
                 break;
 
+            case R.id.imageView1:
+                // Home button will navigate the user directly to home screen.
+                myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyVehicledetailsVerify.class);
+                startActivity(myIntent);
+                break;
+
             case R.id.interswitchpaybutton:
                 myIntent = new Intent(BuyAPolicyPayment.this, BuyAPolicyInterswitch.class);
                 startActivity(myIntent);

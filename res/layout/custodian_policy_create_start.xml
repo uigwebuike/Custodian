@@ -230,17 +230,13 @@
 			android:layout_column="0"
 			tools:ignore="HardcodedText"/>
 
-		<EditText
+		<DatePicker
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:inputType="date"
-			android:ems="10"
-			android:textColor="@android:color/background_dark"
 			android:id="@+id/dateofbirth"
 			android:layout_row="11"
 			android:layout_column="0"
-			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			/>
 		<TextView
 			android:text="Address"
 			android:layout_width="134dp"
@@ -339,7 +335,7 @@
 			android:layout_row="20"
 			android:layout_column="0"
 			android:layout_marginTop="10dp"
-			android:background="@drawable/btn_continue"
+			android:background="@drawable/btn_continue_one"
 			android:layout_marginBottom="30dp"/>
 
 

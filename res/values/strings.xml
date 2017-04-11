@@ -7,8 +7,10 @@
 
     <string name="title_prompt">Choose a title</string>
     <string name="occupation_prompt">Choose your Occupation</string>
+    <string name="vehicle_make_prompt">Choose your Vehicle Make</string>
     <string name="cover_prompt">Choose your Cover Type</string>
     <string name="coverPeriod_prompt">Choose your Cover Type</string>
+    <string name="paymentOption_prompt">Choose your Payment Option</string>
 
     
     <string name="drawer_open">Open navigation drawer</string>
@@ -118,8 +120,37 @@
         <item>6 Months</item>
         <item>3 Months</item>
 
+    </string-array>
+
+
+
+
+<string-array name = "paymentOption">
+        <item>Pay_In_Full</item>
+        <item>Pay_Monthly</item>
+        <item>Pay_Quarterly</item>
 
     </string-array>
+
+
+
+
+
+
+    <string-array name = "vehicleMake">
+
+        <item>Audi</item>
+        <item>Subaru</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+        <item>Others</item>
+
+    </string-array>
+
+
+
+
+
 
 
 </resources>

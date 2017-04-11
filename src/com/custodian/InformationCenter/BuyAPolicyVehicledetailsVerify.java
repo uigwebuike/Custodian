@@ -16,10 +16,6 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -27,7 +23,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.custodian.Alerts;
 import com.custodian.CONSTANT.CONSTANTS;
@@ -76,36 +71,14 @@ import java.util.regex.Pattern;
  * Contact us class is used to submit the contact us form using webservice that
  * takes the id of the user as a json paramater.
  */
-public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
+public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickListener,
         CustodianInterface {
-
-    WebView paymentWebView;
-
-    Activity activity;
-
-
-    public Activity getActivity() {
-        return activity;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
-    }
-
-    public WebView getPaymentWebView() {
-        return paymentWebView;
-    }
-
-    public void setPaymentWebView(WebView paymentWebView) {
-        this.paymentWebView = paymentWebView;
-    }
-
-     boolean value;
+    // Declaration of views.
+    TextView label,vehicle_no,vehicle_make,vehicle_use,premium,insurance_start_date,insurance_end_date,cover_period,payment_plan,transaction_number;
 
     ImageButton mHome;
-    JSONObject json;
-    Editor editor;
     Intent myIntent;
+    Editor editor;
     ImageButton mback;
     ImageView btnContinue;
     SharedPreferences sharedPreferences;
@@ -130,6 +103,88 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         this.editor = editor;
     }
 
+
+    public TextView getVehicle_make() {
+        return vehicle_make;
+    }
+
+    public void setVehicle_make(TextView vehicle_make) {
+        this.vehicle_make = vehicle_make;
+    }
+
+    public TextView getVehicle_use() {
+        return vehicle_use;
+    }
+
+    public void setVehicle_use(TextView vehicle_use) {
+        this.vehicle_use = vehicle_use;
+    }
+
+    public TextView getInsurance_start_date() {
+        return insurance_start_date;
+    }
+
+    public void setInsurance_start_date(TextView insurance_start_date) {
+        this.insurance_start_date = insurance_start_date;
+    }
+
+    public TextView getPremium() {
+        return premium;
+    }
+
+    public void setPremium(TextView premium) {
+        this.premium = premium;
+    }
+
+    public TextView getInsurance_end_date() {
+        return insurance_end_date;
+    }
+
+    public void setInsurance_end_date(TextView insurance_end_date) {
+        this.insurance_end_date = insurance_end_date;
+    }
+
+    public TextView getCover_period() {
+        return cover_period;
+    }
+
+    public void setCover_period(TextView cover_period) {
+        this.cover_period = cover_period;
+    }
+
+    public TextView getPayment_plan() {
+        return payment_plan;
+    }
+
+    public void setPayment_plan(TextView payment_plan) {
+        this.payment_plan = payment_plan;
+    }
+
+    public TextView getTransaction_number() {
+        return transaction_number;
+    }
+
+    public void setTransaction_number(TextView transaction_number) {
+        this.transaction_number = transaction_number;
+    }
+
+
+    public TextView getLabel() {
+        return label;
+    }
+
+    public void setLabel(TextView label) {
+        this.label = label;
+    }
+
+    public TextView getVehicle_no() {
+        return vehicle_no;
+    }
+
+    public void setVehicle_no(TextView vehicle_no) {
+        this.vehicle_no = vehicle_no;
+    }
+
     @Override
     public void onBackPressed() {
         // TODO Auto-generated method stub
@@ -139,7 +194,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custodian_policy_pay_interswitch);
+        setContentView(R.layout.custodian_policy_create_vehicle_details_verify);
 
         mSplaHandler = new Handler() {
             @Override
@@ -161,107 +216,117 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         mback.setOnClickListener(this);
         mHome = (ImageButton) findViewById(R.id.home);
         mHome.setOnClickListener(this);
-        //this.setActivity(BuyAPolicyInterswitch.class);
-        btnContinue = (ImageView)findViewById(R.id.continue_imag_vehicleDetails);
-       // btnContinue.setOnClickListener(this);
+        btnContinue = (ImageView) findViewById(R.id.continue_imag_vehicleDetails);
+        btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
-        this.setPaymentWebView((WebView) findViewById(R.id.webpayInterface));
-
-        String lqn = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", "N/A");
-        String sname = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("surname", "N/A");
-        String othername = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("othername", "N/A");
-        String leadId = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", "N/A");
-        String amountTopay = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("amount_to_pay", "0");
-        String cl = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("othername", "N/A") +
-                "_" + this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("surname", "N/A");
-        String url = WebserviceURLs.INTERSWITCH_URL+"?cust_name="+sname+" "+othername+"&&cust_id="+leadId+"&&txn_ref="+lqn+"&&amount="+amountTopay+"00";
-        this.getPaymentWebView().getSettings().setJavaScriptEnabled(true);
-        final Activity activity = this;
-        this.getPaymentWebView().setWebViewClient(new WebViewClient() {
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
-            }
-
-        });
-        getPaymentWebView().addJavascriptInterface(BuyAPolicyInterswitch.this, "androidAppProxy");
-        this.getPaymentWebView().loadUrl(url);
-        Log.e("url",url);
-    }
+        this.setLabel((TextView) findViewById(R.id.label_value));
+        this.setVehicle_no((TextView) findViewById(R.id.vehicle_number_value));
+        this.setVehicle_make((TextView) findViewById(R.id.vehicle_make_values));
+        this.setVehicle_use((TextView) findViewById(R.id.vehicle_use_value));
+        this.setPremium((TextView) findViewById(R.id.premium_value));
+        this.setInsurance_start_date((TextView) findViewById(R.id.insurance_startdate_value));
+        this.setInsurance_end_date((TextView) findViewById(R.id.insurance_enddate_value));
+        this.setCover_period((TextView) findViewById(R.id.coverperiod_value));
+        this.setPayment_plan((TextView) findViewById(R.id.payment_plan_value));
+        this.setTransaction_number((TextView) findViewById(R.id.transaction_number_value));
 
 
-    @JavascriptInterface
-    public void openActivity(String activityName) {
-        String packageName = "com.custodian.InformationCenter";
-        try {
-            Class activityClass = Class.forName(packageName + "." + activityName);
-            this.startActivity(new Intent(BuyAPolicyInterswitch.this, activityClass));
-        } catch(Exception ex) {
-            Toast.makeText(this, "invalid activity name: " + activityName, Toast.LENGTH_SHORT).show();
-        }
+
+
+        //Store the value in the shared settings.
+        this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
+        this.setEditor(sharedPreferences.edit());
+
+        this.getLabel().setText(this.getSharedPreferences().getString("title_spinner", "")+" "+this.getSharedPreferences().getString("othername", "")+" "+this.getSharedPreferences().getString("surname", ""));
+        this.getVehicle_no().setText(this.getSharedPreferences().getString("reg_no", ""));
+        this.getVehicle_make().setText(this.getSharedPreferences().getString("vehicle_make", ""));
+        this.getVehicle_use().setText("PRIVATE");
+        this.getPremium().setText(this.getSharedPreferences().getString("premium", ""));
+        this.getInsurance_start_date().setText(this.getSharedPreferences().getString("insurance_startdate", ""));
+        this.getInsurance_end_date().setText(this.getSharedPreferences().getString("insurance_enddate", ""));
+        this.getCover_period().setText(this.getSharedPreferences().getString("cover_spinner", ""));
+        this.getPayment_plan().setText(this.getSharedPreferences().getString("paymentOptionLabel", ""));
+        this.getTransaction_number().setText(this.getSharedPreferences().getString("leadQuoteName", ""));
     }
 
     @Override
     public void onClick(View v) {
+        // TODO Auto-generated method stub
         int id = v.getId();
         switch (id) {
+            case R.id.imageView1:
+                // Back button will navigate the user to previous screen.
+                if (getContactKey != null) {
+                    myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,
+                            BuyAPolicyVehicledetails.class);
+                    startActivity(myIntent);
+                } else {
+                    myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,
+                            InformationCenterMenuScreen.class);
+                    startActivity(myIntent);
+                }
+
+                break;
+
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyInterswitch.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this, CustodianHomeScreenMain.class);
                 startActivity(myIntent);
                 break;
 
-            case R.id.imageView1:
-                // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyInterswitch.this, BuyAPolicyPayment.class);
+            case R.id.continue_imag_vehicleDetails:
+
+                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,
+                        BuyAPolicyPayment.class);
                 startActivity(myIntent);
+
                 break;
         }
     }
 
 
-    private void goToWebservice() {
+    private String getLeadquote(String leadQuoteId) {
         // TODO Auto-generated method stub
+        SharedPreferences sharedPreferences = this
+                .getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE);
+        HttpClient httpClient;
+        httpClient = getNewHttpClient();
 
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager
-                .getActiveNetworkInfo();
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-            try {
-                SharedPreferences sharedPreferences = this
-                        .getSharedPreferences(MyPREFERENCES,
-                                Context.MODE_PRIVATE);
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-                Date date = new Date();
-                value = Boolean.valueOf("true");
-
-                json = new JSONObject();
-                json.put("active", value);
-                json.put("category", "SERVICE");
-                json.put("status", "NEW");
-                json.put("origin", "MOBILE");
-                json.put("currency", "NGN");
-                json.put("origin", "MOBILE");
-                json.put("salesOffice", 1600);
-                json.put("salesChannel", 1200);
-
-                //Clear the cached quote id and make the call
-                editor =  this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).edit();
-                editor.remove("leadQuoteID");
-                editor.commit();
-
-                new LeadCaptureWebservice(WebserviceURLs.LEAD_QUOTE_CAPTURE, "",
-                        BuyAPolicyInterswitch.this, BuyAPolicyInterswitch.this, true, json,
-                        "Submitting...").execute();
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-        } else {
-            mSplaHandler.sendEmptyMessage(3);
+        HttpGet httpGet = new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID + "/" + leadQuoteId);
+        UsernamePasswordCredentials credentials =
+                new UsernamePasswordCredentials("root", "Admin$1234");
+        BasicScheme scheme = new BasicScheme();
+        Header authorizationHeader = null;
+        try {
+            authorizationHeader = scheme.authenticate(credentials, httpGet);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
         }
+        httpGet.addHeader(authorizationHeader);
+        httpGet.setHeader("Accept", "application/json");
+        httpGet.setHeader("Content-type", "application/json");
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpClient.execute(httpGet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HttpEntity httpEntity = httpResponse.getEntity();
+
+        String response = null;
+        try {
+            response = EntityUtils.toString(httpEntity);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+
     }
+
 
     public HttpClient getNewHttpClient() {
         try {
@@ -289,20 +354,6 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * CheckStatus(String message) is used to show alerts.
      *
@@ -314,7 +365,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     private void CheckStatus(String message) {
         // TODO Auto-generated method stub
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicyInterswitch.this);
+                BuyAPolicyVehicledetailsVerify.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
         alertDialog.setCancelable(false);
@@ -330,12 +381,12 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
                     public void onClick(DialogInterface dialog, int which) {
 
                         if (getContactKey != null) {
-                           // myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                             //       BuyAPolicyPayment.class);
+                            // myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                            //       BuyAPolicyPayment.class);
                             //startActivity(myIntent);
                         } else {
                             //myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                              //      BuyAPolicyPayment.class);
+                            //      BuyAPolicyPayment.class);
                             //startActivity(myIntent);
                         }
 
@@ -353,7 +404,7 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
     private void Showalerts(String message) {
         // TODO Auto-generated method stub
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                BuyAPolicyInterswitch.this);
+                BuyAPolicyVehicledetailsVerify.this);
         // Setting Dialog Title
         alertDialog.setTitle("Custodian Direct");
 
@@ -374,17 +425,9 @@ public class BuyAPolicyInterswitch extends Activity implements OnClickListener,
         alertDialog.show();
     }
 
-    // json response parsed.
     @Override
     public void onResponse(String response) {
 
-
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
     @Override
