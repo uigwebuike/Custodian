@@ -229,7 +229,6 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.setInsurance_end_date((TextView) findViewById(R.id.insurance_enddate_value));
         this.setCover_period((TextView) findViewById(R.id.coverperiod_value));
         this.setPayment_plan((TextView) findViewById(R.id.payment_plan_value));
-        this.setTransaction_number((TextView) findViewById(R.id.transaction_number_value));
 
 
 
@@ -247,7 +246,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.getInsurance_end_date().setText(this.getSharedPreferences().getString("insurance_enddate", ""));
         this.getCover_period().setText(this.getSharedPreferences().getString("cover_spinner", ""));
         this.getPayment_plan().setText(this.getSharedPreferences().getString("paymentOptionLabel", ""));
-        this.getTransaction_number().setText(this.getSharedPreferences().getString("leadQuoteName", ""));
+
     }
 
     @Override
