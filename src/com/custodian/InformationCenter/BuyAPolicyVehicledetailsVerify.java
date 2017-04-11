@@ -270,7 +270,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
 
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,InformationCenterMenuScreen.class);
                 startActivity(myIntent);
                 break;
 

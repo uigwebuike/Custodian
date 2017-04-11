@@ -155,7 +155,7 @@ public class BuyAPolicyPayment extends Activity implements OnClickListener,
         switch (id) {
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyPayment.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyPayment.this, InformationCenterMenuScreen.class);
                 startActivity(myIntent);
                 break;
 

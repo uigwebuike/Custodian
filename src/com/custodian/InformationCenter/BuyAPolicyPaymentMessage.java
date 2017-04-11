@@ -162,7 +162,10 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         try {
             String interswitchRequeryResponse = this.requeryInterswitch(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""),this.getSharedPreferences().getString("premium", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", ""));
 
+            Log.e("InterswitchResponse",interswitchRequeryResponse);
+
             JSONObject jsonObject = new JSONObject(interswitchRequeryResponse);
+            String responseFromInterswitch = jsonObject.optString("ResponseDescription");
 
             if(jsonObject.optString("ResponseCode") == "00"){
 
@@ -170,8 +173,11 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
 
                 //todo convert Lead to customer and convert insurance Lead quote to policy
 
+                String leadToPolicyConversion = this.leadToPolicyConversion(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""));
 
+                Log.e("InterswitchResponse",leadToPolicyConversion);
 
+                jsonObject = new JSONObject(leadToPolicyConversion);
 
             }
             else{
@@ -181,7 +187,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
             String uriToImage = null;
             Drawable res = null;
             if(this.isPaymentSuccessful()){
-                this.getPayment_status_message().setText("Thank you, your transaction was successful");
+                this.getPayment_status_message().setText("Thank you, your transaction was successful \n"+responseFromInterswitch);
                 uriToImage = "@drawable/confirmacao";  // where myresource (without the extension) is the file
                 int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
                 res = getResources().getDrawable(imageResource);
@@ -189,7 +195,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                     this.getPayment_status_image().setBackground(res);
                 }
             }else {
-                this.getPayment_status_message().setText("Sorry! your transaction was not successful");
+                this.getPayment_status_message().setText("Sorry! your transaction was not successful \n "+responseFromInterswitch);
                 uriToImage = "@drawable/signerroricon";  // where myresource (without the extension) is the file
                 int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
                 res = getResources().getDrawable(imageResource);
@@ -211,7 +217,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         switch (id) {
             case R.id.home:
                 // Home button will navigate the user directly to home screen.
-                myIntent = new Intent(BuyAPolicyPaymentMessage.this, CustodianHomeScreenMain.class);
+                myIntent = new Intent(BuyAPolicyPaymentMessage.this, InformationCenterMenuScreen.class);
                 startActivity(myIntent);
                 break;
 
@@ -239,7 +245,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                 editor.commit();
 
                 myIntent = new Intent(BuyAPolicyPaymentMessage.this,
-                        CustodianLoginScreen.class);
+                        InformationCenterMenuScreen.class);
                 startActivity(myIntent);
 
                 break;
@@ -293,6 +299,57 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         return response;
 
     }
+
+
+
+
+    private String leadToPolicyConversion(String leadQuoteId, String leadQuoteName) {
+        // TODO Auto-generated method stub
+        SharedPreferences sharedPreferences = this
+                .getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE);
+        HttpClient httpClient;
+        httpClient = getNewHttpClient();
+
+        HttpGet httpGet = new HttpGet(WebserviceURLs.LEAD_OUOTE_TO_POLICY + "?quoteId="+leadQuoteId+"&paymentMethod=Debit Card&paymentReference=" +leadQuoteName);
+        UsernamePasswordCredentials credentials =
+                new UsernamePasswordCredentials("root", "Admin$1234");
+        BasicScheme scheme = new BasicScheme();
+        Header authorizationHeader = null;
+        try {
+            authorizationHeader = scheme.authenticate(credentials, httpGet);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+        httpGet.addHeader(authorizationHeader);
+        httpGet.setHeader("Accept", "application/json");
+        httpGet.setHeader("Content-type", "application/json");
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpClient.execute(httpGet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HttpEntity httpEntity = httpResponse.getEntity();
+
+        String response = null;
+        try {
+            response = EntityUtils.toString(httpEntity);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+
+    }
+
+
+
+
+
+
+
 
     public static String hashText(String textToHash) throws Exception {
         final MessageDigest sha512 = MessageDigest.getInstance("SHA-512");
