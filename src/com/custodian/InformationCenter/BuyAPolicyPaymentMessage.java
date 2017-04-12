@@ -161,7 +161,8 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
 
 
         try {
-            String interswitchRequeryResponse = this.requeryInterswitch(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""),this.getSharedPreferences().getString("premium", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", ""));
+           // String interswitchRequeryResponse = this.requeryInterswitch(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""),this.getSharedPreferences().getString("premium", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", ""));
+            String interswitchRequeryResponse = this.requeryInterswitch(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""),"200",this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadID", ""));
 
             Log.e("InterswitchResponse",interswitchRequeryResponse);
 
@@ -179,6 +180,9 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                 Log.e("InterswitchResponse",leadToPolicyConversion);
 
                 jsonObject = new JSONObject(leadToPolicyConversion);
+
+                this.setPaymentSuccessful(true);
+
 
             }
             else{

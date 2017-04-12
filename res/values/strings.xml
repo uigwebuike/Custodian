@@ -60,6 +60,7 @@
 
 
     <string-array name = "title">
+        <item></item>
         <item>MISS</item>
         <item>MASTER</item>
         <item>MR</item>
@@ -77,7 +78,7 @@
 
 
     <string-array name = "occupation">
-
+        <item></item>
         <item>Medical Practitioner</item>
         <item>Engineer</item>
         <item>Lawyer</item>
@@ -104,6 +105,7 @@
 
     <string-array name = "coverType">
 
+        <item></item>
         <item>Comprehensive</item>
         <item>Third Party</item>
 
@@ -116,6 +118,7 @@
 
     <string-array name = "coverPeriod">
 
+        <item></item>
         <item>1 Year</item>
         <item>6 Months</item>
         <item>3 Months</item>
@@ -126,19 +129,16 @@
 
 
 <string-array name = "paymentOption">
-        <item>Pay_In_Full</item>
-        <item>Pay_Monthly</item>
-        <item>Pay_Quarterly</item>
+        <item></item>
+        <item>Annually</item>
+        <item>Bi-Annualy</item>
+        <item>Quarterly</item>
 
     </string-array>
 
 
-
-
-
-
     <string-array name = "vehicleMake">
-
+        <item></item>
         <item>Audi</item>
         <item>Subaru</item>
         <item>Volkswagen</item>

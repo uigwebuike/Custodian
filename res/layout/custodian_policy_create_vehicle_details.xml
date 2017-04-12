@@ -113,74 +113,43 @@
 		tools:targetApi="ice_cream_sandwich">
 
 
-
-
-
-		<TextView
-			android:text="Registration Number"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_row="0"
-			android:layout_column="0"
-			android:textColor="@android:color/background_dark"
-			android:id="@+id/textView2"/>
-
-		<EditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:inputType="textPersonName"
-			android:ems="10"
-			android:id="@+id/reg_no"
-			android:layout_row="1"
-			android:layout_column="0"
-			android:hint="Registration Number"
-			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
-
-
-
-
-
 		<TextView
 			android:text="Vehicle Make"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView3"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="2"
+			android:layout_row="1"
 			android:layout_column="0"/>
 
 		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/vehicle_make"
-			android:layout_row="3"
+			android:layout_row="2"
 			android:layout_column="0"
 			android:entries="@array/vehicleMake"
 			android:prompt="@string/vehicle_make_prompt"
 			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
 
-		<TextView
-			android:text="Chassis Number"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/textView4"
-			android:layout_row="4"
-			android:textColor="@android:color/background_dark"
-			android:layout_column="0"/>
+
+
 
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName"
 			android:ems="10"
-			android:id="@+id/chassis_number"
-			android:layout_row="5"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="10dp"
+			android:id="@+id/others_vehicle"
+			android:layout_row="3"
 			android:layout_column="0"
-			android:hint="Chassis Number"
+			android:hint="others"
 			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			android:paddingLeft="10dp"
+			android:visibility="gone"/>
 
 		<TextView
 			android:text="Vehicle Value"
@@ -188,7 +157,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView5"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="6"
+			android:layout_row="4"
 			android:layout_column="0"
 			tools:ignore="HardcodedText"/>
 
@@ -199,13 +168,79 @@
 			android:inputType="number"
 			android:ems="7"
 			android:id="@+id/vehicle_value"
-			android:layout_row="7"
+			android:layout_row="5"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
 			android:hint="Vehicle Value"
 			android:paddingLeft="10dp"/>
 
+		<TextView
+			android:text="Registration Number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_row="6"
+			android:layout_column="0"
+			android:textColor="@android:color/background_dark"
+			android:id="@+id/textView2"/>
 
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="textPersonName"
+			android:ems="10"
+			android:id="@+id/reg_no"
+			android:layout_row="7"
+			android:layout_column="0"
+			android:hint="Registration Number"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"/>
+
+
+		<TextView
+			android:text="Chassis Number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/textView4"
+			android:layout_row="8"
+			android:textColor="@android:color/background_dark"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="textPersonName"
+			android:ems="10"
+			android:id="@+id/chassis_number"
+			android:layout_row="9"
+			android:layout_column="0"
+			android:hint="Chassis Number"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"/>
+
+
+
+
+
+		<TextView
+			android:text="Engine Number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/textView19"
+			android:layout_row="10"
+			android:textColor="@android:color/background_dark"
+			android:layout_column="0"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="textPersonName"
+			android:ems="8"
+			android:id="@+id/engine_number"
+			android:layout_row="11"
+			android:layout_column="0"
+			android:hint="Engine Number"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"/>
 
 		<TextView
 			android:text="Type of Cover"
@@ -213,20 +248,63 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView6"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="8"
+			android:layout_row="12"
 			android:layout_column="0"/>
 
 		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/cover_spinner"
-			android:layout_row="9"
+			android:layout_row="13"
 			android:layout_column="0"
 			android:entries="@array/coverType"
 			android:prompt="@string/cover_prompt"
 			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
 
+
+		<TextView
+			android:text="Cover Period"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView9"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="14"
+			android:layout_column="0"/>
+
+		<Spinner
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/coverPeriod_spinner"
+			android:layout_row="15"
+			android:layout_column="0"
+			android:entries="@array/coverPeriod"
+			android:prompt="@string/coverPeriod_prompt"
+			android:background="@drawable/drop_down_large"
+			android:paddingLeft="10dp"/>
+
+
+		<TextView
+			android:text="Payment Options"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView17"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="16"
+			android:layout_column="0"/>
+
+
+
+		<Spinner
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/paymentOption_spinner"
+			android:layout_row="17"
+			android:layout_column="0"
+			android:entries="@array/paymentOption"
+			android:prompt="@string/paymentOption_prompt"
+			android:background="@drawable/drop_down_large"
+			android:paddingLeft="10dp"/>
 
 
 		<TextView
@@ -235,7 +313,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView7"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="10"
+			android:layout_row="18"
 			android:layout_column="0"/>
 
 
@@ -244,55 +322,172 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/insurance_startdate"
-			android:layout_row="11"
+			android:layout_row="19"
 			android:layout_column="0"
 			/>
 
 
-
-
 		<TextView
-		android:text="Cover Period"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:id="@+id/textView9"
-		android:textColor="@android:color/background_dark"
-		android:layout_row="12"
-		android:layout_column="0"/>
-
-		<Spinner
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/coverPeriod_spinner"
-			android:layout_row="13"
+			android:text="Claim Settlement"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/textView10"
+			android:layout_row="20"
 			android:layout_column="0"
-			android:entries="@array/coverPeriod"
-			android:prompt="@string/coverPeriod_prompt"
-			android:background="@drawable/drop_down_large"
-			android:paddingLeft="10dp"/>
-
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/background_dark"
+			android:textAlignment="gravity"
+			android:textStyle="normal|bold"/>
 
 
 
 		<TextView
-			android:text="Payment Options"
+			android:text="The Company will settle any claim under this policy within 3 days from the date of receipt of the signed discharged voucher. In the event that the company decides to reject a claim made under this policy, the company shall inform you with a period of seven days of the inspection report."
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:id="@+id/textView12"
-			android:textColor="@android:color/background_dark"
-			android:layout_row="14"
-			android:layout_column="0"/>
+			android:id="@+id/textView11"
 
-		<Spinner
+			android:layout_row="21"
+			android:layout_column="0"
+			android:layout_marginTop="2dp"
+			android:layout_marginBottom="10dp"
+			android:textColor="@android:color/holo_red_light"
+			android:textAlignment="gravity"
+			android:textSize="12sp"/>
+
+
+		<ImageView
+			android:id="@+id/continue_imag_vehicleDetails"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/paymentOption_spinner"
-			android:layout_row="15"
+			android:layout_centerHorizontal="true"
+			android:layout_row="22"
 			android:layout_column="0"
-			android:entries="@array/paymentOption"
-			android:prompt="@string/paymentOption_prompt"
-			android:background="@drawable/drop_down_large"
-			android:paddingLeft="10dp"/>
+			android:layout_marginTop="10dp"
+			android:background="@drawable/btn_continue_two"
+			android:layout_marginBottom="30dp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -320,46 +515,7 @@
 			android:layout_column="0"/-->
 
 
-		<TextView
-			android:text="Claim Settlement"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:id="@+id/textView10"
-			android:layout_row="16"
-			android:layout_column="0"
-			android:layout_marginTop="20dp"
-			android:layout_marginBottom="10dp"
-			android:textColor="@android:color/background_dark"
-			android:textAlignment="gravity"
-			android:textStyle="normal|bold"/>
 
-
-
-		<TextView
-			android:text="The Company will settle any claim under this policy within 3 days from the date of receipt of the signed discharged voucher. In the event that the company decides to reject a claim made under this policy, the company shall inform you with a period of seven days of the inspection report."
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:id="@+id/textView11"
-
-			android:layout_row="17"
-			android:layout_column="0"
-			android:layout_marginTop="2dp"
-			android:layout_marginBottom="10dp"
-			android:textColor="@android:color/holo_red_light"
-			android:textAlignment="gravity"
-			android:textSize="12sp"/>
-
-
-		<ImageView
-			android:id="@+id/continue_imag_vehicleDetails"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_centerHorizontal="true"
-			android:layout_row="18"
-			android:layout_column="0"
-			android:layout_marginTop="10dp"
-			android:background="@drawable/btn_continue_two"
-			android:layout_marginBottom="30dp"/>
 
 
 

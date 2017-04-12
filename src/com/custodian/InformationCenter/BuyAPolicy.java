@@ -63,7 +63,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
     private static final Pattern LoginEmail_PATTERN = Pattern
             .compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
-    private static final Pattern PHONE_NO_PATTERN = Pattern.compile("^[0-9+]*$");
+    private static final Pattern PHONE_NO_PATTERN = Pattern.compile("^[0-9]*$");
 
     // OnBackPressed is used to disable the device back button as back button is
     // used in top bar for navigation.

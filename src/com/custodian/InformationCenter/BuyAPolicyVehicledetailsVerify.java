@@ -58,6 +58,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.security.KeyStore;
@@ -75,7 +76,7 @@ import java.util.regex.Pattern;
 public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    TextView label,vehicle_no,vehicle_make,vehicle_use,premium,insurance_start_date,insurance_end_date,cover_period,payment_plan,transaction_number;
+    TextView disclaimer,amount_to_pay_value,chasis_number_value,engine_number_value,label,vehicle_no,vehicle_make,vehicle_use,premium,insurance_start_date,insurance_end_date,cover_period,cover_type,payment_plan,transaction_number;
 
     ImageButton mHome;
     Intent myIntent;
@@ -129,6 +130,22 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.insurance_start_date = insurance_start_date;
     }
 
+    public TextView getChasis_number_value() {
+        return chasis_number_value;
+    }
+
+    public void setChasis_number_value(TextView chasis_number_value) {
+        this.chasis_number_value = chasis_number_value;
+    }
+
+    public TextView getEngine_number_value() {
+        return engine_number_value;
+    }
+
+    public void setEngine_number_value(TextView engine_number_value) {
+        this.engine_number_value = engine_number_value;
+    }
+
     public TextView getPremium() {
         return premium;
     }
@@ -169,6 +186,21 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.transaction_number = transaction_number;
     }
 
+    public TextView getDisclaimer() {
+        return disclaimer;
+    }
+
+    public void setDisclaimer(TextView disclaimer) {
+        this.disclaimer = disclaimer;
+    }
+
+    public TextView getCover_type() {
+        return cover_type;
+    }
+
+    public void setCover_type(TextView cover_type) {
+        this.cover_type = cover_type;
+    }
 
     public TextView getLabel() {
         return label;
@@ -184,6 +216,14 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
 
     public void setVehicle_no(TextView vehicle_no) {
         this.vehicle_no = vehicle_no;
+    }
+
+    public TextView getAmount_to_pay_value() {
+        return amount_to_pay_value;
+    }
+
+    public void setAmount_to_pay_value(TextView amount_to_pay_value) {
+        this.amount_to_pay_value = amount_to_pay_value;
     }
 
     @Override
@@ -229,7 +269,12 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.setInsurance_start_date((TextView) findViewById(R.id.insurance_startdate_value));
         this.setInsurance_end_date((TextView) findViewById(R.id.insurance_enddate_value));
         this.setCover_period((TextView) findViewById(R.id.coverperiod_value));
+        this.setCover_type((TextView) findViewById(R.id.covertype_value));
         this.setPayment_plan((TextView) findViewById(R.id.payment_plan_value));
+        this.setChasis_number_value((TextView) findViewById(R.id.chasis_number_value));
+        this.setEngine_number_value((TextView) findViewById(R.id.engine_number_value));
+        this.setAmount_to_pay_value((TextView) findViewById(R.id.amount_to_pay_value));
+        this.setDisclaimer((TextView) findViewById(R.id.disclaimer));
 
 
 
@@ -245,8 +290,15 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.getPremium().setText(this.getSharedPreferences().getString("premium", ""));
         this.getInsurance_start_date().setText(this.getSharedPreferences().getString("insurance_startdate", ""));
         this.getInsurance_end_date().setText(this.getSharedPreferences().getString("insurance_enddate", ""));
-        this.getCover_period().setText(this.getSharedPreferences().getString("cover_spinner", ""));
+        this.getCover_period().setText(this.getSharedPreferences().getString("cover_period", ""));
+        this.getCover_type().setText(this.getSharedPreferences().getString("cover_spinner", ""));
         this.getPayment_plan().setText(this.getSharedPreferences().getString("paymentOptionLabel", ""));
+        this.getChasis_number_value().setText(this.getSharedPreferences().getString("chassis_number", ""));
+        this.getEngine_number_value().setText(this.getSharedPreferences().getString("engine_number", ""));
+        this.getAmount_to_pay_value().setText(this.getSharedPreferences().getString("amount_to_pay", ""));
+        if(this.getSharedPreferences().getString("paymentOptionLabel", "").contains("Annually")){
+            this.getDisclaimer().setVisibility(View.GONE);
+        }
 
     }
 
