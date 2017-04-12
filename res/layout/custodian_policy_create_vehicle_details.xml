@@ -243,25 +243,23 @@
 			android:paddingLeft="10dp"/>
 
 		<TextView
-			android:text="Type of Cover"
+			android:text="Insurance StartDate"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/textView6"
+			android:id="@+id/textView7"
 			android:textColor="@android:color/background_dark"
 			android:layout_row="12"
 			android:layout_column="0"/>
 
-		<Spinner
+
+
+		<DatePicker
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/cover_spinner"
+			android:id="@+id/insurance_startdate"
 			android:layout_row="13"
 			android:layout_column="0"
-			android:entries="@array/coverType"
-			android:prompt="@string/cover_prompt"
-			android:background="@drawable/drop_down_large"
-			android:paddingLeft="10dp"/>
-
+			/>
 
 		<TextView
 			android:text="Cover Period"
@@ -283,6 +281,29 @@
 			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
 
+		<TextView
+			android:text="Type of Cover"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/textView6"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="16"
+			android:layout_column="0"/>
+
+		<Spinner
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/cover_spinner"
+			android:layout_row="17"
+			android:layout_column="0"
+			android:entries="@array/coverType"
+			android:prompt="@string/cover_prompt"
+			android:background="@drawable/drop_down_large"
+			android:paddingLeft="10dp"/>
+
+
+
+
 
 		<TextView
 			android:text="Payment Options"
@@ -290,7 +311,7 @@
 			android:layout_height="match_parent"
 			android:id="@+id/textView17"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="16"
+			android:layout_row="18"
 			android:layout_column="0"/>
 
 
@@ -299,7 +320,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/paymentOption_spinner"
-			android:layout_row="17"
+			android:layout_row="19"
 			android:layout_column="0"
 			android:entries="@array/paymentOption"
 			android:prompt="@string/paymentOption_prompt"
@@ -307,24 +328,7 @@
 			android:paddingLeft="10dp"/>
 
 
-		<TextView
-			android:text="Insurance StartDate"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/textView7"
-			android:textColor="@android:color/background_dark"
-			android:layout_row="18"
-			android:layout_column="0"/>
 
-
-
-		<DatePicker
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/insurance_startdate"
-			android:layout_row="19"
-			android:layout_column="0"
-			/>
 
 
 		<TextView

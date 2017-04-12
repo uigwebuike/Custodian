@@ -80,12 +80,6 @@ import java.util.regex.Pattern;
 public class BuyAPolicyVehicledetails extends Activity implements OnClickListener,
         CustodianInterface {
 
-    public BuyAPolicyVehicledetails(){
-        this.amountTopay = 0d;
-        this.premium = 0d;
-    }
-
-
 
     double premium,amountTopay;
     public class CoverPeriodItemListener implements AdapterView.OnItemSelectedListener {
@@ -497,9 +491,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             e.printStackTrace();
         }
 
-        setInsurance_enddate(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
-        Log.e("DefaultEndDate", getInsurance_enddate());
-      this.getCoverPeriod().setOnItemSelectedListener(new CoverPeriodItemListener());
+        //setInsurance_enddate(dt.format(StringDateUtils.addYearsToDate(date, 1)).toString());
+        //Log.e("DefaultEndDate", getInsurance_enddate());
+        this.getCoverPeriod().setOnItemSelectedListener(new CoverPeriodItemListener());
         this.getCover_spinner().setOnItemSelectedListener(new CoverTypeEventLisner());
         this.getVehicle_make().setOnItemSelectedListener(new ShowHideOthersTextView());
         this.getPaymentOption_spinner().setOnItemSelectedListener(new CalculateAmountTopay());
@@ -573,6 +567,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 this.getEditor().putString("paymentOptionLabel", this.getPaymentOption_spinner().getSelectedItem().toString());
                 this.getEditor().putString("amount_to_pay", Double.toString(amountTopay));
+                this.getEditor().putString("premium", String.valueOf(this.getPremium()));
 
                 if(this.getPaymentOption_spinner().getSelectedItem().equals("Annually")){
                     paymentOption =  1001l;
