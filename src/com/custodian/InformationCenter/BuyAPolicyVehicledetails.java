@@ -256,6 +256,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
             String selected =  parent.getItemAtPosition(pos).toString();
             if(getCover_spinner().getSelectedItem().toString().contains("Third Party")){
                  setAmountTopay(5000d);
+                 setPremium(5000d);
             }else{
                 if(selected.contains("Annually")){
                     //do nothing
