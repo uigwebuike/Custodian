@@ -280,14 +280,15 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 .getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             try {
-                SharedPreferences sharedPreferences = this
-                        .getSharedPreferences(MyPREFERENCES,
-                                Context.MODE_PRIVATE);
+
+                sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
 
                 value = Boolean.valueOf("true");
                 json = new JSONObject();
 
                 json.put("active", value);
+                json.put("leadType","INDIVIDUAL");
                 json.put("description", "Started insurance quote from custodian andriod mobile application");
                 json.put("label", othername.getText()  + " " + surname.getText());
                 json.put("leadSource", "CUSTODIAN_DIRECT_MOBILE_ANDRIOD");
@@ -295,6 +296,9 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json.put("profession", occupation_spinner.getSelectedItem().toString());
                 json.put("emailAddress", CheckEmail(emailaddress.getText().toString())?emailaddress.getText().toString():"");
                 json.put("mobilePhone", phonenumber.getText());
+                json.put("dateOfBirth",sharedPreferences.getString("dateofbirth","N/A"));
+                json.put("portalUserName",username.getText().toString());
+                json.put("portalPassword",password.getText().toString());
                 json.put("firstName", othername.getText());
                 json.put("lastName", surname.getText());
                 json.put("primaryStreet", address.getText());

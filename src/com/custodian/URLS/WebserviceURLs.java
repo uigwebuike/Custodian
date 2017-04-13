@@ -11,7 +11,7 @@ public class WebserviceURLs {
 	public static String LEAD_CAPTURE = BASE_URL +"partner/lead/create";
 	public static String LEAD_QUOTE_CAPTURE = BASE_URL +"partner/lead-quote/create";
 	public static String LEAD_QUOTE_LINE = BASE_URL +"partner/lead-quote-line/create";
-	public static String LEAD_OUOTE_TO_POLICY = BASE_URL +"/partner/lead-quote/convert";
+	public static String LEAD_OUOTE_TO_POLICY = BASE_URL +"partner/lead-quote/convert";
 	public static String GET_LEAD_QUOTE_WITH_ID = BASE_URL +"/partner/lead-quote/id";
 	public static String VIEW_POLICY_DETAIL = BASE_URL + "partner/policy/list/line?policyId=";
 	public static String VIEW_POLICY_MAIN_PART1 =BASE_URL + "partner/customer/list/policy?customerId=";

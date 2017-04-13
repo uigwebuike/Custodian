@@ -261,10 +261,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 if(selected.contains("Annually")){
                     //do nothing
                 }else if(selected.contains("Bi-Annualy")){
-                    setAmountTopay(getAmountTopay()/2);
+                    setAmountTopay(getAmountTopay()/1.95);
                 }
                 else if(selected.contains("Quarterly")){
-                    setAmountTopay(getAmountTopay()/4);
+                    setAmountTopay(getAmountTopay()/3.75);
                 }
             }
 

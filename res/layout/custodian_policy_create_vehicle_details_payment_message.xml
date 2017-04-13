@@ -181,7 +181,7 @@
 
 
 		<TextView
-			android:text="Your Kindly click on the finish button to log in to view and manage your policy information"
+			android:text="Kindly click on the finish button to log in to view and manage your policy information"
 			android:layout_width="356dp"
 			android:layout_height="93dp"
 			android:id="@+id/textView10"

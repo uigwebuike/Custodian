@@ -168,38 +168,41 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
 
             JSONObject jsonObject = new JSONObject(interswitchRequeryResponse);
             String responseFromInterswitch = jsonObject.optString("ResponseDescription");
-
-            if(jsonObject.optString("ResponseCode") == "00"){
+            String uriToImage = null;
+            Drawable res = null;
+            if(jsonObject.optString("ResponseCode").toString().contains("00")){
 
                 this.setPaymentSuccessful(true);
 
                 //todo convert Lead to customer and convert insurance Lead quote to policy
 
                 String leadToPolicyConversion = this.leadToPolicyConversion(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteID", ""),this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("leadQuoteName", ""));
-
-                Log.e("InterswitchResponse",leadToPolicyConversion);
-
-                jsonObject = new JSONObject(leadToPolicyConversion);
-
-                this.setPaymentSuccessful(true);
+                JSONObject jsonObjectss = new JSONObject(leadToPolicyConversion);
+                Log.e("policybfor ID",jsonObjectss.optString("msgCode"));
+                if(jsonObjectss.optBoolean("success") == true){
+                    Log.e("policy ID",jsonObjectss.optString("msgCode"));
+                    this.getPayment_status_message().setText("Thank you, your transaction was successful \n"+responseFromInterswitch);
+                    uriToImage = "@drawable/confirmacao";  // where myresource (without the extension) is the file
+                    int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
+                    res = getResources().getDrawable(imageResource);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        this.getPayment_status_image().setBackground(res);
+                    }
+                }
+                else{
+                    this.getPayment_status_message().setText("Sorry! your transaction was not successful \n contact customer service");
+                    uriToImage = "@drawable/signerroricon";  // where myresource (without the extension) is the file
+                    int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
+                    res = getResources().getDrawable(imageResource);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        this.getPayment_status_image().setBackground(res);
+                    }
+                }
 
 
             }
             else{
 
-                this.setPaymentSuccessful(false);
-            }
-            String uriToImage = null;
-            Drawable res = null;
-            if(this.isPaymentSuccessful()){
-                this.getPayment_status_message().setText("Thank you, your transaction was successful \n"+responseFromInterswitch);
-                uriToImage = "@drawable/confirmacao";  // where myresource (without the extension) is the file
-                int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
-                res = getResources().getDrawable(imageResource);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    this.getPayment_status_image().setBackground(res);
-                }
-            }else {
                 this.getPayment_status_message().setText("Sorry! your transaction was not successful \n "+responseFromInterswitch);
                 uriToImage = "@drawable/signerroricon";  // where myresource (without the extension) is the file
                 int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
@@ -208,7 +211,6 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                     this.getPayment_status_image().setBackground(res);
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -266,7 +268,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         HttpClient httpClient;
         httpClient = getNewHttpClient();
 
-        HttpGet httpGet = new HttpGet(WebserviceURLs.INTERSWITCH_REQUERY_URL + "?productid=5528&transactionreference="+leadQuoteName+"&amount="+amount);
+        HttpGet httpGet = new HttpGet(WebserviceURLs.INTERSWITCH_REQUERY_URL + "?productid=5528&transactionreference="+leadQuoteName+"&amount=10000");
         UsernamePasswordCredentials credentials =
                 new UsernamePasswordCredentials("root", "Admin$1234");
         BasicScheme scheme = new BasicScheme();
@@ -316,7 +318,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         HttpClient httpClient;
         httpClient = getNewHttpClient();
 
-        HttpGet httpGet = new HttpGet(WebserviceURLs.LEAD_OUOTE_TO_POLICY + "?quoteId="+leadQuoteId+"&paymentMethod=Debit Card&paymentReference=" +leadQuoteName);
+        HttpGet httpGet = new HttpGet(WebserviceURLs.LEAD_OUOTE_TO_POLICY + "?quoteId="+leadQuoteId+"&paymentMethod=DebitCard&paymentReference=" +leadQuoteName);
         UsernamePasswordCredentials credentials =
                 new UsernamePasswordCredentials("root", "Admin$1234");
         BasicScheme scheme = new BasicScheme();

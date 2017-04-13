@@ -83,7 +83,7 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 
-		android:text="Verify Policy Details"
+		android:text="Review Quote Details"
 		android:textColor="@android:color/white"
 		android:gravity="center"
 
