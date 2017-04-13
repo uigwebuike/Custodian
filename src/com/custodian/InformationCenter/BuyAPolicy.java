@@ -32,6 +32,11 @@ import com.custodian.URLS.WebserviceURLs;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 
 /**
@@ -153,8 +158,9 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
 
 
-                String datePickerValue = this.dateofbirth.getDayOfMonth() + "/" + this.dateofbirth.getMonth() + "/" + this.dateofbirth.getYear();
-
+                int age;
+                String datePickerValue = this.dateofbirth.getMonth() +"-" +this.dateofbirth.getDayOfMonth() +  "-" + this.dateofbirth.getYear();
+                age = getAge(this.dateofbirth.getYear(),this.dateofbirth.getMonth(), this.dateofbirth.getDayOfMonth());
 
                 sharedPreferences  = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
@@ -175,6 +181,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 Log.e("password",sharedPreferences.getString("password",""));
                 editor.putString("dateofbirth",datePickerValue.toString());
                 Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
+                Log.e("age",String.valueOf(age));
                 editor.putString("emailaddress",emailaddress.getText().toString());
                 Log.e("emailaddress",sharedPreferences.getString("emailaddress",""));
                 editor.putString("phonenumber",phonenumber.getText().toString());
@@ -221,6 +228,9 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 else if (address.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_ADDRESS);
                 }
+                else if (age<18) {
+                    Showalerts(Alerts.UNSUPORRTED_AGE);
+                }
                 //todo validate validate date of bith so to be above 18
                 else {
                     goToWebservice();
@@ -228,6 +238,39 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 break;
         }
     }
+
+
+    public int getAge(int year,int month, int day){
+
+
+        String datetext = month+"-"+day+"-"+year; // Date in text
+        try {
+            Calendar birth = new GregorianCalendar();
+            Calendar today = new GregorianCalendar();
+            int age = 0;
+            int factor = 0; //to correctly calculate age when birthday has not been yet celebrated
+            Date birthDate = new SimpleDateFormat("MM-dd-yyyy").parse(datetext);
+            Date currentDate = new Date(); //current date
+
+            birth.setTime(birthDate);
+            today.setTime(currentDate);
+
+            // check if birthday has been celebrated this year
+            if(today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
+                factor = -1; //birthday not celebrated
+            }
+            age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
+            //System.out.println("AGE (years): "+age);
+            return age;
+        } catch (ParseException e) {
+            System.out.println("Given date: "+datetext+ " not in expected format (Please enter a MM-DD-YYYY date)");
+        }
+        return 0;
+
+
+    }
+
+
 
     private void goToWebservice() {
         // TODO Auto-generated method stub

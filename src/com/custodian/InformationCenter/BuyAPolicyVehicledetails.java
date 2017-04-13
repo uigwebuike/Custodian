@@ -608,32 +608,32 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 if (getCover_spinner().getSelectedItem().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_COVER);
                 }
-                if (getVehicle_make().getSelectedItem().toString().equalsIgnoreCase("")) {
+                else if (getVehicle_make().getSelectedItem().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_VEHICLE_MAKE);
                 }
 
-                if (getVehicle_make().getSelectedItem().toString().contains("Others") && getOthers_vehicle().getText().toString().equalsIgnoreCase("")) {
+                else if (getVehicle_make().getSelectedItem().toString().contains("Others") && getOthers_vehicle().getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_VEHICLE_MAKE);
                 }
-                if(getChassis_number().getText().toString().equalsIgnoreCase("")){
+                else if(getChassis_number().getText().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_CHASSIS_NUMBER);
                 }
-                if(getEngine_number().getText().toString().equalsIgnoreCase("")){
+                else if(getEngine_number().getText().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_ENGINE_NUMBER);
                 }
-                if(getReg_no().getText().toString().equalsIgnoreCase("")){
+                else if(getReg_no().getText().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_VEHICLE_REGISTATION_NUMBER);
                 }
-                if(getVehicle_value().getText().toString().equalsIgnoreCase("")){
+                else if(getVehicle_value().getText().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_VEHICLE_VALUE);
                 }
-                if(Double.valueOf(getVehicle_value().getText().toString()) < 1500000d){
+                else if(Double.valueOf(getVehicle_value().getText().toString()) < 1500000d){
                     Showalerts(Alerts.INVALID_VEHICLE_VALUE);
                 }
-                if(getCoverPeriod().getSelectedItem().toString().equalsIgnoreCase("")){
+                else if(getCoverPeriod().getSelectedItem().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_PAMENT_PERIOD);
                 }
-                if(getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("")){
+                else if(getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_PAMENT_OPTION);
                 }
                 //todo validate insurance date not to be futer dated
