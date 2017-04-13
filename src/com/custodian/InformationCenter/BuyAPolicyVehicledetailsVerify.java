@@ -419,7 +419,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyVehicledetailsVerify.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
         alertDialog.setCancelable(false);
         // Setting Dialog Message
         alertDialog.setMessage(message);
@@ -458,7 +458,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyVehicledetailsVerify.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
 
         // Setting Dialog Message
         alertDialog.setMessage(message);

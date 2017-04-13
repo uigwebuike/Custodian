@@ -122,7 +122,7 @@ public class CustodianSplash extends Activity implements CustodianInterface {
 			// TODO Auto-generated method stub
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianSplash.this);
 	        // Setting Dialog Title
-	        alertDialog.setTitle("Custodian Direct");
+	        alertDialog.setTitle("Custodian");
 	 
 	        // Setting Dialog Message
 	        alertDialog.setMessage(message);

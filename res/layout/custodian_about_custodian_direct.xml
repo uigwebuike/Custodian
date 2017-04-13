@@ -35,7 +35,7 @@
         android:textSize="@dimen/head_size"
         android:textColor="#fff"
         android:layout_toRightOf="@+id/title_text"
-        android:text = "ABOUT CUSTODIAN DIRECT"
+        android:text = "ABOUT CUSTODIAN"
         
         />
 
@@ -81,7 +81,7 @@
     android:textColor="@android:color/black"
     android:paddingRight="10dp"
   	
-    android:text = "Custodian direct is a self-service insurance product that lets you experience a start to finish process for car insurance purchase within a few moments on your mobile device."/>
+    android:text = "Custodian is a self-service insurance product that lets you experience a start to finish process for car insurance purchase within a few moments on your mobile device."/>
     <TextView
     android:id = "@+id/about_paragraph2"
     android:layout_width="match_parent"

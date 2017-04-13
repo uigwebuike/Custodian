@@ -198,7 +198,7 @@ public class ClaimsCenterMenuScreen extends Activity implements OnClickListener{
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(ClaimsCenterMenuScreen.this);
 			 alertDialog.setCancelable(false); 
 	        // Setting Dialog Title
-	        alertDialog.setTitle("Custodian Direct");
+	        alertDialog.setTitle("Custodian");
 	 
 	        // Setting Dialog Message
 	        alertDialog.setMessage("Are you sure you want to logout from the application?");

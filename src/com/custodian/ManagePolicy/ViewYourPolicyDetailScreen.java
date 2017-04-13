@@ -469,7 +469,7 @@ public class ViewYourPolicyDetailScreen extends Activity implements
 		// TODO Auto-generated method stub
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewYourPolicyDetailScreen.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message);

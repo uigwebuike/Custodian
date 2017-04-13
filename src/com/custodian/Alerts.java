@@ -2,6 +2,25 @@ package com.custodian;
 
 public class Alerts{
 	public static String ENTER_EMAIL = "Please enter email.";
+	public static String ENTER_TITLE = "Please enter title.";
+	public static String ENTER_OCCUPATION = "Please enter occupation.";
+	public static String ENTER_FIRSTNAME = "Please enter first name.";
+	public static String ENTER_OTHERNAMES = "Please enter other names.";
+	public static String ENTER_USERNAME = "Please enter username.";
+	public static String ENTER_COVER = "Please enter a cover period.";
+	public static String ENTER_STARTDATE = "Please enter your insurance start date.";
+	public static String ENTER_VEHICLE_VALUE = "Please enter the value of your vehicle.";
+	public static String INVALID_VEHICLE_VALUE = "Please vehicle must be above 1.5Million.";
+	public static String ENTER_CHASSIS_NUMBER = "Please enter chassis number.";
+	public static String ENTER_ENGINE_NUMBER = "Please enter engine number.";
+	public static String ENTER_VEHICLE_MAKE = "Please enter vehicle make.";
+	public static String ENTER_VEHICLE_REGISTATION_NUMBER = "Please enter vehicle registration number.";
+	public static String ENTER_PAMENT_OPTION = "Please enter premium payment option.";
+	public static String ENTER_PAMENT_PERIOD = "Please enter cover period.";
+	public static String ENTER_ADDRESS = "Please enter address.";
+	public static String ENTER_PASSWORD = "Please enter password.";
+	public static String INVALID_PASSWORD = "Please your password is too short, your password must be above 6 characters.";
+	public static String UNSUPORRTED_AGE= "Please you must be above 18 years of age.";
 	public static String INVALID_EMAIL = "Invalid email address.";
 	public static String ENTER_PHONE = "Please enter phone number.";
 	public static String INVALID_PHONE = "Invalid phone number.";

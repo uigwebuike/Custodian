@@ -182,7 +182,7 @@ public class CustodianHomeScreenForgotPasswrd extends Activity implements Custod
 		//AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreen.this);
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreenForgotPasswrd.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message2);
@@ -242,7 +242,7 @@ public class CustodianHomeScreenForgotPasswrd extends Activity implements Custod
 		//AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreen.this);
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreenForgotPasswrd.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message2);

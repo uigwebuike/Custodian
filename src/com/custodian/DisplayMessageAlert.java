@@ -16,7 +16,7 @@ public class DisplayMessageAlert {
 			AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 			//hide title bar
 			//alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			alertDialog.setTitle("Custodian Direct");
+			alertDialog.setTitle("Custodian");
 			//set the icon.
 			//alertDialog.setIcon(context.getResources().getDrawable(R.drawable.ic_launcher));
 			//set the message			

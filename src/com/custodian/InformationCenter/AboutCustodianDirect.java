@@ -106,7 +106,7 @@ public class AboutCustodianDirect extends Activity implements OnClickListener{
 			/* Fill it with Data */
 			emailIntent.setType("plain/text");
 			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"enquiries@custodianinsurance.com"});
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Custodian Direct");
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Custodian");
 			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
 
 			/* Send it off to the Activity-Chooser */

@@ -269,7 +269,7 @@ public class CustodianReportClaim extends Activity implements
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianReportClaim.this);
 		 alertDialog.setCancelable(false); 
        // Setting Dialog Title
-       alertDialog.setTitle("Custodian Direct");
+       alertDialog.setTitle("Custodian");
 
        // Setting Dialog Message
        alertDialog.setMessage("Any person who knowingly presents a false or fraudulent claim for the payment of a loss is guilty of a crime and may be subject to fine and/or conviction.");

@@ -412,7 +412,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyPaymentMessage.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
         alertDialog.setCancelable(false);
         // Setting Dialog Message
         alertDialog.setMessage(message);
@@ -451,7 +451,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyPaymentMessage.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
 
         // Setting Dialog Message
         alertDialog.setMessage(message);

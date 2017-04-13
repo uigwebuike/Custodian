@@ -291,7 +291,7 @@ public class ReportClaimVehicles extends Activity implements
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(
 				ReportClaimVehicles.this);
 		// Setting Dialog Title
-		alertDialog.setTitle("Custodian Direct");
+		alertDialog.setTitle("Custodian");
 
 		// Setting Dialog Message
 		alertDialog.setMessage(message2);

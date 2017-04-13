@@ -182,7 +182,7 @@ public class InformationCenterMenuScreen extends Activity implements OnClickList
 			/* Fill it with Data */
 			emailIntent.setType("plain/text");
 			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"enquiries@custodianinsurance.com"});
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Custodian Direct");
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Custodian");
 			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
 
 			/* Send it off to the Activity-Chooser */
@@ -225,7 +225,7 @@ public class InformationCenterMenuScreen extends Activity implements OnClickList
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(InformationCenterMenuScreen.this);
 			 alertDialog.setCancelable(false); 
 	        // Setting Dialog Title
-	        alertDialog.setTitle("Custodian Direct");
+	        alertDialog.setTitle("Custodian");
 	 
 	        // Setting Dialog Message
 	        alertDialog.setMessage("Are you sure you want to logout from the application?");

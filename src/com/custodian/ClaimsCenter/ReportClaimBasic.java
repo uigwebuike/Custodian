@@ -139,7 +139,7 @@ public class ReportClaimBasic  extends Activity implements OnClickListener{
 		
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(ReportClaimBasic.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message2);

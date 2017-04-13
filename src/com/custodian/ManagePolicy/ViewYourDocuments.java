@@ -180,7 +180,7 @@ public class ViewYourDocuments extends Activity implements OnClickListener, Cust
 		//AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreen.this);
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewYourDocuments.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message2);

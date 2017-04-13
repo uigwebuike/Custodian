@@ -25,7 +25,7 @@
         android:textColor="#fff"
         
         android:layout_toRightOf="@+id/title_text"
-        android:text = "CUSTODIAN DIRECT"
+        android:text = "CUSTODIAN"
         
         />
           

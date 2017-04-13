@@ -605,11 +605,46 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Log.e("amount_to_pay", this.getSharedPreferences().getString("amount_to_pay", ""));
                 Log.e("payment_Option_Label", this.getSharedPreferences().getString("paymentOptionLabel", ""));
                 Log.e("payment_Option", String.valueOf(this.getSharedPreferences().getLong("paymentOption", 0L)));
-                this.goToWebservice();
-                myIntent = new Intent(BuyAPolicyVehicledetails.this,
-                        BuyAPolicyVehicledetailsVerify.class);
-                startActivity(myIntent);
+                if (getCover_spinner().getSelectedItem().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_COVER);
+                }
+                if (getVehicle_make().getSelectedItem().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_VEHICLE_MAKE);
+                }
+
+                if (getVehicle_make().getSelectedItem().toString().contains("Others") && getOthers_vehicle().getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_VEHICLE_MAKE);
+                }
+                if(getChassis_number().getText().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_CHASSIS_NUMBER);
+                }
+                if(getEngine_number().getText().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_ENGINE_NUMBER);
+                }
+                if(getReg_no().getText().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_VEHICLE_REGISTATION_NUMBER);
+                }
+                if(getVehicle_value().getText().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_VEHICLE_VALUE);
+                }
+                if(Double.valueOf(getVehicle_value().getText().toString()) < 1500000d){
+                    Showalerts(Alerts.INVALID_VEHICLE_VALUE);
+                }
+                if(getCoverPeriod().getSelectedItem().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_PAMENT_PERIOD);
+                }
+                if(getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("")){
+                    Showalerts(Alerts.ENTER_PAMENT_OPTION);
+                }
+                //todo validate insurance date not to be futer dated
+                else {
+                    this.goToWebservice();
+                    myIntent = new Intent(BuyAPolicyVehicledetails.this,
+                            BuyAPolicyVehicledetailsVerify.class);
+                    startActivity(myIntent);
+                }
                 break;
+
         }
     }
 
@@ -825,7 +860,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyVehicledetails.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
         alertDialog.setCancelable(false);
         // Setting Dialog Message
         alertDialog.setMessage(message);
@@ -864,7 +899,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicyVehicledetails.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
 
         // Setting Dialog Message
         alertDialog.setMessage(message);

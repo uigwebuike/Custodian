@@ -301,7 +301,7 @@ public class CustomerServiceMain extends Activity implements CustomerService,OnC
         // Setting Dialog Title
 		
 		 alertDialog.setCancelable(false);
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message);

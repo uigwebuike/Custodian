@@ -266,7 +266,7 @@ public class ContactUs extends Activity implements OnClickListener,
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 ContactUs.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
         alertDialog.setCancelable(false);
         // Setting Dialog Message
         alertDialog.setMessage(message);
@@ -305,7 +305,7 @@ public class ContactUs extends Activity implements OnClickListener,
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 ContactUs.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
 
         // Setting Dialog Message
         alertDialog.setMessage(message);

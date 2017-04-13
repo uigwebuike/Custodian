@@ -237,7 +237,7 @@ public class CustodianHomeScreenMain extends Activity implements
 					CustodianHomeScreenMain.this);
 			alertDialog.setCancelable(false);
 			// Setting Dialog Title
-			alertDialog.setTitle("Custodian Direct");
+			alertDialog.setTitle("Custodian");
 
 			// Setting Dialog Message
 			alertDialog.setMessage(Alerts.HOME_SCREEN_LOGOUT);

@@ -225,7 +225,7 @@ String loginError ;
 			//AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianHomeScreen.this);
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(CustodianLoginScreen.this);
 	        // Setting Dialog Title
-	        alertDialog.setTitle("Custodian Direct");
+	        alertDialog.setTitle("Custodian");
 	 
 	        // Setting Dialog Message
 	        alertDialog.setMessage(message);

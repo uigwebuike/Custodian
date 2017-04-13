@@ -381,7 +381,7 @@ public class EstimateAndRepair extends FragmentActivity implements
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(
 				EstimateAndRepair.this);
 		// Setting Dialog Title
-		alertDialog.setTitle("Custodian Direct");
+		alertDialog.setTitle("Custodian");
 
 		// Setting Dialog Message
 		alertDialog.setMessage(message);

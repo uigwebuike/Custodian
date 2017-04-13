@@ -154,7 +154,7 @@ Please remember to provide your reference no LQLQ000033227 when making the payme
 				android:layout_height="87dp"/>
 
 			<TextView
-				android:text="Account Name: Custodian Direct"
+				android:text="Account Name: Custodian"
 				android:layout_width="match_parent"
 				android:id="@+id/bankaccountname"
 				android:layout_row="2"

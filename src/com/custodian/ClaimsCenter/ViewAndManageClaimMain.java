@@ -227,7 +227,7 @@ public class ViewAndManageClaimMain extends Activity implements CustodianInterfa
         // Setting Dialog Title
 		
 		 alertDialog.setCancelable(false);
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
  
         // Setting Dialog Message
         alertDialog.setMessage(message);

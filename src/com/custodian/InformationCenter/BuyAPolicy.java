@@ -196,7 +196,33 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                     Showalerts(Alerts.INVALID_PHONE);
                 } else if (!CheckPhone(phonenumber.getText().toString())) {
                     Showalerts(Alerts.INVALID_PHONE);
-                }  else {
+                }
+                else if (surname.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_FIRSTNAME);
+                }
+                else if (othername.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_OTHERNAMES);
+                }
+                else if (occupation_spinner.getSelectedItem().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_OCCUPATION);
+                }
+                else if (title_spinner.getSelectedItem().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_TITLE);
+                }
+                else if (username.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_USERNAME);
+                }
+                else if (password.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_PASSWORD);
+                }
+                else if (password.getText().toString().length() < 6) {
+                    Showalerts(Alerts.INVALID_PASSWORD);
+                }
+                else if (address.getText().toString().equalsIgnoreCase("")) {
+                    Showalerts(Alerts.ENTER_ADDRESS);
+                }
+                //todo validate validate date of bith so to be above 18
+                else {
                     goToWebservice();
                 }
                 break;
@@ -219,7 +245,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json = new JSONObject();
 
                 json.put("active", value);
-                json.put("description", "Started insurance quote from custodian direct andriod mobile application");
+                json.put("description", "Started insurance quote from custodian andriod mobile application");
                 json.put("label", othername.getText()  + " " + surname.getText());
                 json.put("leadSource", "CUSTODIAN_DIRECT_MOBILE_ANDRIOD");
                 json.put("organization", othername.getText()  + " " + surname.getText());
@@ -257,7 +283,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicy.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
         alertDialog.setCancelable(false);
         // Setting Dialog Message
         alertDialog.setMessage(message);
@@ -296,7 +322,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 BuyAPolicy.this);
         // Setting Dialog Title
-        alertDialog.setTitle("Custodian Direct");
+        alertDialog.setTitle("Custodian");
 
         // Setting Dialog Message
         alertDialog.setMessage(message);
