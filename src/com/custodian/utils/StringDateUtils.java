@@ -35,4 +35,19 @@ public class StringDateUtils {
     }
 
 
+    public static Date getTodaysDate() {
+
+        //Set the first date to be the beginning of the week
+        Calendar calRoll = Calendar.getInstance();
+
+        calRoll.set(Calendar.HOUR, calRoll.getActualMinimum(Calendar.HOUR));
+        calRoll.set(Calendar.AM_PM, Calendar.AM);
+        calRoll.set(Calendar.MINUTE, calRoll.getActualMinimum(Calendar.MINUTE));
+        calRoll.set(Calendar.SECOND, calRoll.getActualMinimum(Calendar.SECOND));
+        calRoll.set(Calendar.MILLISECOND, calRoll.getActualMinimum(Calendar.MILLISECOND));
+
+        return calRoll.getTime();
+    }
+
+
 }

@@ -648,6 +648,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         }
     }
 
+    private boolean isBackDated(Date startDate) {
+        Date today = StringDateUtils.getTodaysDate();
+        return !(startDate != null && startDate.after(today));
+    }
+
     private void goToWebservice() {
         // TODO Auto-generated method stub
 
