@@ -270,7 +270,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
 
         HttpGet httpGet = new HttpGet(WebserviceURLs.INTERSWITCH_REQUERY_URL + "?productid=5528&transactionreference="+leadQuoteName+"&amount=10000");
         UsernamePasswordCredentials credentials =
-                new UsernamePasswordCredentials("root", "Admin$1234");
+                new UsernamePasswordCredentials("custodian", "Welcome123");
         BasicScheme scheme = new BasicScheme();
         Header authorizationHeader = null;
         try {
@@ -318,9 +318,9 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
         HttpClient httpClient;
         httpClient = getNewHttpClient();
 
-        HttpGet httpGet = new HttpGet(WebserviceURLs.LEAD_OUOTE_TO_POLICY + "?quoteId="+leadQuoteId+"&paymentMethod=DebitCard&paymentReference=" +leadQuoteName);
+        HttpGet httpGet = new HttpGet(WebserviceURLs.LEAD_OUOTE_TO_POLICY + "?quoteId="+leadQuoteId+"&paymentMethod=DEBIT_CARD&paymentReference=" +leadQuoteName);
         UsernamePasswordCredentials credentials =
-                new UsernamePasswordCredentials("root", "Admin$1234");
+                new UsernamePasswordCredentials("custodian", "Welcome123");
         BasicScheme scheme = new BasicScheme();
         Header authorizationHeader = null;
         try {

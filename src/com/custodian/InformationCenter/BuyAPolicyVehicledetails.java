@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
+import android.icu.util.GregorianCalendar;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -69,7 +71,9 @@ import java.security.KeyStore;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 
@@ -482,6 +486,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.setEngine_number((EditText) findViewById(R.id.engine_number));
         this.setOthers_vehicle((EditText) findViewById(R.id.others_vehicle));
 
+
         SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
         String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
 
@@ -501,6 +506,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
 
     }
+
+
+
+
 
     @Override
     public void onClick(View v) {
@@ -533,6 +542,13 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 String datePickerValue = this.getInsurance_startdate().getDayOfMonth() + "/" + this.getInsurance_startdate().getMonth() + "/" + this.getInsurance_startdate().getYear();
                 SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
 
+                Boolean validDate = true;
+
+                try {
+                    validDate = isValidDate(datePickerValue);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 //todo please port over the logic for calculating the premium from the php script into this and save it
 
@@ -570,19 +586,19 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 this.getEditor().putString("amount_to_pay", Double.toString(amountTopay));
                 this.getEditor().putString("premium", String.valueOf(this.getPremium()));
 
-                if(this.getPaymentOption_spinner().getSelectedItem().equals("Annually")){
+                if(this.getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("Annually")){
                     paymentOption =  1001l;
                     Log.e("Payment-option", String.valueOf(paymentOption));
-                }else if(this.getPaymentOption_spinner().getSelectedItem().equals("Bi-Annually")){
+                }else if(this.getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("Bi-Annually")){
                     paymentOption = 1000l;
                     Log.e("Payment-option", String.valueOf(paymentOption));
-                }else if(this.getPaymentOption_spinner().getSelectedItem().equals("Quarterly")){
+                }else if(this.getPaymentOption_spinner().getSelectedItem().toString().equalsIgnoreCase("Quarterly")){
                     paymentOption = 1003l;
                     Log.e("Payment-option", String.valueOf(paymentOption));
-                }else{
-                    paymentOption = 1200l;
+                }/*else{
+                    paymentOption = 1001l;
                     Log.e("Payment-option", String.valueOf(paymentOption));
-                }
+                }*/
                 this.getEditor().putLong("paymentOption", paymentOption);
                 this.getEditor().commit();
                 Log.e("title_spinner", this.getSharedPreferences().getString("title_spinner", ""));
@@ -630,6 +646,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 else if(Double.valueOf(getVehicle_value().getText().toString()) < 1500000d){
                     Showalerts(Alerts.INVALID_VEHICLE_VALUE);
                 }
+                else if(!validDate){
+                    Showalerts(Alerts.INVALID_INSURANCE_START_DATE);
+                }
                 else if(getCoverPeriod().getSelectedItem().toString().equalsIgnoreCase("")){
                     Showalerts(Alerts.ENTER_PAMENT_PERIOD);
                 }
@@ -669,6 +688,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 value = Boolean.valueOf("true");
 
 
+
                 String endDate = this.getInsurance_enddate().toString();
 
 
@@ -690,8 +710,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("startDate", this.getSharedPreferences().getString("insurance_startdate", ""));
                 json.put("requestEndDttm", getInsurance_enddate());
                 json.put("validUntil", getInsurance_enddate());
-                json.put("paymentTermLabel", this.getSharedPreferences().getString("payment_Option_Label", ""));
-                json.put("paymentTerm", this.getSharedPreferences().getLong("payment_Option", 0l));
+                json.put("paymentTermLabel", this.getSharedPreferences().getString("paymentOptionLabel", ""));
+                json.put("paymentTerm", this.getSharedPreferences().getLong("paymentOption", 0l));
                 json.put("endDate", getInsurance_enddate());
                 json.put("quoteType", this.getCover_spinner().getSelectedItem().toString().toUpperCase());
                 json.put("quoteReference", this.getVehicle_make().getSelectedItem() + " private");
@@ -703,6 +723,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("origin", "MOBILE");
                 json.put("salesOffice", 1600);
                 json.put("salesChannel", 1200);
+
+                Log.e("JSONMAP:",json.toString());
 
                 //Clear the cached quote id and make the call
 
@@ -766,7 +788,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 json.put("vehicleValue", this.getVehicle_value().getText().toString());
                 json.put("premium", this.getSharedPreferences().getString("premium", ""));
                 json.put("validUntil", getInsurance_enddate()); //todo calculate the correct end date
-                json.put("requestedItem", 2000);
+                json.put("requestedItem", 1200);
                 json.put("origin", "MOBILE");
                 json.put("status", "NEW");
                 json.put("salesOffice", 1600);
@@ -794,7 +816,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         httpClient = getNewHttpClient();
         HttpGet httpGet = new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID + "/" + leadQuoteId);
         UsernamePasswordCredentials credentials =
-                new UsernamePasswordCredentials("root", "Admin$1234");
+                new UsernamePasswordCredentials("custodian", "Welcome123");
         BasicScheme scheme = new BasicScheme();
         Header authorizationHeader = null;
         try {
@@ -934,6 +956,17 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         // TODO Auto-generated method stub
         return PHONE_NO_PATTERN.matcher(Phone).matches();
     }
+
+
+
+
+    public static boolean isValidDate(String pDateString) throws ParseException {
+        Date date = new SimpleDateFormat("dd/mm/yyyy").parse(pDateString);
+        return new Date().after(date);
+    }
+
+
+
 
     // json response parsed.
     @Override

@@ -131,7 +131,7 @@
 <string-array name = "paymentOption">
         <item></item>
         <item>Annually</item>
-        <item>Bi-Annualy</item>
+        <item>Bi-Annually</item>
         <item>Quarterly</item>
 
     </string-array>

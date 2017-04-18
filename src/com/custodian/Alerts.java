@@ -8,7 +8,7 @@ public class Alerts{
 	public static String ENTER_OTHERNAMES = "Please enter other names.";
 	public static String ENTER_USERNAME = "Please enter username.";
 	public static String ENTER_COVER = "Please enter a cover period.";
-	public static String ENTER_STARTDATE = "Please enter your insurance start date.";
+	public static String INVALID_INSURANCE_START_DATE = "Invalid insurance start date.";
 	public static String ENTER_VEHICLE_VALUE = "Please enter the value of your vehicle.";
 	public static String INVALID_VEHICLE_VALUE = "Please vehicle must be above 1.5Million.";
 	public static String ENTER_CHASSIS_NUMBER = "Please enter chassis number.";

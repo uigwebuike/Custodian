@@ -103,7 +103,7 @@ public class LeadQuoteCaptureWebservice extends AsyncTask<Void, Void, Void> {
 			//HttpClient httpClient = new DefaultHttpClient();
 			HttpPost httpPost= new HttpPost(strUrl);
 			UsernamePasswordCredentials credentials =
-	                new UsernamePasswordCredentials("root", "Admin$1234");
+	                new UsernamePasswordCredentials("custodian", "Welcome123");
 	            BasicScheme scheme = new BasicScheme();
 	            Header authorizationHeader = scheme.authenticate(credentials, httpPost);
 	            httpPost.addHeader(authorizationHeader);
