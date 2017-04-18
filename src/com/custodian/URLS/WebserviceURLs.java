@@ -2,8 +2,8 @@ package com.custodian.URLS;
 
 public class WebserviceURLs {
 	
-	//public static String BASE_URL ="https://custodian.zanibal.com/hermes/rest/api/v1/";
-	public static String BASE_URL ="http://apps.demo.zanibal.com/hermes/rest/api/v1/";
+	public static String BASE_URL ="http://apps.custodiandirect.com/hermes/rest/api/v1/";
+	//public static String BASE_URL ="http://apps.demo.zanibal.com/hermes/rest/api/v1/";
 	public static String  HOME_SCREEN = BASE_URL + "partner/customer/username/";
 	public static String  FORGOT_ID =	BASE_URL + "partner/customer/email-address/";
 	public static String LOGIN_SCREEN = BASE_URL +"security/login/customer?username=";

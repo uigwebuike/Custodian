@@ -348,7 +348,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
 
         HttpGet httpGet = new HttpGet(WebserviceURLs.GET_LEAD_QUOTE_WITH_ID + "/" + leadQuoteId);
         UsernamePasswordCredentials credentials =
-                new UsernamePasswordCredentials("root", "Admin$1234");
+                new UsernamePasswordCredentials("custodian", "Welcome123");
         BasicScheme scheme = new BasicScheme();
         Header authorizationHeader = null;
         try {
