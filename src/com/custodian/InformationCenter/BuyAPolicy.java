@@ -16,6 +16,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -46,7 +47,7 @@ import java.util.regex.Pattern;
 public class BuyAPolicy extends Activity implements OnClickListener,
         CustodianInterface {
     // Declaration of views.
-    EditText surname, othername, address, username,password, emailaddress,phonenumber;
+    EditText surname, othername, address, username,password, emailaddress,phonenumber,otherOccupation;
     DatePicker dateofbirth;
     Spinner title_spinner, occupation_spinner;
     String flag;
@@ -78,6 +79,27 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         // TODO Auto-generated method stub
 
     }
+
+
+    public class ShowHideOthersTextView implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent,
+                                   View view, int pos, long id) {
+            String selected =  parent.getItemAtPosition(pos).toString();
+            if(selected.contains("Others")){
+                otherOccupation.setVisibility(View.VISIBLE);
+
+            }else{
+                otherOccupation.setVisibility(View.GONE);
+
+            }
+        }
+
+        public void onNothingSelected(AdapterView parent) {
+
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,13 +140,15 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         address.setTypeface(face);
         username  = (EditText) findViewById(R.id.username);
         username.setTypeface(face);
-        password = (EditText) findViewById(R.id.password);
-        password.setTypeface(face);
+       // password = (EditText) findViewById(R.id.password);
+       // password.setTypeface(face);
         dateofbirth = (DatePicker) findViewById(R.id.dateofbirth);
         emailaddress = (EditText) findViewById(R.id.emailaddress);
         emailaddress.setTypeface(face);
         phonenumber = (EditText) findViewById(R.id.phonenumber);
         phonenumber.setTypeface(face);
+        otherOccupation =  (EditText) findViewById(R.id.otherOccupation);
+        occupation_spinner.setOnItemSelectedListener(new BuyAPolicy.ShowHideOthersTextView());
     }
 
     @Override
@@ -167,7 +191,14 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 editor.putString("BasicsKey", "Basics");
                 editor.putString("title_spinner",title_spinner.getSelectedItem().toString());
                 Log.e("title_spinner",sharedPreferences.getString("title_spinner",""));
-                editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
+
+
+                if(otherOccupation.getVisibility() == View.VISIBLE && otherOccupation.getText().length() > 1){
+                    editor.putString("occupation_spinner",otherOccupation.getText().toString());
+
+                }else{
+                    editor.putString("occupation_spinner",occupation_spinner.getSelectedItem().toString());
+                }
                 Log.e("occupation_spinner",sharedPreferences.getString("occupation_spinner",""));
                 editor.putString("surname",surname.getText().toString());
                 Log.e("surname",sharedPreferences.getString("surname",""));
@@ -177,8 +208,8 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 Log.e("address",sharedPreferences.getString("address",""));
                 editor.putString("username",username.getText().toString());
                 Log.e("username",sharedPreferences.getString("username",""));
-                editor.putString("password",password.getText().toString());
-                Log.e("password",sharedPreferences.getString("password",""));
+              //  editor.putString("password",password.getText().toString());
+               // Log.e("password",sharedPreferences.getString("password",""));
                 editor.putString("dateofbirth",datePickerValue.toString());
                 Log.e("dateofbirth",sharedPreferences.getString("dateofbirth",""));
                 Log.e("age",String.valueOf(age));
@@ -189,9 +220,6 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
                 editor.commit();
 
-                //myIntent = new Intent(BuyAPolicy.this, BuyAPolicyVehicledetails.class);
-
-                //startActivity(myIntent);
 
                 if (emailaddress.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_EMAIL);
@@ -199,7 +227,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                     Showalerts(Alerts.INVALID_EMAIL);
                 } else if (phonenumber.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_PHONE);
-                } else if (phonenumber.getText().toString().length() > 16) {
+                } else if (!countLengthoOfMobileNumber(phonenumber.getText().toString())) {
                     Showalerts(Alerts.INVALID_PHONE);
                 } else if (!CheckPhone(phonenumber.getText().toString())) {
                     Showalerts(Alerts.INVALID_PHONE);
@@ -219,24 +247,29 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 else if (username.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_USERNAME);
                 }
-                else if (password.getText().toString().equalsIgnoreCase("")) {
+                /*else if (password.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_PASSWORD);
                 }
                 else if (password.getText().toString().length() < 6) {
                     Showalerts(Alerts.INVALID_PASSWORD);
                 }
+                */
                 else if (address.getText().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_ADDRESS);
                 }
                 else if (age<18) {
                     Showalerts(Alerts.UNSUPORRTED_AGE);
                 }
-                //todo validate validate date of bith so to be above 18
                 else {
                     goToWebservice();
                 }
                 break;
         }
+    }
+
+
+    private boolean countLengthoOfMobileNumber(String number) {
+        return (number.length() >= 11 && number.length() <=13)?true:false;
     }
 
 
@@ -261,6 +294,8 @@ public class BuyAPolicy extends Activity implements OnClickListener,
             }
             age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
             //System.out.println("AGE (years): "+age);
+            System.out.println("age: "+age);
+
             return age;
         } catch (ParseException e) {
             System.out.println("Given date: "+datetext+ " not in expected format (Please enter a MM-DD-YYYY date)");
@@ -293,12 +328,19 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json.put("label", othername.getText()  + " " + surname.getText());
                 json.put("leadSource", "CUSTODIAN_DIRECT_MOBILE_ANDRIOD");
                 json.put("organization", othername.getText()  + " " + surname.getText());
-                json.put("profession", occupation_spinner.getSelectedItem().toString());
+
+                if(otherOccupation.getVisibility() == View.VISIBLE && otherOccupation.getText().length() > 1){
+                    json.put("profession",otherOccupation.getText().toString());
+
+                }else{
+                    json.put("profession",occupation_spinner.getSelectedItem().toString());
+                }
+                //json.put("profession", occupation_spinner.getSelectedItem().toString());
                 json.put("emailAddress", CheckEmail(emailaddress.getText().toString())?emailaddress.getText().toString():"");
                 json.put("mobilePhone", phonenumber.getText());
                 json.put("dateOfBirth",sharedPreferences.getString("dateofbirth","N/A"));
                 json.put("portalUserName",username.getText().toString());
-                json.put("portalPassword",password.getText().toString());
+              ///  json.put("portalPassword",password.getText().toString());
                 json.put("firstName", othername.getText());
                 json.put("lastName", surname.getText());
                 json.put("primaryStreet", address.getText());

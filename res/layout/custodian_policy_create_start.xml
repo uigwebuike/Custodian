@@ -217,7 +217,8 @@
 			android:layout_column="0"
 			android:hint="Phone Number"
 			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			android:paddingLeft="10dp"
+			android:maxLength="13"/>
 
 
 		<TextView
@@ -283,6 +284,19 @@
 			android:paddingLeft="10dp"/>
 
 
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:ems="10"
+			android:id="@+id/otherOccupation"
+			android:layout_row="16"
+			android:layout_column="0"
+			android:background="@drawable/text_field"
+			android:paddingLeft="10dp"
+			android:layout_marginTop="10dp"
+			android:visibility="gone"/>
+
 
 
 		<TextView
@@ -291,7 +305,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView8"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="16"
+			android:layout_row="17"
 			android:layout_column="0"/>
 
 		<EditText
@@ -300,7 +314,7 @@
 			android:inputType="text"
 			android:ems="10"
 			android:id="@+id/username"
-			android:layout_row="17"
+			android:layout_row="18"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
 			android:paddingLeft="10dp"/>
@@ -310,9 +324,10 @@
 			android:layout_width="134dp"
 			android:layout_height="wrap_content"
 			android:id="@+id/textView9"
-			android:layout_row="18"
+			android:layout_row="19"
 			android:textColor="@android:color/background_dark"
-			android:layout_column="0"/>
+			android:layout_column="0"
+			android:visibility="gone"/>
 
 		<EditText
 			android:layout_width="match_parent"
@@ -320,16 +335,17 @@
 			android:inputType="textWebPassword"
 			android:ems="18"
 			android:id="@+id/password"
-			android:layout_row="19"
+			android:layout_row="20"
 			android:layout_column="0"
 			android:background="@drawable/text_field"
-			android:paddingLeft="10dp"/>
+			android:paddingLeft="10dp"
+			android:visibility="gone"/>
 
 		<TextView
 			android:text="Page 1 of 4"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_row="20"
+			android:layout_row="21"
 			android:textColor="@android:color/background_dark"
 			android:layout_column="0"
 			android:id="@+id/textView12"
@@ -342,7 +358,7 @@
 
 			android:layout_centerHorizontal="true"
 			android:layout_below="@+id/edt_forgot_password"
-			android:layout_row="21"
+			android:layout_row="22"
 			android:layout_column="0"
 			android:layout_marginTop="10dp"
 			android:background="@drawable/btn_continue"

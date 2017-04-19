@@ -61,16 +61,16 @@
 
     <string-array name = "title">
         <item></item>
-        <item>MISS</item>
-        <item>MASTER</item>
-        <item>MR</item>
-        <item>MRS</item>
-        <item>DR</item>
-        <item>PROF</item>
-        <item>CHIEF</item>
-        <item>ALHAJI</item>
-        <item>PASTOR</item>
-        <item>REV</item>
+        <item>Miss</item>
+        <item>Master</item>
+        <item>Mr</item>
+        <item>Mrs</item>
+        <item>Dr</item>
+        <item>Prof</item>
+        <item>Chief</item>
+        <item>Alhaji</item>
+        <item>Pastor</item>
+        <item>Rev</item>
     </string-array>
 
 

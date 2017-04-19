@@ -91,9 +91,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
         public void onItemSelected(AdapterView<?> parent,
                                    View view, int pos, long id) {
-            SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+            SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
 
-            String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
+            String datePickerValue = getInsurance_startdate().getMonth()   + "/" +  getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getYear();
 
 
             Date date = null;
@@ -109,11 +109,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
                 if(item.contains("1 Year")) {
                     year = getInsurance_startdate().getYear() + 1;
-                    setInsurance_enddate(getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + year);
+                    setInsurance_enddate(getInsurance_startdate().getMonth()  + "/" +  getInsurance_startdate().getDayOfMonth() + "/" + year);
                     Log.e("EndDate", getInsurance_enddate());
-                    Toast.makeText(parent.getContext(),
+                    /*Toast.makeText(parent.getContext(),
                             "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
                     Log.e("EndDate1year", getInsurance_enddate() + "    " + (getInsurance_startdate().getYear() + 1));
 
 
@@ -127,10 +127,10 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                         month = getInsurance_startdate().getMonth() + 6;
                         year =getInsurance_startdate().getYear();
                     }
-                    setInsurance_enddate(getInsurance_startdate().getDayOfMonth() + "/" +month+ "/" + year);
-                    Toast.makeText(parent.getContext(),
+                    setInsurance_enddate(month   + "/" +getInsurance_startdate().getDayOfMonth()+ "/" + year);
+                    /*Toast.makeText(parent.getContext(),
                             "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
                     Log.e("EndDate", getInsurance_enddate());
                     Log.e("EndDate6month", getInsurance_enddate()+"    "+(getInsurance_startdate().getYear() + 1));
                 }
@@ -144,30 +144,30 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                         month = getInsurance_startdate().getMonth() + 3;
                         year =getInsurance_startdate().getYear();
                     }
-                    setInsurance_enddate(getInsurance_startdate().getDayOfMonth() + "/" +month+ "/" + year);
-                    Toast.makeText(parent.getContext(),
+                    setInsurance_enddate(month + "/" + getInsurance_startdate().getDayOfMonth()+ "/" + year);
+                   /* Toast.makeText(parent.getContext(),
                             "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
                     Log.e("EndDate", getInsurance_enddate());
                     Log.e("EndDate3Months", getInsurance_enddate()+"    "+(getInsurance_startdate().getYear() + 1));
                 }
 
                 if(item.length()<1){
-                    setInsurance_enddate(getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + (getInsurance_startdate().getYear() + 1));
+                    setInsurance_enddate( getInsurance_startdate().getMonth() + "/" +      getInsurance_startdate().getDayOfMonth()  + "/" + (getInsurance_startdate().getYear() + 1));
                     Log.e("EndDate", getInsurance_enddate()+"    "+(getInsurance_startdate().getYear() + 1));
-                    Toast.makeText(parent.getContext(),
+                   /* Toast.makeText(parent.getContext(),
                             "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
                 }
             Log.e("Cover Period", "Index changed");
-            Toast.makeText(parent.getContext(), "The planet is " +
-                    parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
+           /* Toast.makeText(parent.getContext(), "The planet is " +
+                    parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();*/
         }
 
         public void onNothingSelected(AdapterView parent) {
             // Do nothing.
 
-            setInsurance_enddate(getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear() + 1);
+            setInsurance_enddate( getInsurance_startdate().getMonth() + "/" +      getInsurance_startdate().getDayOfMonth()  + "/" + (getInsurance_startdate().getYear() + 1));
             Log.e("Insurance End Date", getInsurance_enddate());
             Log.e("Cover Period", "Index changed to do nothing");
         }
@@ -487,8 +487,8 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.setOthers_vehicle((EditText) findViewById(R.id.others_vehicle));
 
 
-        SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
-        String datePickerValue = getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getMonth() + "/" + getInsurance_startdate().getYear();
+        SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+        String datePickerValue = getInsurance_startdate().getMonth()   + "/" +  getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getYear();
 
         Date date = null;
         try {
@@ -539,16 +539,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
 
                 Long paymentOption = null;
-                String datePickerValue = this.getInsurance_startdate().getDayOfMonth() + "/" + this.getInsurance_startdate().getMonth() + "/" + this.getInsurance_startdate().getYear();
-                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+                String datePickerValue = (this.getInsurance_startdate().getMonth() + 1) + "/" + this.getInsurance_startdate().getDayOfMonth()  + "/" + this.getInsurance_startdate().getYear();
+                SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
 
-                Boolean validDate = true;
 
-                try {
-                    validDate = isValidDate(datePickerValue);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                Log.e("SelectedMonth",String.valueOf(this.getInsurance_startdate().getMonth()));
 
                 //todo please port over the logic for calculating the premium from the php script into this and save it
 
@@ -621,6 +616,17 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 Log.e("amount_to_pay", this.getSharedPreferences().getString("amount_to_pay", ""));
                 Log.e("payment_Option_Label", this.getSharedPreferences().getString("paymentOptionLabel", ""));
                 Log.e("payment_Option", String.valueOf(this.getSharedPreferences().getLong("paymentOption", 0L)));
+
+                Date convertToDate = null;
+                try {
+                    convertToDate = dt.parse(datePickerValue);
+                    String newDateString = dt.format(convertToDate);
+                    Log.e("insuranceDate",newDateString);
+                    Log.e("insuranceDateDate",convertToDate.toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 if (getCover_spinner().getSelectedItem().toString().equalsIgnoreCase("")) {
                     Showalerts(Alerts.ENTER_COVER);
                 }
@@ -646,7 +652,7 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 else if(Double.valueOf(getVehicle_value().getText().toString()) < 1500000d){
                     Showalerts(Alerts.INVALID_VEHICLE_VALUE);
                 }
-                else if(!validDate){
+                else if(this.isBackDated(convertToDate)){
                     Showalerts(Alerts.INVALID_INSURANCE_START_DATE);
                 }
                 else if(getCoverPeriod().getSelectedItem().toString().equalsIgnoreCase("")){
@@ -669,8 +675,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
 
     private boolean isBackDated(Date startDate) {
         Date today = StringDateUtils.getTodaysDate();
-        return !(startDate != null && startDate.after(today));
+        return !(startDate != null && startDate.after(today) || startDate.equals(today));
     }
+
 
     private void goToWebservice() {
         // TODO Auto-generated method stub
@@ -680,25 +687,11 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
                 .getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             try {
-                SharedPreferences sharedPreferences = this
-                        .getSharedPreferences(MyPREFERENCES,
-                                Context.MODE_PRIVATE);
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
                 Date date = new Date();
                 value = Boolean.valueOf("true");
 
-
-
-                String endDate = this.getInsurance_enddate().toString();
-
-
-                SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
-                Date dates = null;
-                try {
-                    dates = dt.parse(dateFormat.format(date));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
 
                 json = new JSONObject();
                 json.put("active", value);
@@ -757,9 +750,9 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         NetworkInfo activeNetworkInfo = connectivityManager
                 .getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
             Date date = new Date();
-            SimpleDateFormat dt = new SimpleDateFormat("dd/mm/yyyy");
+            SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
             Date dates = null;
             try {
                 dates = dt.parse(dateFormat.format(date));
@@ -955,14 +948,6 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
     protected boolean CheckPhone(String Phone) {
         // TODO Auto-generated method stub
         return PHONE_NO_PATTERN.matcher(Phone).matches();
-    }
-
-
-
-
-    public static boolean isValidDate(String pDateString) throws ParseException {
-        Date date = new SimpleDateFormat("dd/mm/yyyy").parse(pDateString);
-        return new Date().after(date);
     }
 
 

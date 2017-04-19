@@ -139,10 +139,10 @@
 					android:layout_height="match_parent">
 					<LinearLayout
 						android:orientation="horizontal"
-						android:layout_width="match_parent"
+						android:layout_width="wrap_content"
 						android:layout_row="5"
 						android:layout_column="0"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:weightSum="1">
 
 						<TextView
@@ -334,6 +334,7 @@
 				<TableRow
 					android:layout_width="match_parent"
 					android:layout_height="match_parent">
+
 					<LinearLayout
 						android:orientation="horizontal"
 						android:layout_width="match_parent"
@@ -352,7 +353,7 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							/>
+							android:paddingRight="15dp"/>
 
 
 						<TextView
@@ -402,7 +403,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.20"/>
+							android:layout_weight="0.20"
+							android:paddingRight="26dp"/>
 
 
 
@@ -430,14 +432,10 @@
 				</TableRow>
 
 
-
-
-
-
-
 				<TableRow
 					android:layout_width="match_parent"
 					android:layout_height="match_parent">
+
 					<LinearLayout
 						android:orientation="horizontal"
 						android:layout_width="match_parent"
@@ -456,7 +454,7 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.24"/>
+							android:paddingRight="42dp"/>
 
 
 						<TextView
@@ -481,11 +479,6 @@
 				</TableRow>
 
 
-
-
-
-
-
 				<TableRow
 					android:layout_width="match_parent"
 					android:layout_height="match_parent">
@@ -507,9 +500,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.13"/>
-
-
+							android:layout_weight="0.13"
+							android:paddingRight="8dp"/>
 
 
 						<TextView
@@ -560,7 +552,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.15"/>
+							android:layout_weight="0.15"
+							android:paddingRight="17dp"/>
 
 
 						<TextView
@@ -611,7 +604,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.17"/>
+							android:layout_weight="0.17"
+							android:paddingRight="19dp"/>
 
 
 						<TextView
@@ -659,7 +653,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.17"/>
+							android:layout_weight="0.17"
+							android:paddingRight="29dp"/>
 
 
 						<TextView
@@ -710,8 +705,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.15"/>
-
+							android:layout_weight="0.15"
+							android:paddingRight="13dp"/>
 
 
 						<TextView
@@ -760,7 +755,8 @@
 							android:textColor="@android:color/background_dark"
 							android:textAlignment="gravity"
 							android:textStyle="normal|bold"
-							android:layout_weight="0.15"/>
+							android:layout_weight="0.15"
+							android:paddingRight="8dp"/>
 
 
 
