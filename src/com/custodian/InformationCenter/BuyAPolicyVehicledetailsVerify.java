@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -77,16 +79,25 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         CustodianInterface {
     // Declaration of views.
     TextView disclaimer,amount_to_pay_value,chasis_number_value,engine_number_value,label,vehicle_no,vehicle_make,vehicle_use,premium,insurance_start_date,insurance_end_date,cover_period,cover_type,payment_plan,transaction_number;
-
+    CheckBox tandc;
     ImageButton mHome;
     Intent myIntent;
     Editor editor;
     ImageButton mback;
-    ImageView btnContinue;
+    Button btnContinue;
     SharedPreferences sharedPreferences;
     public static final String MyPREFERENCES = "MyPrefs";
     Handler mSplaHandler = null;
     String getContactKey = "";
+
+
+    public CheckBox getTandc() {
+        return tandc;
+    }
+
+    public void setTandc(CheckBox tandc) {
+        this.tandc = tandc;
+    }
 
     public SharedPreferences getSharedPreferences() {
         return sharedPreferences;
@@ -257,7 +268,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         mback.setOnClickListener(this);
         mHome = (ImageButton) findViewById(R.id.home);
         mHome.setOnClickListener(this);
-        btnContinue = (ImageView) findViewById(R.id.continue_imag_vehicleDetails);
+        btnContinue = (Button) findViewById(R.id.continue_imag_vehicleDetails);
         btnContinue.setOnClickListener(this);
         Typeface face = Typeface.createFromAsset(getAssets(),
                 CONSTANTS.FONT_NAME);
@@ -275,6 +286,7 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.setEngine_number_value((TextView) findViewById(R.id.engine_number_value));
         this.setAmount_to_pay_value((TextView) findViewById(R.id.amount_to_pay_value));
         this.setDisclaimer((TextView) findViewById(R.id.disclaimer));
+        this.setTandc((CheckBox) findViewById(R.id.tandc));
 
 
 
@@ -288,8 +300,8 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
         this.getVehicle_make().setText(this.getSharedPreferences().getString("vehicle_make", ""));
         this.getVehicle_use().setText("PRIVATE");
         this.getPremium().setText(this.getSharedPreferences().getString("premium", ""));
-        this.getInsurance_start_date().setText(this.getSharedPreferences().getString("insurance_startdate", ""));
-        this.getInsurance_end_date().setText(this.getSharedPreferences().getString("insurance_enddate", ""));
+        this.getInsurance_start_date().setText(this.getSharedPreferences().getString("insurance_startdate_display", ""));
+        this.getInsurance_end_date().setText(this.getSharedPreferences().getString("insurance_enddate_display", ""));
         this.getCover_period().setText(this.getSharedPreferences().getString("cover_period", ""));
         this.getCover_type().setText(this.getSharedPreferences().getString("cover_spinner", ""));
         this.getPayment_plan().setText(this.getSharedPreferences().getString("paymentOptionLabel", ""));
@@ -328,11 +340,13 @@ public class BuyAPolicyVehicledetailsVerify extends Activity implements OnClickL
                 break;
 
             case R.id.continue_imag_vehicleDetails:
-
-                myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,
-                        BuyAPolicyPayment.class);
-                startActivity(myIntent);
-
+                if (this.getTandc().isChecked() == false) {
+                    Showalerts(Alerts.ACCECPT_TERMS_AND_CONDTION);
+                }else{
+                    myIntent = new Intent(BuyAPolicyVehicledetailsVerify.this,
+                            BuyAPolicyPayment.class);
+                    startActivity(myIntent);
+                }
                 break;
         }
     }

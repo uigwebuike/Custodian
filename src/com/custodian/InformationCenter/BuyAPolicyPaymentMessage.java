@@ -181,7 +181,7 @@ public class BuyAPolicyPaymentMessage extends Activity implements OnClickListene
                 Log.e("policybfor ID",jsonObjectss.optString("msgCode"));
                 if(jsonObjectss.optBoolean("success") == true){
                     Log.e("policy ID",jsonObjectss.optString("msgCode"));
-                    this.getPayment_status_message().setText("Thank you, your transaction was successful \n"+responseFromInterswitch);
+                    this.getPayment_status_message().setText(""+responseFromInterswitch);
                     uriToImage = "@drawable/confirmacao";  // where myresource (without the extension) is the file
                     int imageResource = getResources().getIdentifier(uriToImage, null, getPackageName());
                     res = getResources().getDrawable(imageResource);

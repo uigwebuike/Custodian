@@ -3,12 +3,14 @@ package com.custodian.URLS;
 public class WebserviceURLs {
 	
 	public static String BASE_URL ="http://apps.custodiandirect.com/hermes/rest/api/v1/";
+	public static String URL_URL ="http://apps.custodiandirect.com/ebclient/rest/api/v1/";
 	//public static String BASE_URL ="http://apps.demo.zanibal.com/hermes/rest/api/v1/";
 	public static String  HOME_SCREEN = BASE_URL + "partner/customer/username/";
 	public static String  FORGOT_ID =	BASE_URL + "partner/customer/email-address/";
 	public static String LOGIN_SCREEN = BASE_URL +"security/login/customer?username=";
 	public static String CONTACT_US = BASE_URL +"partner/case/create";
 	public static String LEAD_CAPTURE = BASE_URL +"partner/lead/create";
+	public static String VERIFY_USERNAME  = URL_URL +"security/customer/username/";
 	public static String LEAD_QUOTE_CAPTURE = BASE_URL +"partner/lead-quote/create";
 	public static String LEAD_QUOTE_LINE = BASE_URL +"partner/lead-quote-line/create";
 	public static String LEAD_OUOTE_TO_POLICY = BASE_URL +"partner/lead-quote/convert";

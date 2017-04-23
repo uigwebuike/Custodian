@@ -268,7 +268,8 @@
 			android:id="@+id/textView9"
 			android:textColor="@android:color/background_dark"
 			android:layout_row="14"
-			android:layout_column="0"/>
+			android:layout_column="0"
+			android:visibility="gone"/>
 
 		<Spinner
 			android:layout_width="match_parent"
@@ -279,7 +280,31 @@
 			android:entries="@array/coverPeriod"
 			android:prompt="@string/coverPeriod_prompt"
 			android:background="@drawable/drop_down_large"
+			android:paddingLeft="10dp"
+			android:visibility="gone"/>
+
+		<TextView
+			android:text="Payment Options"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/textView17"
+			android:textColor="@android:color/background_dark"
+			android:layout_row="16"
+			android:layout_column="0"/>
+
+
+
+		<Spinner
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/paymentOption_spinner"
+			android:layout_row="17"
+			android:layout_column="0"
+			android:entries="@array/paymentOption"
+			android:prompt="@string/paymentOption_prompt"
+			android:background="@drawable/drop_down_large"
 			android:paddingLeft="10dp"/>
+
 
 		<TextView
 			android:text="Type of Cover"
@@ -287,14 +312,14 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textView6"
 			android:textColor="@android:color/background_dark"
-			android:layout_row="16"
+			android:layout_row="18"
 			android:layout_column="0"/>
 
 		<Spinner
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/cover_spinner"
-			android:layout_row="17"
+			android:layout_row="19"
 			android:layout_column="0"
 			android:entries="@array/coverType"
 			android:prompt="@string/cover_prompt"
@@ -305,27 +330,7 @@
 
 
 
-		<TextView
-			android:text="Payment Options"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:id="@+id/textView17"
-			android:textColor="@android:color/background_dark"
-			android:layout_row="18"
-			android:layout_column="0"/>
 
-
-
-		<Spinner
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/paymentOption_spinner"
-			android:layout_row="19"
-			android:layout_column="0"
-			android:entries="@array/paymentOption"
-			android:prompt="@string/paymentOption_prompt"
-			android:background="@drawable/drop_down_large"
-			android:paddingLeft="10dp"/>
 
 
 
@@ -342,7 +347,8 @@
 			android:layout_marginBottom="10dp"
 			android:textColor="@android:color/background_dark"
 			android:textAlignment="gravity"
-			android:textStyle="normal|bold"/>
+			android:textStyle="normal|bold"
+			android:visibility="gone"/>
 
 
 
@@ -358,7 +364,8 @@
 			android:layout_marginBottom="10dp"
 			android:textColor="@android:color/holo_red_light"
 			android:textAlignment="gravity"
-			android:textSize="12sp"/>
+			android:textSize="12sp"
+			android:visibility="gone"/>
 
 		<TextView
 			android:text="Page 2 of 4"
