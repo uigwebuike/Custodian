@@ -513,13 +513,13 @@ public class BuyAPolicyVehicledetails extends Activity implements OnClickListene
         this.setEngine_number((EditText) findViewById(R.id.engine_number));
         this.setOthers_vehicle((EditText) findViewById(R.id.others_vehicle));
         this.setSharedPreferences(this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE));
-
+/*
         this.getVehicle_value().setText(this.getSharedPreferences().getString("vehicle_value", "").length()>1?this.getSharedPreferences().getString("vehicle_value", ""):"");
         this.getEngine_number().setText(this.getSharedPreferences().getString("engine_number", "").length()>1?this.getSharedPreferences().getString("engine_number", ""):"");
         this.getVehicle_value().setText(this.getSharedPreferences().getString("vehicle_value", "").length()>1?this.getSharedPreferences().getString("vehicle_value", ""):"");
         this.getChassis_number().setText(this.getSharedPreferences().getString("chassis_number", "").length()>1?this.getSharedPreferences().getString("chassis_number", ""):"");
     this.getReg_no().setText(this.getSharedPreferences().getString("reg_no", "").length()>1?this.getSharedPreferences().getString("reg_no", ""):"");
-
+*/
 
         SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
         String datePickerValue = (getInsurance_startdate().getMonth()+1)   + "/" +  getInsurance_startdate().getDayOfMonth() + "/" + getInsurance_startdate().getYear();

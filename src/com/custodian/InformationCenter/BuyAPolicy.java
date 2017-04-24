@@ -206,7 +206,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
         });
 
         //purpulate Values
-
+/*
         surname.setText(sharedPreferences.getString("surname","").length()>1?sharedPreferences.getString("surname",""):"");
 
         othername.setText(sharedPreferences.getString("othername","").length()>1?sharedPreferences.getString("othername",""):"");
@@ -217,7 +217,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
 
         phonenumber.setText(sharedPreferences.getString("phonenumber","").length()>1?sharedPreferences.getString("phonenumber",""):"");
 
-
+**/
 
     }
 
@@ -403,6 +403,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                     json.put("profession",otherOccupation.getText().toString());
 
                 }else{
+                    //UFASHHB
                     json.put("profession",occupation_spinner.getSelectedItem().toString());
                 }
                 //json.put("profession", occupation_spinner.getSelectedItem().toString());
@@ -410,6 +411,7 @@ public class BuyAPolicy extends Activity implements OnClickListener,
                 json.put("mobilePhone", phonenumber.getText());
                 json.put("dateOfBirth",sharedPreferences.getString("dateofbirth","N/A"));
                 json.put("portalUserName",username.getText().toString());
+                json.put("identifier",username.getText().toString());
               ///  json.put("portalPassword",password.getText().toString());
                 json.put("firstName", othername.getText());
                 json.put("lastName", surname.getText());

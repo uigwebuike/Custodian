@@ -23,7 +23,7 @@
 			android:layout_marginLeft="2dp"
 			android:layout_marginRight="10dp"
 			android:background="@android:color/transparent"
-
+android:visibility="gone"
 			android:src="@drawable/btn_back" />
 
 
